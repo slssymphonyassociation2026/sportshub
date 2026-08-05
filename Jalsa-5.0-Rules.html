@@ -1,0 +1,1700 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='robots' content='noindex,nofollow,noarchive'>
+<title>Jalsa 5.0 — Sports Day 2026 · Rules &amp; Regulations</title>
+<meta name='description' content='Rules and regulations for all 24 events at Jalsa 5.0 Sports Day 2026, SLS Symphony.'>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap' rel='stylesheet'>
+<style>
+/* ============================================================
+   Jalsa 5.0 — 1930s athletics programme
+   midnight indigo + brass, Art Deco geometry, engraved capitals
+   ============================================================ */
+:root{
+  --ink:#0a0a18;            /* poster's darkest navy */
+  --ink-2:#12123a;
+  --ink-3:#1b1b46;
+  --brass:#c9a227;
+  --brass-lt:#f0cf6b;
+  --brass-dk:#8a6d14;
+  --paper:#f4efe2;          /* programme paper */
+  --paper-2:#e8e0cd;
+  --body:#2a2620;
+  --muted:#6b6355;
+  --rule:rgba(201,162,39,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ink); color:var(--body);
+  font-family:"EB Garamond","Iowan Old Style",Georgia,"Times New Roman",serif;
+  font-size:18px; line-height:1.62;
+}
+::selection{background:var(--brass);color:var(--ink)}
+
+/* ---------- deco frame + grain, applied to the dark sections ---------- */
+.dark{
+  position:relative; color:var(--paper);
+  background:
+    radial-gradient(120% 90% at 50% -10%, #26265e 0%, transparent 58%),
+    radial-gradient(80% 60% at 15% 8%, #2b1746 0%, transparent 60%),
+    linear-gradient(180deg,#0a0a18 0%,#101033 55%,#0a0a18 100%);
+}
+.dark::after{           /* fine grain, keeps the flat navy from looking digital */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.26;
+  background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>\
+<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/>\
+</filter><rect width='140' height='140' filter='url(%23n)' opacity='.5'/></svg>");
+}
+.dark > *{position:relative;z-index:1}
+
+/* ---------- masthead ---------- */
+.mast{padding:clamp(26px,6vw,64px) 20px clamp(30px,5vw,54px);text-align:center}
+.mast .frame{
+  max-width:920px;margin:0 auto;padding:clamp(22px,4vw,40px) clamp(16px,4vw,44px);
+  border:1px solid var(--rule); position:relative;
+}
+.mast .frame::before,.mast .frame::after{
+  content:"";position:absolute;left:9px;right:9px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--brass),transparent);
+}
+.mast .frame::before{top:9px} .mast .frame::after{bottom:9px}
+.corner{position:absolute;width:16px;height:16px;border:1px solid var(--brass);opacity:.85}
+.corner.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.corner.tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+.corner.bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+.corner.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+.crest{width:96px;height:auto;margin:0 auto 16px;display:block;
+  border:1px solid var(--brass);padding:5px;background:#0d0d22}
+.eyebrow{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(9px,1.5vw,12px);
+  letter-spacing:.46em;text-transform:uppercase;color:var(--brass-lt);
+  margin:0 0 12px;text-indent:.46em;
+}
+h1.title{
+  font-family:"Cinzel",Georgia,serif;font-weight:700;
+  font-size:clamp(38px,11vw,104px); line-height:.92; margin:0;
+  letter-spacing:.03em; color:var(--paper);
+  text-shadow:0 1px 0 var(--brass-dk),0 0 34px rgba(201,162,39,.22);
+}
+h1.title .pt{color:var(--brass);font-size:.62em;vertical-align:.12em}
+.sub{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(12px,2.4vw,17px);
+  letter-spacing:.30em;text-transform:uppercase;color:var(--paper);
+  margin:16px 0 0;text-indent:.30em;opacity:.9;
+}
+.dbl{display:flex;align-items:center;gap:13px;justify-content:center;margin:20px auto 0;max-width:440px}
+.dbl i{flex:1;height:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);height:3px}
+.dbl b{color:var(--brass);font-size:11px;letter-spacing:.3em;font-family:"Cinzel",serif}
+.mast p.blurb{max-width:600px;margin:20px auto 0;color:#cfc9ba;font-size:16.5px}
+
+/* ---------- sticky index ---------- */
+nav.idx{
+  position:sticky;top:0;z-index:30;background:rgba(10,10,24,.94);
+  backdrop-filter:blur(9px);border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+nav.idx .in{max-width:1080px;margin:0 auto;padding:9px 16px;
+  display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+[hidden]{display:none!important}
+nav.idx .tabs{display:flex;gap:2px;border:1px solid var(--rule);border-radius:2px;
+  padding:2px;background:rgba(255,255,255,.04)}
+nav.idx .tab{
+  font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-lt);background:none;border:0;
+  padding:7px 15px;cursor:pointer;transition:.18s;border-radius:1px}
+nav.idx .tab[aria-selected="true"]{background:var(--brass);color:var(--ink);
+  font-weight:600}
+nav.idx .tab:hover[aria-selected="false"]{color:#fff;background:rgba(255,255,255,.07)}
+nav.idx a,nav.idx button{
+  font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-lt);text-decoration:none;
+  padding:6px 11px;border:1px solid transparent;border-radius:2px;
+  background:none;cursor:pointer;transition:.18s
+}
+nav.idx a:hover,nav.idx button:hover{border-color:var(--brass);color:#fff}
+nav.idx a:focus-visible,nav.idx button:focus-visible,
+nav.idx input:focus-visible{outline:2px solid var(--brass-lt);outline-offset:2px}
+nav.idx input{
+  flex:1 1 190px;min-width:150px;padding:8px 11px;font-size:15px;
+  font-family:inherit;color:var(--paper);background:rgba(255,255,255,.06);
+  border:1px solid var(--rule);border-radius:2px
+}
+nav.idx input::placeholder{color:#9a94a8}
+nav.idx .tally{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.14em;
+  color:var(--brass);text-transform:uppercase}
+
+/* ---------- paper body ---------- */
+main{
+  background:var(--paper);
+  background-image:
+    radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);
+  background-size:4px 4px;
+  padding:clamp(30px,6vw,72px) 20px clamp(40px,7vw,90px);
+}
+.sheet{max-width:1080px;margin:0 auto}
+
+.plate{
+  background:linear-gradient(180deg,#0d0d24,#141438);color:var(--paper);
+  border:1px solid var(--brass-dk);padding:clamp(20px,3.6vw,34px);
+  margin:0 0 clamp(30px,5vw,52px);position:relative
+}
+.plate h2{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(19px,3.4vw,27px);
+  letter-spacing:.10em;text-transform:uppercase;margin:0 0 4px;color:var(--brass-lt)
+}
+.plate .lede{color:#c8c2b3;font-size:16px;margin:0 0 18px}
+ol.gen{counter-reset:g;list-style:none;margin:0;padding:0;
+  columns:2;column-gap:34px}
+ol.gen li{counter-increment:g;break-inside:avoid;padding:0 0 12px 34px;position:relative}
+ol.gen li::before{
+  content:counter(g,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:"Cinzel",serif;font-size:11.5px;color:var(--brass);
+  letter-spacing:.06em
+}
+@media(max-width:720px){ol.gen{columns:1}}
+
+.fair{margin:20px 0 0;padding:15px 17px;border:1px dashed var(--rule);
+  background:rgba(201,162,39,.06)}
+.fair h3{font-family:"Cinzel",serif;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 8px}
+.fair ul{margin:0;padding-left:19px;color:#cfc9ba;font-size:15.5px}
+.fair li{margin:6px 0}
+
+/* ---------- day heading ---------- */
+.day{display:flex;align-items:baseline;gap:16px;margin:clamp(34px,5vw,58px) 0 22px}
+.day h2{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(24px,5vw,44px);
+  letter-spacing:.06em;text-transform:uppercase;margin:0;color:var(--ink-2)
+}
+.day .ct{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.day .ln{flex:1;height:5px;border-top:1px solid var(--brass);
+  border-bottom:1px solid var(--brass);opacity:.5}
+
+/* ---------- event entries ---------- */
+.ev{
+  border-top:1px solid rgba(0,0,0,.16);padding:26px 0 8px;
+  display:grid;grid-template-columns:78px 1fr;gap:clamp(14px,3vw,30px);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .55s ease,transform .55s ease
+}
+.ev.in{opacity:1;transform:none}
+.ev{scroll-margin-top:64px}
+.ev:last-child{border-bottom:1px solid rgba(0,0,0,.16)}
+.num{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(26px,5vw,40px);
+  line-height:1;color:var(--brass-dk);
+  border:1px solid var(--rule);background:#fffdf7;
+  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1/1;box-shadow:inset 0 0 0 3px #fffdf7,0 1px 0 rgba(0,0,0,.08)
+}
+.ev h3{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(20px,3.6vw,30px);
+  letter-spacing:.02em;margin:0 0 8px;color:var(--ink-2);line-height:1.14
+}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px}
+.tag{
+  font-family:"Cinzel",Georgia,serif;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;padding:4px 9px;border:1px solid var(--rule);
+  color:var(--muted);background:#fffdf7;white-space:nowrap
+}
+.tag.hi{border-color:var(--brass);color:var(--brass-dk);font-weight:600}
+.howto{font-size:16.5px;color:#3b352b;margin:0 0 15px;
+  padding-left:15px;border-left:2px solid var(--brass)}
+.howto b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk);display:block;margin-bottom:3px}
+ol.rules{counter-reset:r;list-style:none;margin:0;padding:0}
+ol.rules li{counter-increment:r;position:relative;padding:0 0 9px 30px}
+ol.rules li::before{
+  content:counter(r);position:absolute;left:0;top:3px;width:20px;
+  font-family:"Cinzel",serif;font-size:11px;color:var(--brass-dk);
+  text-align:right;border-right:1px solid var(--rule);padding-right:6px;
+  line-height:1.5
+}
+.judge{margin:15px 0 0;padding:13px 15px;background:#fffdf7;
+  border:1px solid var(--rule)}
+.judge b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chip{font-size:14px;padding:3px 11px;border:1px solid var(--brass);
+  border-radius:999px;color:var(--ink-2);background:#fff}
+.cats{margin:14px 0 0;font-size:15px;color:var(--muted)}
+.cats b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk);margin-right:7px}
+/* ---------- timetable ---------- */
+.tt{margin:0 0 clamp(30px,5vw,52px)}
+.tt h2{font-family:"Cinzel",Georgia,serif;font-size:clamp(19px,3.4vw,27px);
+  letter-spacing:.10em;text-transform:uppercase;margin:0 0 4px;color:var(--ink-2)}
+.tt .lede{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:640px}
+.ttday{margin:0 0 26px}
+.ttday h3{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brass-dk);margin:0 0 9px;
+  padding-bottom:7px;border-bottom:1px solid var(--brass)}
+table.tt-grid{width:100%;border-collapse:collapse;background:#fffdf7;
+  border:1px solid var(--rule)}
+table.tt-grid th{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:9px 12px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+table.tt-grid td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.07);
+  font-size:16px;vertical-align:top}
+table.tt-grid tr:last-child td{border-bottom:0}
+table.tt-grid td.t{font-family:"Cinzel",serif;font-size:13px;color:var(--brass-dk);
+  white-space:nowrap;letter-spacing:.04em}
+table.tt-grid td.e a{color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid var(--rule);font-weight:600}
+table.tt-grid td.e a:hover{border-bottom-color:var(--brass);color:var(--brass-dk)}
+table.tt-grid td.m{color:var(--muted);font-size:15px}
+table.tt-grid td.m.none{color:#a8a08e;font-style:italic}
+.ttnote{margin:12px 0 0;font-size:14.5px;color:var(--muted);font-style:italic}
+@media(max-width:640px){
+  table.tt-grid,table.tt-grid tbody,table.tt-grid tr,table.tt-grid td{display:block}
+  table.tt-grid thead{display:none}
+  table.tt-grid tr{border-bottom:1px solid var(--rule);padding:11px 12px}
+  table.tt-grid tr:last-child{border-bottom:0}
+  table.tt-grid td{border:0;padding:1px 0;font-size:15.5px}
+  table.tt-grid td.t{font-size:12px;letter-spacing:.14em}
+  table.tt-grid td.e{font-size:17px;margin:2px 0}
+}
+.noresult{display:none;padding:34px 0;text-align:center;color:var(--muted);
+  font-size:17px;font-style:italic}
+
+/* ---------- footer ---------- */
+footer.foot{padding:clamp(30px,5vw,58px) 20px;text-align:center}
+footer.foot .dbl{margin-bottom:20px}
+footer.foot p{margin:6px 0;color:#a9a394;font-size:14px}
+footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass);margin-top:16px}
+
+/* ---------- to top ---------- */
+#top{position:fixed;right:16px;bottom:16px;z-index:40;width:44px;height:44px;
+  border:1px solid var(--brass);background:rgba(10,10,24,.9);color:var(--brass-lt);
+  font-size:17px;cursor:pointer;opacity:0;pointer-events:none;transition:.25s;
+  border-radius:2px}
+#top.on{opacity:1;pointer-events:auto}
+#top:hover{background:var(--brass);color:var(--ink)}
+
+@media(max-width:600px){
+  body{font-size:17px}
+  .ev{grid-template-columns:52px 1fr;gap:13px}
+  .num{font-size:21px}
+  ol.gen{columns:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ev{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- print: a clean paper programme ---------- */
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .dark{background:#fff!important;color:#000!important}
+  .dark::after{display:none}
+  nav.idx,#top,.noresult{display:none!important}
+  h1.title{font-size:30pt;text-shadow:none;color:#000}
+  .eyebrow,.sub,.day .ct{color:#333}
+  main{background:#fff;padding:0}
+  .plate{background:#fff!important;color:#000!important;border:1pt solid #000}
+  .plate h2,.fair h3{color:#000}
+  .plate .lede,.fair ul{color:#222}
+  .ev{opacity:1!important;transform:none!important;page-break-inside:avoid}
+  .crest{filter:grayscale(1)}
+  footer.foot p{color:#333}
+}
+
+/* ---------------- winners board ---------------- */
+.wbtools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;
+  background:#fffdf7;border:1px solid var(--rule);padding:12px 14px;
+  margin:0 0 26px}
+.wbtools .sp{flex:1}
+.btn{font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;padding:9px 15px;border:1px solid var(--brass);
+  background:#fff;color:var(--brass-dk);cursor:pointer;border-radius:2px;
+  transition:.18s}
+.btn:hover{background:var(--brass);color:var(--ink)}
+.btn.solid{background:var(--ink-2);color:var(--paper);border-color:var(--ink-2)}
+.btn.solid:hover{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.btn.clr{margin-top:12px;border-color:#c58a8a;color:#8d3a3a;font-size:10px;
+  padding:6px 11px}
+.btn.clr:hover{background:#8d3a3a;color:#fff;border-color:#8d3a3a}
+.hint{font-size:14px;color:var(--muted)}
+.wbintro{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:660px}
+
+.evcard{border-top:1px solid rgba(0,0,0,.16);padding:22px 0}
+.evcard:last-of-type{border-bottom:1px solid rgba(0,0,0,.16)}
+.evhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 4px}
+.evhead h3{font-family:"Cinzel",Georgia,serif;font-size:clamp(18px,3.2vw,26px);
+  margin:0;color:var(--ink-2);letter-spacing:.02em}
+.evhead .cat{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-dk);border:1px solid var(--rule);
+  padding:3px 9px;background:#fffdf7}
+.evhead .when{font-size:13.5px;color:var(--muted)}
+
+.prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;margin-top:14px}
+.prize{display:flex;gap:13px;align-items:flex-start;
+  background:#fffdf7;border:1px solid var(--rule);padding:12px}
+.prize.gold{border-left:4px solid #c9a227}
+.prize.silver{border-left:4px solid #9aa3ab}
+.prize.trophy{border-left:4px solid #7a5c1e}
+.medal{width:44px;height:44px;flex:0 0 44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Cinzel",serif;font-size:15px;font-weight:700;color:#fff;
+  box-shadow:inset 0 -2px 4px rgba(0,0,0,.25)}
+.medal.g{background:linear-gradient(160deg,#f3d477,#c9a227 60%,#8a6d14)}
+.medal.s{background:linear-gradient(160deg,#e6ebef,#9aa3ab 60%,#6c757d)}
+.medal.t{background:linear-gradient(160deg,#d8b56a,#7a5c1e)}
+.pbody{flex:1;min-width:0}
+.plabel{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 3px}
+.pname{font-size:17px;font-weight:600;color:var(--ink-2);
+  word-break:break-word;line-height:1.3}
+.pname.empty{color:#b3aa96;font-style:italic;font-weight:400;font-size:15.5px}
+.pmembers{font-size:14px;color:var(--muted);margin-top:3px}
+.pphoto{margin-top:9px}
+.pphoto img{max-width:100%;height:auto;border:1px solid var(--rule);
+  display:block;background:#fff}
+.pphoto.thumb img{max-height:150px;width:auto}
+
+/* editor, only shown in admin mode */
+.edit{display:none}
+body.editing .edit{display:block}
+body.editing .prize{background:#fff}
+.edit input[type=text]{width:100%;padding:7px 9px;font-family:inherit;
+  font-size:15.5px;border:1px solid var(--rule);background:#fff;margin-top:5px}
+.edit input[type=text]:focus-visible{outline:2px solid var(--brass);
+  outline-offset:1px}
+.edit .row2{display:flex;gap:6px}
+.edit .row2 input{flex:1}
+.filewrap{margin-top:7px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.filewrap label{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brass-dk);border:1px dashed var(--brass);
+  padding:5px 10px;cursor:pointer;background:#fff}
+.filewrap label:hover{background:var(--brass);color:var(--ink)}
+.filewrap input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.filewrap .fn{font-size:13px;color:var(--muted)}
+.filewrap .rm{font-size:12px;color:#a33;cursor:pointer;border:0;background:none;
+  text-decoration:underline;padding:0}
+
+/* publish dialog */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(8,8,20,.72);
+  display:none;align-items:center;justify-content:center;padding:18px}
+.modal.on{display:flex}
+.modal .card{background:var(--paper);border:1px solid var(--brass);
+  max-width:520px;width:100%;padding:22px;max-height:88vh;overflow:auto}
+.modal .card h3{font-family:"Cinzel",serif;font-size:18px;letter-spacing:.08em;
+  text-transform:uppercase;margin:0 0 6px;color:var(--ink-2)}
+.modal .card p{font-size:15px;color:var(--muted);margin:0 0 14px}
+.modal .card label.f{display:block;font-family:"Cinzel",serif;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass-dk);
+  margin:12px 0 4px}
+.modal .card input{width:100%;padding:9px 11px;font-family:inherit;
+  font-size:15.5px;border:1px solid var(--rule);background:#fff}
+.modal .warn{background:#fff6f6;border:1px solid #e7c3c3;padding:10px 12px;
+  font-size:13.5px;color:#7d2b2b;margin:14px 0 0}
+.modal .acts{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+.log{margin-top:14px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;
+  max-height:180px;overflow:auto;background:#fff;border:1px solid var(--rule);
+  padding:9px;display:none;white-space:pre-wrap}
+.log.on{display:block}
+.status{font-size:14px;color:var(--muted)}
+.status.err{color:#a33}
+.status.ok{color:#1c6b3a}
+
+@media(max-width:600px){
+  .prizes{grid-template-columns:1fr}
+  .wbtools{padding:10px}
+}
+@media print{
+  .wbtools,.edit,.modal{display:none!important}
+  .prize{background:#fff!important;border:1pt solid #999}
+  .evcard{page-break-inside:avoid}
+}
+</style></head><body>
+<header class='dark mast'><div class='frame'>
+<span class='corner tl'></span>
+<span class='corner tr'></span>
+<span class='corner bl'></span>
+<span class='corner br'></span>
+<img class='crest' src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAC0AH8DASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAABQYDBAACBwEI/8QAPRAAAgEDAwIEAwUECgMBAQAAAQIDBAURABIhBjETIkFRFGFxBxUygZEjQqGxFiQzUmJywdHh8CU0U4Lx/8QAGgEAAgMBAQAAAAAAAAAAAAAAAgMBBAUGAP/EADARAAEEAAQEBAUFAQEAAAAAAAEAAgMRBBIhMUFRYfATIoGxccHR4fEFIzKRoRRC/9oADAMBAAIRAxEAPwD5dA1mNb41ftFpqbrJNHRiMvFH4rB3C+XIHHv3GreyaQh2NehdHV6ZuXiwRtHGjzRSzKrvggREhwfYjaeO+rMXRt1k5U0WzeYyxq48Ahd3Jz2xzntrwIQFqWtvGvSvy0yQ9H3WZAyLS7SEIJqUx5zgZOcD88ah/oxcPvCKixTiok8TC+OpxsJDZx25BHz+nOjsc0OVAce+s2550yHo+7eCsuyk2PA1Sv8AWo8lBjJAz3wwOO+DreTo66x1MNO3wYklqHpUHxK+aRcZH0576kOHNAQljbrNumG29K3OvpIKqBKcQTSmFS86qdwzkFe4/CfTXsPTFxlA2RxZYEqrShSwEYkyAe42kc+pIHfRWEBtL4GvcaP13S1xoo4nmWAiWWOFBHMGJZ13L27cakbpG6oW3JTjaWU/t19JBGf4kH6EHXrHNDRS8F1tt0wx9J3NqmOBVgMjsVX9sAOG25JPAGT9QO4GtY+ma513Iac4Tew8UZXjOCPQ/wAvfRAhAbQHbrwropdbVUWqr+GqxGJdofyOHGD2ORxqiVwdTQQ5lTA1uF1gGt1GkALZpa8k8k69CjPYasywRpFA8cquXHmXsUYeh/0Oo/DIxkd9E3XZC5lLVV1u6YHsNboMHGNXKb9lJFN4aSGNg2x/wnHbPy00NS8tKvLaK+NA8lDOqFBIGMf7pIAP6kfqNSmzXISlPgajf4hh/D++Bkrn5DOfbUUkkzyO8ksjSP8AiYscnnOsMk+QfGmJyWzvPc9z9deylLcFPBZ6zw45ngaGKSMypJL5Ayg4yM9+eBrKyimpZGiqomjlXGUccj117TeLkftJOBgeY8D2+mrEys2WcsxPck5J0YZzVCV1OQl07j014EGrMic8DWJHqMqjNooljz37amVcDGrENOzkBRqybdOF3eGcaMADdKJJ2Q7brUr31aaJt+3ad3YDWuzzYXk/L116rUaqhCkZlQSEhCRuKjJGtp4ljmZUcOoPDAd9NF96UraSlFxigdqORs8LzGD7j0Hpn6aGUFLAZVFTI6ZGfwao4WRmJALHLrJ4HQEteFr03RR1d9tsFSm6nlqYo5BnGVLgEfodMtXZaOou1JOlEsNIKRaiogp9w8RvEZFRMkkM7BFHPqT6aLzz2CnrFmtEXhhSGjItqu8ZGMcmbkg+pH5arVl2oI6KnhhpqsT023wxIRtYpxGzurBsrukbAA8z98Aav+G1mhOqohz36taeSp9T2OD4CSWigpEqaYF3NGHEUiA7JAA5J3RycEg+ZXVsan6ltdFHb4vgaOOCWOUxkoWJdRBC5LZJ53SNyMcfTWtJffGrEa5wu6xZIan8R3APDoVkkwVZcg4wRwfTU1PeFlkyaeoLMRhXpY6hSdgj3DzqVLIqhhyMjI0TQNFLzW6GdMW2jnE8lXDHI6zRR5mDtHCjBy0jKpBPKqoyQAWydHHoLSYJlW20U8nhOVjp0CyZCnkH4hjwcE4U8A8a1rZaGhWNfuupgr05NQtLs8p9Aize2PNu+WNQJfEZ4QBXSmOQSrGIdmXAIBLNK543E4AGeMnU5Uhhp9nZQ9O2iGOjWaeKlkmmG8fFK5jjQtsTIUg7pJOAc8KrNob1HQpSTq8COlPOu9Ec5aM5IaNvmrAqfoD66YHqahauSa107RCXCsagvG20cIirHIAFVQBzkk5Prqhc5UnoJaeennWteUS5AzErHIdgzMW8w2kg58y5zoiq5bHI0tJ82636dt9FLa6RqijpWMizu808TuWZXQKgIdVHDE8+2rF8o7fFap/hbdTNOjIfEgQL4QJ7uPFY4PYcYz66pUdRDQ0iUzQ1CTq7GRkRpFfONuMTIBgcdj9dXfvWIlBNSVVQjIISrRBFWPfvOAZGLsWC92AABHroKF2ihLQC1wUvT/wVDa0q6u3087MjSsWiaQqokWNVRA6gsWJJJOABwM6aKy72+o6fqYEs1HBLGkzKxgMcgkiCFkZd7Agq/cHII0p09c8rn4OgqVpogVRo6dXXBKswdC42/tF3qVfIzjnXsUklRDLFBBNCiRuC704p0jDldxADuzu21RnPABwNVJmxE247K1ho3NZlA3vVBsvVyNDTUtOJ2BMjY2rGvrk54+Z/LQyreKFzHRHcB+KbG3cf8I9F/ifX21fr5nMDQ0+6OnY5ct+OVh6t/oOw+vOhjAEtiMAegyTj/fTI2rKmfwC7p0xZEr+jYYvvgyxwzM8ctFUEGMY4R279m+nbXLftFtTW7qh4HqaiqHgxv4s2NxBXOM+uO2nbp5qK1wy01Ik8MbM+/cxYHK7T/Aat3ajtvVdNCXWda+lj8MywrvDx5JBKn25/31zuGwE+CxReTbD8+K66THx4iIcCkPp2io6KKKprZp/6zHIAkcYbCjgnJI5zo1T9LUdQGljFeit2ElOFYZOOxb/o0Wulmo6ettFKZPJDRSysNuDNtbJHyJA/TOoLBM1xauq2qJkZcyMEc4XB54/PWk63DxG7/dURI4nJegVOe10VDLGk8laCh3q7UowW4JG7Pm4GMfXWfcy0lTH4PiPTVEYmgLDBCn0OmxLLDcLfWx/FSHwSZQ0mWCOqk8/IqT/DTPa7etLY7e1VtYNSIixsvm3c8KPfH6as4WYkhpWdjfKC8nRJl2t8dda6Bgh8WNGhc9yQDlf4HGgM9lip7pE9MzyQAq+XXDDnkH5j5ca7Ta+mXejZ5ECtt3BSM4+uhlTYI56h1jZJCcKNp3YOR7fnrQ8Rt1eyyI5XDTnzVKGottZPTRVlNTS5XDt4RTPHcf8A81Zr/s9pJKNKm1yhllJCAsMqQO3zH/caBXu82Gy18tM8slXcI2aL4anUlg3Yrk+v0B0xdHXydaC61N6p0tFNQvEJI6skFI3XIZ8/8HVWR2Uhw/Pp9FdjjcWZCL68R6/JKM3StXSiolqqYpFB+JigcEnsAAM/noTW9NusKy06L5udreg+Y7jX0FQTGez1FVcXSkQSkwzEkeLEyhkBzyWwcHHfGlClt1kvF5n8OYG4YMhUsUd0HfHuNZ8uMkjJdXlCuQ4WKRgbIfMlO12WiNsNTFA6xApGU9AcEnafXJxrnzS3KV6qF5GpYoAXkwmCB6jdjJOvoCrRaW1VDGnjMStwgXCyMR7/AOv+uue3aniuNorRTopq6pPCjjD52nIJHyJA4J76x8BOZHvflsEjfWlu4rWNozVV7aXpsuP1pinkgjo4JjIxxtbzFySMAAfp89adU2o2apgpZZ4zOYg8saHPhMf3Sff+Wrl4VY60R0sXgtCBtbJWRW4JDH1YHI9NU6KgqZnIiP7aUHAByzDIJz7ds5110TbaKXF4hxDzqPQJ7h6nt1NMyyp4Myk7wyEZ/TTN0/erfKj1MJRhzkr9O3ppNvlpS7Xl3pWhEMuW3Z7/APOii26OywU9PJMY0mbf5e/4OAc/X+OpDA/dbOGZcdlXOpFWsqxUpJCKpYjDGXz5Aw82APfnn56i6OtMFJPPFLPGq1EBRmDnucdgR9dJPV7LVXGoqKeRiyske1foBop9mYqJbrURO8xDUrMoYk4ORz9dDI1jBQCfSf7tRvabtH8AQ88sA308jKFroe3kJwpkXsVJGRgg6uUfWdmF2WvufjRSQU4hjp3jIWAgd3Q+cAnknBHHfTHc7St4tUXT80NPNULE9VE9TIyZdFQskbr5lfEgOR6DkMCccD6jFZPBEac180J5jjkfxiMdypCKRj3xpERY8DWjtff09VWkw7JQRevLgevMLt9b1NQ0lmjvFzrYa+gkqEhjpaWcDxXIzvk9QoHpj9B3ZLh1paLfbKS4GnhhpJQnwkCsDJOzAEKqjgf9JwMZ+f8AphEjV6SviM9NBKtQi7N+4qMsuMYYg7gV/wBCNX+rrk9FcXulRDPWyTA/dqQg7Y4CeAmBxxgMRggnbxjmJiGgG8xO1afjjZWfFgrlMUdtrcnU+h4/D8p36XqAK+8V9ExpKt66qkqHpLfHLUKvikANPIfDjQdh39dMP2eyve+quqpaKeouMAakEsgqoHLEREHeQuxjx2GMa4VWdV1v9H5LVX3M26KqlkqpqGmzvSV5CwOACeAFGGIx9dM32R3+w2GnqYKKKukc5mqKuaYxIpA4LbJRxx6gnvqucHM9pdevSvdbT4Y4ml5I24k38K4Lpn219Sz2Rac0scc9NSLitgkwSWcAqCB7AAkqcrlT2OuXfZfNdOrvtGt1Vby6Q0sonmOB5VAOQcdwew986rCZ/tQ64jmesakstK2SWqdjTvuOWDYON3A3MMDt6DXTb11Ytot9N0n0XaharrcJRBTIAoRlJIMolH4/XzDPYn2BCRnhtELRqRvWnXVV44nNb48o32Ht8VJ1cidRVQobPV/Hi3TMtdHDJtIkY8DnGRhSM84wdAo7Lc7XJJVCm2ib+1aIApHHk7W92Oec/Ie+n3oS1/d1gpaO1wQII9/xlTMMtLUBiHf88cewAGi9RNPVNNPCYpoiFRGjPBA+nOgwUPhU1p8n++qj9QxBEVOHm9lyq9dHUlyulNX1AMFHMf6/JGAdkikbgP8ANwR9dFrNaJUrzHa7fQU0JHlJ8POOeSxGfbXRHtlJXWaooolEMcbLUMYgF8Rhwc+w7fppWFCkd0M1PcYJ51ygp2GVC+3yx+utTDENaWXt7cFzuOktzZDx3rnxXBrBdolomMhZqkEYBzz6d9W+uq+KTqAU8jsqU0gRtvoFAHH6aXbPWQ1dbCqwQU24HPhqQvHPbJ0f+02gaK71rxs21ylSpA7K8YP886iOUmUNPL6LraAjtvNQ9NyWoz1L1Ty8ylgdu7A/L1/311Do2k6biuX3ilQ8JjX9q02Y41UnJLFsAfrrhFkqFgQmcFkxjGceuukUfXdqsMNqlutkqbsREzUyJsaMPkZJVh+IYHODgHjudBiczjlap/8AJcSrvSvUFwqPtee1RXC6XOklnq7nb5qqMx78U0ojCIR+AgkbhwwC8DGlXqTZFPUT2aeSWgknaqgRSQGiL+YEf3lPBHpj56B9R9eX+9faFSdVmVaSvhlQ0cYbfHTxqcBfmpJOfcltPlxqrYKuq+GWWKzXGrWWVY0DT2yqOQeCcGM9x6OpxkFSNNhYGGnDcLLxGHlczxWbtKXVuxi6hqZ6NUEc6eLNHIN9PVLjB3D91uCDwRnnjOt+u55WsMVVbalktE06ePFL+0lts20kFHzuZJFztySDjGeAdBrxS13TlaKqFVq7cJCUlpmyqMOCyNggZwAUYemCOAda0t2p7lFU07KkdNWwGnmATYFOd8bbQSAQ+O3HPYaQYTEAeQ3779FYimbO4vYaJ7rp8R6or9mlqs19r/gTSVgLkDx0lXeCTjfxlW5IyDzyOdD/ALRLdWdOXaSx1sw+BMgL1MMe01CknHlz8jkf4eNdf+yfpNOgekZuo72gW8XAoKSjc4fAyUBHuWO4+wUeulPrq2y9UdVUtohlid/BggeZ8EeJukklPz2qScDk5A1VwmIf48lvuMAb8+7/AKQYlsbjGGtpxsff0JH9qH7OOgFuF3+Pnnhq+nqeMTeLCSrg91gVhgYIznOCB3AJ03R0rV/UxuTPAJ4qmOONyQqGUEeHTReyIMFiO/A9cBZ6mavstxp+nLKDBRo0b0tTu80UeAHdyPUtuJJ4Ofpg/SCOt6s/oiC0dJVUP/jalcAROVLxsp5JYuG3tnkkjGNV5TNjn2w0w+3Hv6LUgjbEGsmdmeBffX5bJ7u9XdaSmkobLbxXQU8Reskmm8AFmyxVeMlzyxHAG4A6VLJ1JWXK+UslvMQ6d+F8SSmLDxgwGGxxkncy4I4APOiPX/UEo+zWnqDPDDX3RY4ZIS4Rnc8TKGPAbykc9849RpP6QtlsrIqe1yx3a1dSW7cXdpTSOiMCSWZgQseFGcqecYznWjG1scdHh3f3XPztfJL5uvffBdW6aarrJLjFVzAAwuGVScqCFIBPfOD/AB1zyzR1EVwrFprgKYb8EyL5JP05/PXSuiqq2HpuaChVY5I6dZSyVIqTIJS37Txf3yWVgc4II+mhFJS2+wxS1VDKJ6qLAqJKghY4Cx7ZPqSQOPz9tOw0tOe6t6CzMfDUTI2mqJK+UbTUNDVxSKySbGBGM4P66671DSx9R9G0VXTnxpqYLSy47mM+aNvyOVPz1xG1SASxDdnPLDGMfLXSPs66iFuqGppgJaWoQxyxk4yvsD6HOCD740qQVllbu324rr8OQ5hZz90lV8T0cwwx8IA5BHqNN3TIoepqZLTcjOtOreKjQtjYQpySOzDHcHvqPr/p5o5zUWwmejqMyrIBjeAeRj0YfvL6H5ag+zAimvsMtUVWmLmJ2c+jAj/XQ4pxy+K34pTT+5kKo9UdFXLpy4iG4SJURVExRJlDRmSONQzbFI4HOAexKnHGjUVnvdV07JeqeOG5QLI8VREkvhz0oJBVjz+BsjDcjIwe2ddE+1JKkdK0lVX0T1kVFIEp6mIjKof/AK8HC8DDDsfrqXpGwWmjhpair8O4CWQLEyFBBkrlSqkkvk+XLbmz6Lqgf1GRoEjqPDTj9FbjdkYWs/kd75fNcrgt95WpxapZZSQDJUFowqn2eRXGcHjzKc+mdOfTrWvpmaOvvEgud0ziJUg2IJM8LEp5ds93bhfrrobUFLfbf4lZa6ilminMccnjqJI+Tlg2c8Y5Az/l1x3qOlo7T1NJNLK9ZUrAZGcMFeBhnbG4GVVjjuvv+HuNQMVL+oOEDn5W8a3Pr+FTfDDADKIwXcPx+V0y+1lNRWDo+o6z6Wjv13uFSZXlilLhBu4TI7YDJwfL5TzpC+0Gge3dT3B4oIqanS6xyUbQyEhA8bBjkY5Gzj0799CelOqrzQy1FDBUzsbo/hpB4h8OFPNucZyQig9vUj31HcrpDGaWz08c1SLZUT1c9TUsXepdY/2fiA8Lg5G3tzjnnV50bY3iKrrWum/+1SRhA4vEpGnzRCtpq+a6W+SSTyVlKFqVq6uNHkLYwcMwOB3HGPXXXbVQJb7X0xcqunkkqqG4To8qKWZ4YzJtI+Rzwex3DnXIelJLHX0XS891nSetrLn4dX4iYaTbuZt7nuDujHz3fLT99hl5rblbuobXHteKiqGNMsn4I1ctujx228dvTOolxFtMcTarhVcxojDbxH/Q/Sx8vurwo6es6oprtdzC0UG96SljIkioQWLFn4w0mTnP4RwBnGdVa1Kus6xrZXuNRTXKaGOlgkVN+aZM5Dqc7hIWOVzwAOc6N1dL8Mr0NHE0tRNIPESBeF/w5Pbjn19O+ilPWWmlttRUipV5ac+HLMfwl/8A5qfftnH099VWh0R8SSyO6rvVNeY5v2oz5j3ZS9cjXdJQQUViqYqi4VbbApRIaeFFyVgRScAAs575Lflrjl6v98rqsxTV80gjPEVP/ZqecgIBgkc5PP1OiPV1ZHcLlV1FfOHKn+y3Hao+o74x6eukCpkVpyYw0cYJwARkfnrRwTzl6qnjMGGuBdXLqounLe1bK7FSIaddzMg5Yk8DPv3/AE0Sooj4kjeIiIfLsPDA+2NLtJO8TKyEgKc4Bxk6eukrZ8XQLWVPiMg3t5jknbxkfn/LWfiJnQ24nRaOGLS2uKPdPVdZArRlXlp3YZik/ePYMrfusPf17HI10C2WC0/DB6Lw4KiZlaojnVdr+4zztP8ADPOdcoN7kjV3p5YUMZ4hPm2jPHy+p0x9PfaD8DAvjbqmoHYDAVfmf9u3voIJcUBbRpyUYgxE2407n9V1KkpKm10SxVlPUCKGMIjINyyLn5cEaCXOzwWWGa79L1cdFKcST2yT/wBaYn+6O8bfTj6d9LlN9oDJMZxWeHUSDyx7CFxn8R2n+GNG4+pYLtbzS3uoimpZcnAYq7EcjB4III4OrjcMzKS8UOKpvlfswgngqtPDc71As11dOmbZFLJK02RLVys2dwgUdsgnL+uT30idRwWGKRfuA1VSTMIYzO+5AxPLHb5S3uAWxnzN6AvSiyPK7zUVRcE7iKqrD4XyyMjP6HW/Uct0vFJQw07WpaKllWSKjiHhQpg8r7nK8Z47njTYWNgP7A15pEgkk1ncAOQ49+iit9LQU3TtLdJleNpJvC+O3eI84Gd5SMYARSBgepHfQXpOhor91FX0k1yFvtdK4r6qRypmdFAXC44LZyAOw3E89tMtyS1NUwGZaZ4o5fE8GKmVUIznZnP4ceX6aYTe7HFLR3WelpJpSxxDHTokcJUgfhHLN65b27DQ4TDSNc57/wCR9k+fGsja3JsEu0H2VVtxpaOvpmWz22OverpoKxi8hjYqVJxjAwg7/wC2uidGHp/o+0TWumkeWonlaWapjGWkkJ/TAz88aC3zrWCut61sjK0gkCruXIYc5yR2HA0k9YX2ll8Ke0Vs6ZTDwsPNGe/D+oOntha1wDgdf8VUvmxcZLSBW4XWrxWQ3q2TUlJUiGdFOZKc+adRzsJ7g9xzj8tc0+IqrjVU9joJIop33Cnpy21Kc7T5nP8A9TjAHp/NFF+mp33UkpibOSw9TnPOqtRcmrbq1fHUNHcDJ424YUl853Ke2c+h/jonwjY7J2HiMTSYz5jxV6rttfabltvdrkqYkDFomYpvA4zvX0BxpXqkXx3MaPFGSSqSHJA9s+ujt66mrbhBUGtWKWrlILTEsrowOc7c7QT27YwdCaK9mE7ainiqF9mHB/L/AG09lICx9WRqjsViiighSupoUJUJhOScdzwRnn1JxnRiKt+7aeRqgrHSiPwlYrgYxwqAdzn2/wCdc7vdbNXXWpcymUbyq4/CFB4AHsNQwVphi2lgzYwCTnYPXHtn5a5xmCdLRkd30WnLj2MtrGaoxZq2lpxVJWUsc6SRNsMhYFZMeQ+X8/lz8tF6W5dMxW6ljqaWveoIQTCLyqDltzZJ83G3yge+DnkJfxCkfiGc62SRD3YZ1qNjFl1nXqsaSW6BTzLcOnmpN9PQ3GbZuM0rb1jVuMEMCSB3wG5xjO49oKu42KRWC/eu4XBfBUREZpCBkcn8eckdycemgUHUc9LYau0RNF8JU53kswPIwfXHp6jV0deXbdI8klM/iFt2UZfKQAVG1hjsMMPOOcMMnSx4lkH33RgsoEeyN0906ZSGOOYXd2JLOYI9isNy4272JwAHGTyd4PdcamN5swCJbTXRnxoGUuH5XtJ69++CM54AA0sVvWFfXsGqzTn9lLH5FK58SPYT3OMDHAwM8nJJOrI60qyLXiKjSW2jEUgDZZdu3a3PbGfXTGhw/K8aduvZbujzSb45JIzKNzrkMkYfsv8AiI9T8tEqi6WVqKojU1kblnaHMUnhhhnBOW3YI2qR6EE9iNDx1/d1KlWosIQygQbQuBjsCAwxx5s+/cAjyP7Qr6hQmsgbarAB4FIySSSR6nBx7Y9NGXPP5Xg0VSMQ3fptFqWeK6pDKHVIF3FVwzAPktydpX32kHvkDQm8S0olneghrIoXaJqATRuGkjw3iHn8XO3nt7aoXPqiqudQ01WtNvaGaA+GCgCyLtPGSBgYwAAPU5JJ1NVda3Of4Ng9PG9LBJBG6pzh0KMeeBwTj0zzoc0rXDLqOOqsRMaATdH3WlnqLKvxC3+K5P51aIUpCg+V927PpkpyOeD76KL/AEQSmSSSO5OhkKq6583Y8ru8oGce7ckY41QrOsrlXWqqt0xpFp6gftAsPJbcGLAkkhiQe3HJGMYwsO6+40yi42TXqmNZ1ROeojlllB89OGIRlyGUemNxJx8mJ+uqs0BC+JGQ8Z/eX0+o9NU0bLALyScDUoeammYZaOReDg8jTBp/Ep4AOjlrSkCbCkE4OWOqKsTjVu3DdU4/wN/LVZBwNVyFjl9hErNQw108q1VdBQxJE7CWcHazgeVOPVjxn0GT6aaOmoqC2yyTxXy1FpqSNXjq03Kpfl1YBudpUDjP4hkAZ0rW+61lviaKlkVY2feylAwY4xzn047abbVdoK2iWa4Xmit1QZCrJ8EJPKoypwAT5iefTGfXup9+ilmX1RNbrRCtlRK/poxLEZYpvu1VXd4oXClmGTjLnvxx37Wqe62uSqV6m7dOyRQzrvE1AAJEDlSysGJ/CikcbjlQeewCtloKi0VENJffGlaORkp2pRuL7g2wEDIBLP2Hp6AnVlqukp7jcIouooSPid6t93/s2XYpZmBHl5DKB75/vZ0ohNCt22rtNKY3mrumKjkHwnhwzL+0YKrs21cM4U9sj145s09bRAh1uvSRkdNpigoQDzGA+0llB5yuM84BHBOAc1ewqREl9t7IyOUdaRQy4ddowBwWTzfIjGrczWxifg+q4paiRTBtFAYyqeYnj35bleOR29PFEslmoau5xK1f03DFFJveaKnxGVePkbPxFUdWHGc793bA1pSG0wtBRPerC0K05ZaiSAkAhiPD4YnPJcE47449NaKqtQrKiBOqPBpUEapI9BgS5B3k+wGF54/EfbU8VZQyUapF1BBHMC0krNbyWRSgKjAHGGwpIwO5ycDUEol6sdod5ke92IKr7Q4pADtD4LDD4AwQwxk49te0QtUkTVFZfLGT4kqGJqUKSPE2iTO7sVy+B3GQOedZFW0USjx+p6OORZGZEFBlZVLHDbzwCRycjjn2I1Ut1ZRx0MS1PUkMMmGV4HogxiIkf3Gec8eo3EkADn1lEAqdJ09YarYf6VUVOG24DRnOM8k5bIwM53Y5B9MErN0hhgrZIqWoWpiXGJVAAbgE9iexyO/ppmvl1joYaZrXeqe4yu58VWogpjxgjLHhwc4yO+PbGlq5V1RcpRNOse9E2kxxheM8Zx9dPjLtynRgqtT/APsRf51/nqzcz/5Co/z6rU/9vF/nH89WbkM3Cf8Az6e06p7W+a1paR/Wz/kb+WooaaeWHxI4ZHjBCllUkZ9vrqe18VX/AOG/lrykuFXSwmKmnaJDknbgHnHr39BoXXwWCDZ1UcdHUyfgp5mOdvCHvzx/A/prFpalgNsExBIGdhAyTgD9eNWzdrnOYY/i53KMPDAPIbsMfPnRKqoeqJGeGopLhIxJBQxbipXHGB+EjA44+mgJI3TA0ITCLhaq0OkM0NQo2jdGTjcOP+Ppq418vqpGzTT7UGAWhHPIOTxyfmfy0QtMPUUtVQQzfesdNLUZj2RncXVC2UXHJ2/IjGitRBUPOIpj1PK6FXCigVvDYBSDgAjPPP15zpbna6pzQlxeoL7sSONnUeHtGKccrn3x25xnXktzvLygV89VCsYJDJTZ2nG3OBgdmxnPGdMcaXAxzvF/SVYWK4k8HAfKDggrgAtnnsOPlmDbcJrbUq0XUJmeBY3R6TepckZAyo24ywyPf09QsckYQGout6kknhjmqpIwuxgINuVPuoz3zqNrte94ctUAxpgnwf3QQx3ce6DOfbTTJ8QRNFCvULPuDSzpDvEm3y91GBgZGQfTkjnUMiVbtJQSydRFJlSBN1JnxpG3DZyMEHjBzyAcajN0RhBHvfUKuUkacMuVINMOPl+H5/x0Lqo62ed55oJt8rkk+GeTnB/jxp18O40zrBJP1CHCO6q6ImBgbnwfQb+Qfce/ARB1ZQM9PEl2jCEqQkTEDzMSAQCO5bt6k6Jp5JjeiACGYtjwZd2M42HOO+e2jNor1o7bWQyW8StImQxRvMM483yHyxzq1OerYJXaSmuUUsmHZlp2BwuQOw4AO78+dDYr/c0maZayQsyqp4GCoJIGMYwCSfz0dkpzbKprG8dRGZI2jy4IDKR6+mdSXDmunP8Ai1vU3Ksr5IfjamWfw2ypkOSM4zz+Q1FVHNVKfdtMZdqzGDuvbf5akkf3G1TA7azWaMrmgtkZkdWRirKQQQcEEdjoqvUt9UsVvFeCzbmImPJznJ9znWazQEA7prSVpN1Fe5njklu9czxncjGY5U7SuQfozD8z768PUd7MSR/e9d4agBVExAAAwAB/3+Os1mvZRyTgSsbqO+GQO14ry/8AeMxz2x3+nGt/6VX/AOHigW71ixxbtu2TDeYc5YcnjgZPHpjWazQOaOSMKJuor0Qo+9q0BTuULKQAe+QBrY9TXswiFrpVFRMtQGL+ZZFzghu47nsdZrNQWjkmtXjdQXloVjN0qyiqVUGTsCCCB7ZBOffU1P1VfoYHgiu9Ysb9/PyMEnAPcZzzjvxnsNZrNTlHJOaAovv+8tFLEbrXGKQYdPGOGGMcj140NA1ms0QACewBbJ+IfXUkh/aMdZrNEzdWGL//2Q==' alt='Jalsa 5.0 emblem'>
+<p class='eyebrow'>SLS Symphony Welfare Association</p>
+<h1 class='title'>Jalsa <span class='pt'>5.0</span></h1>
+<p class='sub'>Sports Day 2026 &middot; Rules &amp; Regulations</p>
+<div class='dbl'><i></i><b>&#10022;</b><i></i></div>
+<p class='blurb'>Everything you need to know before you compete: how each of the 24 events is played, the rules that apply, and how winners are decided. Please read the rules for your event before the day.</p>
+</div></header>
+<nav class='idx'><div class='in'>
+<div class='tabs' role='tablist' aria-label='Sections'>
+<button class='tab' id='tab-rules' role='tab' aria-selected='true' aria-controls='panel-rules'>Rules</button>
+<button class='tab' id='tab-tt' role='tab' aria-selected='false' aria-controls='panel-tt'>Timetable</button>
+<button class='tab' id='tab-wb' role='tab' aria-selected='false' aria-controls='panel-wb'>Winners</button>
+</div>
+<input id='q' type='search' placeholder='Find an event…' aria-label='Find an event'>
+<button id='clear' type='button'>Clear</button>
+<span class='tally' id='tally'>24 events</span>
+</div></nav>
+<main><div class='sheet'>
+<div id='panel-tt' role='tabpanel' aria-labelledby='tab-tt' hidden>
+<section class='tt' id='timetable'>
+<h2>Timetable</h2>
+<p class='lede'>Report at your venue 15 minutes before your event. Several events run in parallel, so check the times for everything you have entered.</p>
+<div class='ttday'><h3>Saturday</h3>
+<table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
+<tr data-k='carrom club house saturday'>
+<td class='t'>Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards</td>
+<td class='e'><a href='#ev-carrom'>Carrom</a></td>
+<td>Club House</td>
+<td class='m'>Deepak,Subhasis</td>
+</tr>
+<tr data-k='chess club house saturday'>
+<td class='t'>Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards</td>
+<td class='e'><a href='#ev-chess'>Chess</a></td>
+<td>Club House</td>
+<td class='m'>Praneeth, Raja</td>
+</tr>
+<tr data-k='dessert making b block, near gym saturday'>
+<td class='t'>1:00 PM</td>
+<td class='e'><a href='#ev-dessert-making'>Dessert Making</a></td>
+<td>B Block, Near Gym</td>
+<td class='m none'>Judging panel</td>
+</tr>
+<tr data-k='bouquet making b block, near gym saturday'>
+<td class='t'>2:00 PM</td>
+<td class='e'><a href='#ev-bouquet-making'>Bouquet Making</a></td>
+<td>B Block, Near Gym</td>
+<td class='m none'>Judging panel</td>
+</tr>
+<tr data-k='slow cycling b block, basement saturday'>
+<td class='t'>2:00 PM</td>
+<td class='e'><a href='#ev-slow-cycling'>Slow Cycling</a></td>
+<td>B Block, Basement</td>
+<td class='m'>Deepak, Ashish</td>
+</tr>
+<tr data-k='rangoli c block, near club house saturday'>
+<td class='t'>3:30 PM</td>
+<td class='e'><a href='#ev-rangoli'>Rangoli</a></td>
+<td>C Block, Near Club House</td>
+<td class='m none'>Judging panel</td>
+</tr>
+<tr data-k='swimming — 1 lap swimming pool saturday'>
+<td class='t'>3:30 PM</td>
+<td class='e'><a href='#ev-swimming-1-lap'>Swimming — 1 Lap</a></td>
+<td>Swimming Pool</td>
+<td class='m'>Harvinder, Abhisek</td>
+</tr>
+<tr data-k='swimming — 2 laps swimming pool saturday'>
+<td class='t'>3:30 PM</td>
+<td class='e'><a href='#ev-swimming-2-laps'>Swimming — 2 Laps</a></td>
+<td>Swimming Pool</td>
+<td class='m'>Harvinder, Abhisek</td>
+</tr>
+<tr data-k='skating b block, basement saturday'>
+<td class='t'>4:30 PM</td>
+<td class='e'><a href='#ev-skating'>Skating</a></td>
+<td>B Block, Basement</td>
+<td class='m'>Harvinder,Ashish</td>
+</tr>
+<tr data-k='table tennis club house saturday'>
+<td class='t'>5:00 PM</td>
+<td class='e'><a href='#ev-table-tennis'>Table Tennis</a></td>
+<td>Club House</td>
+<td class='m'>Manoj, Saurabh</td>
+</tr>
+<tr data-k='tug of war b block, basement saturday'>
+<td class='t'>6:00 PM</td>
+<td class='e'><a href='#ev-tug-of-war'>Tug of War</a></td>
+<td>B Block, Basement</td>
+<td class='m'>Subhasis</td>
+</tr>
+<tr data-k='fancy dress (kids) big party hall saturday'>
+<td class='t'>7:00 PM</td>
+<td class='e'><a href='#ev-fancy-dress-kids'>Fancy Dress (Kids)</a></td>
+<td>Big Party Hall</td>
+<td class='m none'>Judging panel</td>
+</tr>
+</tbody></table></div>
+<div class='ttday'><h3>Sunday</h3>
+<table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
+<tr data-k='lemon spoon race brandcom sports arena sunday'>
+<td class='t'>9:00 AM</td>
+<td class='e'><a href='#ev-lemon-spoon-race'>Lemon Spoon Race</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='sack race brandcom sports arena sunday'>
+<td class='t'>10:30 AM</td>
+<td class='e'><a href='#ev-sack-race'>Sack Race</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='treasure hunt club house sunday'>
+<td class='t'>11:00 AM</td>
+<td class='e'><a href='#ev-treasure-hunt'>Treasure Hunt</a></td>
+<td>Club House</td>
+<td class='m none'>Not published</td>
+</tr>
+<tr data-k='race — 50 m brandcom sports arena sunday'>
+<td class='t'>11:30 AM</td>
+<td class='e'><a href='#ev-race-50-m'>Race — 50 m</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='race — 100 m brandcom sports arena sunday'>
+<td class='t'>11:30 AM</td>
+<td class='e'><a href='#ev-race-100-m'>Race — 100 m</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='skipping brandcom sports arena sunday'>
+<td class='t'>12:00 PM</td>
+<td class='e'><a href='#ev-skipping'>Skipping</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='dodge ball (women) brandcom sports arena sunday'>
+<td class='t'>12:15 PM</td>
+<td class='e'><a href='#ev-dodge-ball-women'>Dodge Ball (Women)</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='painting big party hall sunday'>
+<td class='t'>12:30 PM</td>
+<td class='e'><a href='#ev-painting'>Painting</a></td>
+<td>Big Party Hall</td>
+<td class='m none'>Judging panel</td>
+</tr>
+<tr data-k='football brandcom sports arena sunday'>
+<td class='t'>1:15 PM</td>
+<td class='e'><a href='#ev-football'>Football</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='cricket brandcom sports arena sunday'>
+<td class='t'>2:10 PM</td>
+<td class='e'><a href='#ev-cricket'>Cricket</a></td>
+<td>Brandcom Sports Arena</td>
+<td class='m'>&mdash;</td>
+</tr>
+<tr data-k='musical chair c block sunday'>
+<td class='t'>5:00 PM</td>
+<td class='e'><a href='#ev-musical-chair'>Musical Chair</a></td>
+<td>C Block</td>
+<td class='m'>Deepak, Subasis</td>
+</tr>
+<tr data-k='antakshari big party hall sunday'>
+<td class='t'>8:30 PM</td>
+<td class='e'><a href='#ev-antakshari'>Antakshari</a></td>
+<td>Big Party Hall</td>
+<td class='m'>Rama, Kaushik, Vivek</td>
+</tr>
+</tbody></table></div>
+<p class='ttnote'>Judges are not listed in advance, so that scoring stays impartial. The Treasure Hunt moderator is not listed either, since that would give away the clues.</p>
+</section>
+</div>
+<div id='panel-rules' role='tabpanel' aria-labelledby='tab-rules'>
+<section class='plate' id='general'>
+<h2>General Rules</h2>
+<p class='lede'>These apply to every event, for every participant.</p>
+<ol class='gen'>
+<li>All participants must register before the registration deadline.</li>
+<li>Participants should report at least 15 minutes before their event.</li>
+<li>The organizers and referees have the final authority on all decisions.</li>
+<li>Unsportsmanlike conduct, abusive language, or cheating will result in disqualification.</li>
+<li>Participants must play only in their registered age category.</li>
+<li>Any damage to equipment or venue due to negligence will be the participant&#x27;s responsibility.</li>
+<li>In case of rain or unforeseen circumstances, organizers may modify or reschedule events.</li>
+</ol>
+<div class='fair'><h3>How we keep it fair</h3><ul>
+<li>All heats, brackets, pairs and teams were drawn at random by computer. Nobody was placed or paired by hand.</li>
+<li>If a category has fewer than 3 entries, it will be merged into the next age category. If merging is not possible, the event will still be held but only a First Prize will be awarded. This will be announced before the event starts, not after.</li>
+<li>Where an event needs partners or teams, they have been paired at random to give everyone a fair chance. Swaps are allowed only before that event&#x27;s first match, and only with the moderator&#x27;s approval.</li>
+<li>Please be on time. Your name will be called once when your heat or match is due. After that call and a short wait, the moderator may award a walkover to your opponent.</li>
+</ul></div>
+</section>
+<div class='dayblock'><div class='day' id='saturday'>
+<h2>Saturday</h2><span class='ln'></span><span class='ct'>12 events</span></div>
+<article class='ev' id='ev-carrom' data-k='carrom club house saturday upto 10 years — doubles 10-14 years — doubles adults — singles adults — doubles'>
+<div class='num' aria-hidden='true'>01</div>
+<div>
+<h3>Carrom</h3>
+<div class='meta'>
+<span class='tag hi'>Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards</span>
+<span class='tag'>Club House</span>
+</div>
+<p class='howto'><b>How it is played</b>Doubles knockout. Partners are paired at random so everyone gets a fair chance. Win and you continue, lose and you are out.</p>
+<ol class='rules'>
+<li>Singles and Doubles are separate competitions.</li>
+<li>Knockout. One board per match for kids, best of 3 boards for adults.</li>
+<li>Players alternate the break.</li>
+<li>The Queen must be covered immediately after pocketing.</li>
+<li>Pocketing the striker results in a penalty.</li>
+<li>All coins of one colour must be pocketed before winning.</li>
+<li>Doubles: partners sit opposite each other and turns rotate clockwise. Partners may not play each other&#x27;s turn.</li>
+<li>Standard International Carrom Federation rules apply wherever applicable.</li>
+</ol>
+<p class='cats'><b>Categories</b>Upto 10 Years — Doubles &nbsp;·&nbsp; 10-14 Years — Doubles &nbsp;·&nbsp; Adults — Singles &nbsp;·&nbsp; Adults — Doubles</p>
+</div></article>
+<article class='ev' id='ev-chess' data-k='chess club house saturday upto 12 years — singles 12-18 years — singles senior — singles'>
+<div class='num' aria-hidden='true'>02</div>
+<div>
+<h3>Chess</h3>
+<div class='meta'>
+<span class='tag hi'>Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards</span>
+<span class='tag'>Club House</span>
+</div>
+<p class='howto'><b>How it is played</b>Straight knockout. Win and you continue, lose and you are out. If the number of entries does not halve cleanly, one short play-in round is held first, and the entrants not drawn into it wait and join the next round.</p>
+<ol class='rules'>
+<li>Knockout. 10-minute rapid format.</li>
+<li>White moves first; colours drawn by the arbiter at the board.</li>
+<li>Touch-move rule applies.</li>
+<li>An illegal move gives the opponent 2 extra minutes; a second illegal move loses the game.</li>
+<li>Checkmate wins immediately.</li>
+<li>A drawn game is resolved by a 5-minute blitz game.</li>
+</ol>
+<p class='cats'><b>Categories</b>Upto 12 Years — Singles &nbsp;·&nbsp; 12-18 Years — Singles &nbsp;·&nbsp; Senior — Singles</p>
+</div></article>
+<article class='ev' id='ev-dessert-making' data-k='dessert making b block, near gym saturday'>
+<div class='num' aria-hidden='true'>03</div>
+<div>
+<h3>Dessert Making</h3>
+<div class='meta'>
+<span class='tag hi'>1:00 PM</span>
+<span class='tag'>B Block, Near Gym</span>
+<span class='tag'>Judged</span>
+</div>
+<p class='howto'><b>How it is played</b>Judged, not raced. There are no rounds — you present your entry once and the judges score it against the criteria below.</p>
+<ol class='rules'>
+<li>Bring your dessert prepared from home. Final assembly and plating is done at the venue.</li>
+<li>The declared core ingredient must be present in the dessert. An entry without it cannot be judged.</li>
+<li>No fire and no electrical cooking appliances at the venue.</li>
+<li>Bring your own serving dish, and enough portions for the judges to taste.</li>
+<li>Hygiene must be maintained throughout.</li>
+</ol>
+<div class='judge'><b>Judged on</b><div class='chips'>
+<span class='chip'>Presentation</span>
+<span class='chip'>Taste</span>
+<span class='chip'>Creativity with the core ingredient</span>
+</div></div>
+</div></article>
+<article class='ev' id='ev-bouquet-making' data-k='bouquet making b block, near gym saturday'>
+<div class='num' aria-hidden='true'>04</div>
+<div>
+<h3>Bouquet Making</h3>
+<div class='meta'>
+<span class='tag hi'>2:00 PM</span>
+<span class='tag'>B Block, Near Gym</span>
+<span class='tag'>Judged</span>
+</div>
+<p class='howto'><b>How it is played</b>Judged, not raced. There are no rounds — you present your entry once and the judges score it against the criteria below.</p>
+<ol class='rules'>
+<li>Time limit: 45 minutes.</li>
+<li>Participants may use fresh or artificial flowers as announced.</li>
+<li>Only materials brought by the participant or provided by the organizers may be used.</li>
+</ol>
+<div class='judge'><b>Judged on</b><div class='chips'>
+<span class='chip'>Creativity</span>
+<span class='chip'>Floral arrangement</span>
+<span class='chip'>Balance</span>
+<span class='chip'>Presentation</span>
+</div></div>
+</div></article>
+<article class='ev' id='ev-slow-cycling' data-k='slow cycling b block, basement saturday 5 to 10 years 11 to 15 years'>
+<div class='num' aria-hidden='true'>05</div>
+<div>
+<h3>Slow Cycling</h3>
+<div class='meta'>
+<span class='tag hi'>2:00 PM</span>
+<span class='tag'>B Block, Basement</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>The participant crossing the finish line last wins.</li>
+<li>Feet must not touch the ground.</li>
+<li>Crossing lane boundaries leads to disqualification.</li>
+<li>Pushing or blocking others is prohibited.</li>
+<li>A participant who falls or puts a foot down is eliminated.</li>
+<li>Tyres must be properly inflated. Letting air out of your tyres to slow the cycle down is not allowed, and a cycle with a tyre below the minimum firmness will not be permitted to start. The moderator checks tyres before the heat.</li>
+<li>Heat qualification: the slowest rider still legal in each heat advances. A rider who puts a foot down is out and cannot qualify.</li>
+</ol>
+<p class='cats'><b>Categories</b>5 to 10 Years &nbsp;·&nbsp; 11 to 15 Years</p>
+</div></article>
+<article class='ev' id='ev-rangoli' data-k='rangoli c block, near club house saturday'>
+<div class='num' aria-hidden='true'>06</div>
+<div>
+<h3>Rangoli</h3>
+<div class='meta'>
+<span class='tag hi'>3:30 PM</span>
+<span class='tag'>C Block, Near Club House</span>
+<span class='tag'>Judged</span>
+</div>
+<p class='howto'><b>How it is played</b>Judged, not raced. There are no rounds — you present your entry once and the judges score it against the criteria below.</p>
+<ol class='rules'>
+<li>Time limit: 90 minutes.</li>
+<li>Participants may use colours, flowers, or eco-friendly materials.</li>
+<li>The design must remain within the allotted space.</li>
+<li>Participants bring their own materials.</li>
+</ol>
+<div class='judge'><b>Judged on</b><div class='chips'>
+<span class='chip'>Creativity</span>
+<span class='chip'>Theme</span>
+<span class='chip'>Symmetry</span>
+<span class='chip'>Colour combination</span>
+<span class='chip'>Neatness</span>
+</div></div>
+</div></article>
+<article class='ev' id='ev-swimming-1-lap' data-k='swimming — 1 lap swimming pool saturday 6 to 10 years'>
+<div class='num' aria-hidden='true'>07</div>
+<div>
+<h3>Swimming — 1 Lap</h3>
+<div class='meta'>
+<span class='tag hi'>3:30 PM</span>
+<span class='tag'>Swimming Pool</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>A proper swimming costume and a swimming cap are mandatory. No costume or no cap, no start.</li>
+<li>Any stroke unless specified.</li>
+<li>A false start results in a warning or disqualification.</li>
+<li>The participant must complete the full distance.</li>
+<li>Touching lane ropes for advantage is prohibited.</li>
+<li>The first swimmer touching the finish wall wins.</li>
+<li>A lifeguard or designated adult swimmer must be present in the pool area for the entire event.</li>
+</ol>
+<p class='cats'><b>Categories</b>6 to 10 Years</p>
+</div></article>
+<article class='ev' id='ev-swimming-2-laps' data-k='swimming — 2 laps swimming pool saturday 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>08</div>
+<div>
+<h3>Swimming — 2 Laps</h3>
+<div class='meta'>
+<span class='tag hi'>3:30 PM</span>
+<span class='tag'>Swimming Pool</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>A proper swimming costume and a swimming cap are mandatory. No costume or no cap, no start.</li>
+<li>Any stroke unless specified.</li>
+<li>A false start results in a warning or disqualification.</li>
+<li>The participant must complete the full distance, including a legal turn at the wall.</li>
+<li>Touching lane ropes for advantage is prohibited.</li>
+<li>The first swimmer touching the finish wall wins.</li>
+<li>A lifeguard or designated adult swimmer must be present in the pool area for the entire event.</li>
+</ol>
+<p class='cats'><b>Categories</b>11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-skating' data-k='skating b block, basement saturday 5 to 8 years 9 to 12 years'>
+<div class='num' aria-hidden='true'>09</div>
+<div>
+<h3>Skating</h3>
+<div class='meta'>
+<span class='tag hi'>4:30 PM</span>
+<span class='tag'>B Block, Basement</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>Helmet is mandatory. No helmet, no start.</li>
+<li>Knee and elbow guards are strongly recommended.</li>
+<li>No pushing or blocking competitors.</li>
+<li>The skater completing the course first wins.</li>
+</ol>
+<p class='cats'><b>Categories</b>5 to 8 Years &nbsp;·&nbsp; 9 to 12 Years</p>
+</div></article>
+<article class='ev' id='ev-table-tennis' data-k='table tennis club house saturday kids upto 12 years — doubles adults — doubles'>
+<div class='num' aria-hidden='true'>10</div>
+<div>
+<h3>Table Tennis</h3>
+<div class='meta'>
+<span class='tag hi'>5:00 PM</span>
+<span class='tag'>Club House</span>
+</div>
+<p class='howto'><b>How it is played</b>Doubles knockout. Partners are paired at random so everyone gets a fair chance. Win and you continue, lose and you are out.</p>
+<ol class='rules'>
+<li>Doubles only. Knockout. One game per match.</li>
+<li>Match is played to 11 points, win by 2 clear points.</li>
+<li>Service changes every 2 points.</li>
+<li>Service must bounce once on the server&#x27;s side and once on the receiver&#x27;s side, and must be played diagonally.</li>
+<li>Partners must strike the ball alternately. Two touches by the same player loses the point.</li>
+<li>A let serve is replayed.</li>
+<li>Touching the table with the free hand or moving the table during play loses the point.</li>
+</ol>
+<p class='cats'><b>Categories</b>Kids upto 12 Years — Doubles &nbsp;·&nbsp; Adults — Doubles</p>
+</div></article>
+<article class='ev' id='ev-tug-of-war' data-k='tug of war b block, basement saturday'>
+<div class='num' aria-hidden='true'>11</div>
+<div>
+<h3>Tug of War</h3>
+<div class='meta'>
+<span class='tag hi'>6:00 PM</span>
+<span class='tag'>B Block, Basement</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random at the venue, so the sides are balanced rather than chosen. The moderator will explain the running order before you start.</p>
+<ol class='rules'>
+<li>Two categories only: Men&#x27;s and Women&#x27;s. There is no block-versus-block contest.</li>
+<li>Teams are drawn at random on the day, so the sides are balanced rather than chosen.</li>
+<li>Equal number of pullers on both sides. The moderator fixes the number for each bout and counts both sides before the start.</li>
+<li>Pullers are rotated between bouts so everyone who registered gets a pull.</li>
+<li>The rope marker starts at the centre.</li>
+<li>The team pulling the marker across the winning line wins the bout.</li>
+<li>Wrapping the rope around the body or hands is prohibited.</li>
+<li>Sitting down intentionally is not allowed.</li>
+<li>Closed footwear required. No sandals or bare feet.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-fancy-dress-kids' data-k='fancy dress (kids) big party hall saturday 0-6 years 6-10 years 10-15 years'>
+<div class='num' aria-hidden='true'>12</div>
+<div>
+<h3>Fancy Dress (Kids)</h3>
+<div class='meta'>
+<span class='tag hi'>7:00 PM</span>
+<span class='tag'>Big Party Hall</span>
+<span class='tag'>Judged</span>
+</div>
+<p class='howto'><b>How it is played</b>Judged, not raced. There are no rounds — you present your entry once and the judges score it against the criteria below.</p>
+<ol class='rules'>
+<li>Performance time: 2-3 minutes.</li>
+<li>Props are allowed; the participant must be able to carry them unaided.</li>
+<li>Participants should introduce their character.</li>
+<li>No live flames, sharp props, or real weapons.</li>
+</ol>
+<div class='judge'><b>Judged on</b><div class='chips'>
+<span class='chip'>Costume</span>
+<span class='chip'>Creativity</span>
+<span class='chip'>Stage confidence</span>
+<span class='chip'>Expression</span>
+<span class='chip'>Presentation</span>
+</div></div>
+<p class='cats'><b>Categories</b>0-6 Years &nbsp;·&nbsp; 6-10 Years &nbsp;·&nbsp; 10-15 Years</p>
+</div></article>
+</div>
+<div class='dayblock'><div class='day' id='sunday'>
+<h2>Sunday</h2><span class='ln'></span><span class='ct'>12 events</span></div>
+<article class='ev' id='ev-lemon-spoon-race' data-k='lemon spoon race brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>13</div>
+<div>
+<h3>Lemon Spoon Race</h3>
+<div class='meta'>
+<span class='tag hi'>9:00 AM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>The spoon must be held only in the mouth.</li>
+<li>Hands cannot touch the spoon after the race begins.</li>
+<li>If the lemon falls, your race is over. Leave the lane so the others can finish.</li>
+<li>Running is allowed provided it is safe.</li>
+</ol>
+<p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-sack-race' data-k='sack race brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>14</div>
+<div>
+<h3>Sack Race</h3>
+<div class='meta'>
+<span class='tag hi'>10:30 AM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>Both feet must remain inside the sack.</li>
+<li>Participants must hop throughout the race.</li>
+<li>Leaving the sack intentionally results in disqualification.</li>
+<li>The first participant crossing the finish line wins.</li>
+</ol>
+<p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-treasure-hunt' data-k='treasure hunt club house sunday'>
+<div class='num' aria-hidden='true'>15</div>
+<div>
+<h3>Treasure Hunt</h3>
+<div class='meta'>
+<span class='tag hi'>11:00 AM</span>
+<span class='tag'>Club House</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random and play a round-robin: every team plays every other team once. Most points wins.</p>
+<ol class='rules'>
+<li>Kids only. Teams of 4-5, drawn at random.</li>
+<li>Clues must be solved sequentially.</li>
+<li>Mobile phones and internet searches are not allowed, unless the moderator announces a round where a phone is required.</li>
+<li>No damaging apartment property, and no entering another resident&#x27;s flat.</li>
+<li>The first team completing all clues correctly wins.</li>
+<li>Each team must stay together; splitting up to cover more ground is not allowed.</li>
+<li>At least two adult volunteers must be positioned along the route.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-race-50-m' data-k='race — 50 m brandcom sports arena sunday below 6 years 7 to 10 years 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>16</div>
+<div>
+<h3>Race — 50 m</h3>
+<div class='meta'>
+<span class='tag hi'>11:30 AM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>Stay within the assigned lane.</li>
+<li>One false start warning; a second false start is a disqualification.</li>
+<li>The first runner to cross the finish line wins. The finish is judged on the torso crossing the line, not the hands or feet.</li>
+<li>No pushing or obstructing other runners.</li>
+<li>The winner of each heat goes through to the final. If the final has spare lanes, the moderator will run one extra qualifying heat among the runners-up to fill them.</li>
+</ol>
+<p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 7 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-race-100-m' data-k='race — 100 m brandcom sports arena sunday 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>17</div>
+<div>
+<h3>Race — 100 m</h3>
+<div class='meta'>
+<span class='tag hi'>11:30 AM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in heats, then a final. The winner of each heat goes through. If the final has spare lanes, one extra qualifying heat is run among the runners-up to fill them.</p>
+<ol class='rules'>
+<li>Stay within the assigned lane.</li>
+<li>One false start warning; a second false start is a disqualification.</li>
+<li>The first runner to cross the finish line wins. The finish is judged on the torso crossing the line, not the hands or feet.</li>
+<li>No pushing or obstructing other runners.</li>
+<li>The winner of each heat goes through to the final. If the final has spare lanes, the moderator will run one extra qualifying heat among the runners-up to fill them.</li>
+</ol>
+<p class='cats'><b>Categories</b>11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-skipping' data-k='skipping brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>18</div>
+<div>
+<h3>Skipping</h3>
+<div class='meta'>
+<span class='tag hi'>12:00 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Everyone gets a timed attempt and is ranked on the score. No heats, no final.</p>
+<ol class='rules'>
+<li>Time limit: 1 minute. Highest number of successful jumps wins.</li>
+<li>Only successful jumps are counted.</li>
+<li>The rope must pass under both feet.</li>
+<li>Participants may restart immediately after a missed jump; the clock does not stop.</li>
+<li>Tie: a 30-second jump-off between the tied participants.</li>
+</ol>
+<p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
+</div></article>
+<article class='ev' id='ev-dodge-ball-women' data-k='dodge ball (women) brandcom sports arena sunday adults (12+)'>
+<div class='num' aria-hidden='true'>19</div>
+<div>
+<h3>Dodge Ball (Women)</h3>
+<div class='meta'>
+<span class='tag hi'>12:15 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random and play a round-robin: every team plays every other team once. Most points wins.</p>
+<ol class='rules'>
+<li>Teams of equal size, drawn at random. Round-robin, best of 3 rounds per match.</li>
+<li>Players hit by a live ball below the shoulders are out.</li>
+<li>Headshots are not counted and the thrower is warned.</li>
+<li>If a thrown ball is caught before touching the ground, the thrower is out.</li>
+<li>The last team with remaining players wins the round.</li>
+</ol>
+<p class='cats'><b>Categories</b>Adults (12+)</p>
+</div></article>
+<article class='ev' id='ev-painting' data-k='painting big party hall sunday below 6 years 6 to 10 years 11 to 15 years'>
+<div class='num' aria-hidden='true'>20</div>
+<div>
+<h3>Painting</h3>
+<div class='meta'>
+<span class='tag hi'>12:30 PM</span>
+<span class='tag'>Big Party Hall</span>
+<span class='tag'>Judged</span>
+</div>
+<p class='howto'><b>How it is played</b>Judged, not raced. There are no rounds — you present your entry once and the judges score it against the criteria below.</p>
+<ol class='rules'>
+<li>Theme announced at the start of the event.</li>
+<li>Time limit: 60 minutes.</li>
+<li>Participants must create original artwork on the spot.</li>
+<li>No tracing, stencils or printed reference material.</li>
+<li>Participants bring their own colours; paper is provided.</li>
+</ol>
+<div class='judge'><b>Judged on</b><div class='chips'>
+<span class='chip'>Creativity</span>
+<span class='chip'>Theme relevance</span>
+<span class='chip'>Colour combination</span>
+<span class='chip'>Neatness</span>
+<span class='chip'>Overall presentation</span>
+</div></div>
+<p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years</p>
+</div></article>
+<article class='ev' id='ev-football' data-k='football brandcom sports arena sunday'>
+<div class='num' aria-hidden='true'>21</div>
+<div>
+<h3>Football</h3>
+<div class='meta'>
+<span class='tag hi'>1:15 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
+<ol class='rules'>
+<li>5-a-side, knockout.</li>
+<li>Match duration: 10 minutes per half.</li>
+<li>Kick-off starts each half.</li>
+<li>Goalkeeper may use hands only inside the penalty area.</li>
+<li>No dangerous tackles. Sliding tackles are not allowed.</li>
+<li>Ball crossing the touchline results in a kick-in.</li>
+<li>Goal kick when the attacking team last touches before the goal line.</li>
+<li>Corner kick when the defending team last touches.</li>
+<li>Draw after normal time: penalty shootout, 3 kicks each.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-cricket' data-k='cricket brandcom sports arena sunday'>
+<div class='num' aria-hidden='true'>22</div>
+<div>
+<h3>Cricket</h3>
+<div class='meta'>
+<span class='tag hi'>2:10 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
+<ol class='rules'>
+<li>Knockout tournament. Teams of 6-8 players.</li>
+<li>6 overs per innings.</li>
+<li>Toss decides batting or bowling.</li>
+<li>Each bowler can bowl a maximum of 1 over.</li>
+<li>No-ball and Wide each award 1 extra run and an additional delivery.</li>
+<li>Free Hit after a front-foot no-ball.</li>
+<li>Runs completed before a run-out are counted.</li>
+<li>One substitute fielder allowed; the substitute cannot bat or bowl.</li>
+<li>Tie: Super Over. If still tied, the team with more boundaries wins.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-musical-chair' data-k='musical chair c block sunday'>
+<div class='num' aria-hidden='true'>23</div>
+<div>
+<h3>Musical Chair</h3>
+<div class='meta'>
+<span class='tag hi'>5:00 PM</span>
+<span class='tag'>C Block</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in batches, then a final. The last few standing in each batch go through to the final.</p>
+<ol class='rules'>
+<li>Run in batches, then a final. Chairs = participants minus one in every round.</li>
+<li>Participants circle the chairs in one direction only while the music plays. You must keep moving forward.</li>
+<li>When the music stops you may only take a chair ahead of you. You cannot turn back or reverse to reach an empty chair you have already passed.</li>
+<li>When the music stops, sit down. The participant left standing is out, and one chair is removed.</li>
+<li>Holding, pushing or pulling another participant is an immediate elimination.</li>
+<li>A participant may not touch or hold a chair while the music is playing.</li>
+<li>If two participants land on the same chair, whoever is more fully seated stays; if it cannot be called, both leave and the chair is contested by a re-run between the two.</li>
+<li>The music operator must face away from the chairs so that stops cannot be timed to anyone&#x27;s position.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-antakshari' data-k='antakshari big party hall sunday'>
+<div class='num' aria-hidden='true'>24</div>
+<div>
+<h3>Antakshari</h3>
+<div class='meta'>
+<span class='tag hi'>8:30 PM</span>
+<span class='tag'>Big Party Hall</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random at the venue, so the sides are balanced rather than chosen. The moderator will explain the running order before you start.</p>
+<ol class='rules'>
+<li>A team event. The host will explain the full format, teams and scoring at the start of the round.</li>
+<li>The host&#x27;s decision is final on every call — letters, repeats, timing and points.</li>
+<li>Please do not argue with the host or the moderators. Raise anything you disagree with politely, once, and then accept the call.</li>
+<li>Songs must be from officially released film, album, devotional or folk music.</li>
+<li>Keep it clean and family-friendly. This is the last event of the evening and everyone is watching.</li>
+</ol>
+</div></article>
+</div>
+</div>
+<div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><div class='warn'><b>Use a fine-grained token</b> limited to this one repository, with <b>Contents: Read and write</b> and a short expiry. It is kept only for this browser tab and is never written into the page or the repository.</div><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+</div>
+<p class='noresult' id='none'>No event matches that search.</p>
+</div></main>
+<footer class='dark foot'>
+<div class='dbl'><i></i><b>&#10022;</b><i></i></div>
+<p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
+<p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
+<p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
+</footer>
+<button id='top' type='button' aria-label='Back to top'>&#8593;</button>
+<script>var ADMIN_HASH="b66616a56b62ca0ecca2fb61542c63fc73f81ba8c8f6ebaf7b70be3844e9ae7b";</script>
+<script>var SLOTS=[{"id":"carrom|upto-10-years-doubles","event":"Carrom","cat":"Upto 10 Years \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|10-14-years-doubles","event":"Carrom","cat":"10-14 Years \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|adults-singles","event":"Carrom","cat":"Adults \u2014 Singles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"medal"},{"id":"carrom|adults-doubles","event":"Carrom","cat":"Adults \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"chess|upto-12-years-singles","event":"Chess","cat":"Upto 12 Years \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|12-18-years-singles","event":"Chess","cat":"12-18 Years \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|senior-singles","event":"Chess","cat":"Senior \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"dessert-making|all-participants","event":"Dessert Making","cat":"","day":"Saturday","time":"1:00 PM","type":"medal"},{"id":"bouquet-making|all-participants","event":"Bouquet Making","cat":"","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|5-to-10-years","event":"Slow Cycling","cat":"5 to 10 Years","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|11-to-15-years","event":"Slow Cycling","cat":"11 to 15 Years","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"rangoli|all-participants","event":"Rangoli","cat":"","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-1-lap|6-to-10-years","event":"Swimming \u2014 1 Lap","cat":"6 to 10 Years","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|11-to-15-years","event":"Swimming \u2014 2 Laps","cat":"11 to 15 Years","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|adults","event":"Swimming \u2014 2 Laps","cat":"Adults","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"skating|5-to-8-years","event":"Skating","cat":"5 to 8 Years","day":"Saturday","time":"4:30 PM","type":"medal"},{"id":"skating|9-to-12-years","event":"Skating","cat":"9 to 12 Years","day":"Saturday","time":"4:30 PM","type":"medal"},{"id":"table-tennis|kids-upto-12-years-doubles","event":"Table Tennis","cat":"Kids upto 12 Years \u2014 Doubles","day":"Saturday","time":"5:00 PM","type":"pair"},{"id":"table-tennis|adults-doubles","event":"Table Tennis","cat":"Adults \u2014 Doubles","day":"Saturday","time":"5:00 PM","type":"pair"},{"id":"tug-of-war|all-participants","event":"Tug of War","cat":"","day":"Saturday","time":"6:00 PM","type":"trophy"},{"id":"fancy-dress-kids|0-6-years","event":"Fancy Dress (Kids)","cat":"0-6 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|6-10-years","event":"Fancy Dress (Kids)","cat":"6-10 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|10-15-years","event":"Fancy Dress (Kids)","cat":"10-15 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"lemon-spoon-race|below-6-years","event":"Lemon Spoon Race","cat":"Below 6 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|6-to-10-years","event":"Lemon Spoon Race","cat":"6 to 10 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|11-to-15-years","event":"Lemon Spoon Race","cat":"11 to 15 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|adults","event":"Lemon Spoon Race","cat":"Adults","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"sack-race|below-6-years","event":"Sack Race","cat":"Below 6 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|6-to-10-years","event":"Sack Race","cat":"6 to 10 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|11-to-15-years","event":"Sack Race","cat":"11 to 15 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|adults","event":"Sack Race","cat":"Adults","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"treasure-hunt|all-participants","event":"Treasure Hunt","cat":"","day":"Sunday","time":"11:00 AM","type":"trophy"},{"id":"race-50-m|below-6-years","event":"Race \u2014 50 m","cat":"Below 6 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|7-to-10-years","event":"Race \u2014 50 m","cat":"7 to 10 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|11-to-15-years","event":"Race \u2014 50 m","cat":"11 to 15 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|adults","event":"Race \u2014 50 m","cat":"Adults","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-100-m|11-to-15-years","event":"Race \u2014 100 m","cat":"11 to 15 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-100-m|adults","event":"Race \u2014 100 m","cat":"Adults","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"skipping|below-6-years","event":"Skipping","cat":"Below 6 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|6-to-10-years","event":"Skipping","cat":"6 to 10 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|11-to-15-years","event":"Skipping","cat":"11 to 15 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|adults","event":"Skipping","cat":"Adults","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"dodge-ball-women|adults-12","event":"Dodge Ball (Women)","cat":"Adults (12+)","day":"Sunday","time":"12:15 PM","type":"trophy"},{"id":"painting|below-6-years","event":"Painting","cat":"Below 6 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"painting|6-to-10-years","event":"Painting","cat":"6 to 10 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"painting|11-to-15-years","event":"Painting","cat":"11 to 15 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"football|all-participants","event":"Football","cat":"","day":"Sunday","time":"1:15 PM","type":"trophy"},{"id":"cricket|all-participants","event":"Cricket","cat":"","day":"Sunday","time":"2:10 PM","type":"trophy"},{"id":"musical-chair|all-participants","event":"Musical Chair","cat":"","day":"Sunday","time":"5:00 PM","type":"medal"},{"id":"antakshari|all-participants","event":"Antakshari","cat":"","day":"Sunday","time":"8:30 PM","type":"trophy"}];</script>
+<script>
+// ===================== winners board =====================
+// self-contained: the rules page script does not provide an escaper
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+  });
+}
+var WDATA = { updated: '', results: {} };
+var WPHOTOS = {};          // "<slotId>|<place>" -> { dataUrl, filename }
+var WDELETES = {};         // repo paths to delete when publishing
+var WDIRTY = false;
+
+function w$(id) { return document.getElementById(id); }
+
+async function wLoad() {
+  try {
+    var r = await fetch('winners.json?t=' + Date.now(), { cache: 'no-store' });
+    if (r.ok) {
+      var j = await r.json();
+      if (j && j.results) WDATA = j;
+    }
+  } catch (e) { /* opened from disk, or not committed yet */ }
+  wRender();
+}
+
+function wState(id) { return WDATA.results[id] || {}; }
+
+function wNames(v) {
+  return [].concat(v || []).map(function (x) { return (x || '').trim(); })
+           .filter(Boolean);
+}
+function wNameLine(v) {
+  var parts = wNames(v);
+  if (!parts.length) return "<div class='pname empty'>To be announced</div>";
+  return "<div class='pname'>" + esc(parts.join('  &  ')) + "</div>";
+}
+function wPhoto(id, place) {
+  var pend = WPHOTOS[id + '|' + place];
+  var saved = (wState(id).photos || {})[place];
+  var src = pend ? pend.dataUrl : (saved || '');
+  if (!src) return '';
+  return "<div class='pphoto thumb'><img src='" + esc(src) + "' alt='" +
+    esc(place) + " winner'></div>";
+}
+function wFileCtl(id, place) {
+  var key = id + '|' + place;
+  var pend = WPHOTOS[key], saved = (wState(id).photos || {})[place];
+  var has = pend || saved;
+  return "<div class='filewrap'><label>" + (has ? 'Change photo' : 'Add photo') +
+    "<input type='file' accept='image/*' data-slot='" + esc(id) +
+    "' data-place='" + esc(place) + "'></label>" +
+    (pend ? "<span class='fn'>" + esc(pend.filename) + " (not published yet)</span>"
+          : (saved ? "<span class='fn'>published</span>" : "")) +
+    (has ? "<button type='button' class='rm' data-rm='" + esc(key) +
+           "'>remove</button>" : "") + "</div>";
+}
+function wInputs(id, place, type) {
+  var st = wState(id), v = st[place] || [];
+  if (type === 'trophy') {
+    return "<input type='text' placeholder='Winning team' data-slot='" + esc(id) +
+      "' data-place='team' data-i='0' value='" + esc(st.team || '') + "'>" +
+      "<input type='text' placeholder='Members (optional)' data-slot='" + esc(id) +
+      "' data-place='members' data-i='0' value='" + esc(st.members || '') + "'>";
+  }
+  if (type === 'pair') {
+    return "<div class='row2'>" +
+      "<input type='text' placeholder='Player 1' data-slot='" + esc(id) +
+      "' data-place='" + place + "' data-i='0' value='" + esc(v[0] || '') + "'>" +
+      "<input type='text' placeholder='Player 2' data-slot='" + esc(id) +
+      "' data-place='" + place + "' data-i='1' value='" + esc(v[1] || '') + "'>" +
+      "</div>";
+  }
+  return "<input type='text' placeholder='Winner name' data-slot='" + esc(id) +
+    "' data-place='" + place + "' data-i='0' value='" + esc(v[0] || '') + "'>";
+}
+function wPrize(s, place, label, cls, badge) {
+  var st = wState(s.id), body;
+  if (place === 'team') {
+    body = wNameLine(st.team ? [st.team] : null) +
+      (st.members ? "<div class='pmembers'>" + esc(st.members) + "</div>" : '');
+  } else {
+    body = wNameLine(st[place]);
+  }
+  return "<div class='prize " + cls + "'>" +
+    "<div class='medal " + badge + "' aria-hidden='true'>" +
+      (badge === 't' ? '&#9873;' : (badge === 'g' ? '1' : '2')) + "</div>" +
+    "<div class='pbody'><p class='plabel'>" + label + "</p>" + body +
+      wPhoto(s.id, place) +
+      "<div class='edit'>" + wInputs(s.id, place, s.type) +
+        wFileCtl(s.id, place) + "</div>" +
+    "</div></div>";
+}
+
+function wRender() {
+  var o = [], done = 0, total = 0;
+  ['Saturday', 'Sunday'].forEach(function (day) {
+    var rows = SLOTS.filter(function (s) { return s.day === day; });
+    if (!rows.length) return;
+    o.push("<div class='day wday'><h2>" + day + "</h2><span class='ln'></span>" +
+      "<span class='ct'>" + rows.length + " results</span></div>");
+    rows.forEach(function (s) {
+      var st = wState(s.id);
+      var filled = (s.type === 'trophy')
+        ? wNames(st.team).length > 0
+        : (wNames(st.gold).length > 0 || wNames(st.silver).length > 0);
+      total++; if (filled) done++;
+      o.push("<div class='evcard' data-wk='" +
+        esc((s.event + ' ' + s.cat + ' ' + day).toLowerCase()) + "'>");
+      o.push("<div class='evhead'><h3>" + esc(s.event) + "</h3>" +
+        (s.cat ? "<span class='cat'>" + esc(s.cat) + "</span>" : '') +
+        "<span class='when'>" + esc(s.time) + "</span></div>");
+      o.push("<div class='prizes'>");
+      if (s.type === 'trophy') {
+        o.push(wPrize(s, 'team', 'Winning team &mdash; Trophy', 'trophy', 't'));
+      } else if (s.type === 'pair') {
+        o.push(wPrize(s, 'gold', 'Gold &mdash; 2 medals', 'gold', 'g'));
+        o.push(wPrize(s, 'silver', 'Silver &mdash; 2 medals', 'silver', 's'));
+      } else {
+        o.push(wPrize(s, 'gold', 'Gold', 'gold', 'g'));
+        o.push(wPrize(s, 'silver', 'Silver', 'silver', 's'));
+      }
+      o.push("</div>");
+      o.push("<div class='edit'><button type='button' class='btn clr' data-clr='" +
+        esc(s.id) + "'>Clear this result</button></div>");
+      o.push("</div>");
+    });
+  });
+  w$('board').innerHTML = o.join('');
+  w$('wtally').textContent = done + ' of ' + total + ' declared';
+  if (WDATA.updated) w$('updated').textContent = 'Last updated ' + WDATA.updated;
+  wWire();
+  if (typeof applyFilter === 'function') applyFilter();
+}
+
+function wWire() {
+  document.querySelectorAll('.edit input[type=text]').forEach(function (el) {
+    el.addEventListener('input', function () {
+      var id = el.dataset.slot, place = el.dataset.place,
+          i = parseInt(el.dataset.i, 10);
+      var st = WDATA.results[id] || (WDATA.results[id] = {});
+      if (place === 'team' || place === 'members') st[place] = el.value;
+      else { st[place] = st[place] || []; st[place][i] = el.value; }
+      WDIRTY = true; wMarkDirty();
+    });
+  });
+  document.querySelectorAll('.edit input[type=file]').forEach(function (el) {
+    el.addEventListener('change', function () {
+      var f = el.files && el.files[0];
+      if (!f) return;
+      wShrink(f, function (dataUrl) {
+        WPHOTOS[el.dataset.slot + '|' + el.dataset.place] =
+          { dataUrl: dataUrl, filename: f.name };
+        WDIRTY = true; wRender(); wMarkDirty();
+      });
+    });
+  });
+  document.querySelectorAll('.clr').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.dataset.clr, st = WDATA.results[id];
+      if (!confirm('Clear the result for this event? Any published photo will ' +
+                   'be deleted from the repository when you publish.')) return;
+      if (st && st.photos) {
+        Object.keys(st.photos).forEach(function (pl) {
+          WDELETES[st.photos[pl]] = true;
+        });
+      }
+      ['gold', 'silver', 'team'].forEach(function (pl) {
+        delete WPHOTOS[id + '|' + pl];
+      });
+      delete WDATA.results[id];
+      WDIRTY = true; wRender(); wMarkDirty();
+    });
+  });
+  document.querySelectorAll('.rm').forEach(function (b) {
+    b.addEventListener('click', function () {
+      // key is "<eventSlug>|<catSlug>|<place>" - the slot id itself has a '|'
+      var key = b.dataset.rm, parts = key.split('|');
+      var slotId = parts.slice(0, 2).join('|'), place = parts[2];
+      delete WPHOTOS[key];
+      var st = WDATA.results[slotId];
+      if (st && st.photos && st.photos[place]) {
+        WDELETES[st.photos[place]] = true;   // remove the file, not just the link
+        delete st.photos[place];
+      }
+      WDIRTY = true; wRender(); wMarkDirty();
+    });
+  });
+}
+
+// downscale in the browser so the repo does not fill up with 4 MB phone photos
+function wShrink(file, cb) {
+  var img = new Image(), url = URL.createObjectURL(file);
+  img.onload = function () {
+    var max = 1100, w = img.width, hh = img.height;
+    if (Math.max(w, hh) > max) {
+      var k = max / Math.max(w, hh);
+      w = Math.round(w * k); hh = Math.round(hh * k);
+    }
+    var c = document.createElement('canvas');
+    c.width = w; c.height = hh;
+    c.getContext('2d').drawImage(img, 0, 0, w, hh);
+    URL.revokeObjectURL(url);
+    cb(c.toDataURL('image/jpeg', 0.82));
+  };
+  img.onerror = function () { alert('Could not read that image.'); };
+  img.src = url;
+}
+
+function wMarkDirty() {
+  var d = w$('dirty');
+  if (d) d.textContent = WDIRTY ? 'unsaved changes' : '';
+}
+
+function wFilter(t) {
+  var n = 0;
+  document.querySelectorAll('.evcard').forEach(function (c) {
+    var ok = !t || c.dataset.wk.indexOf(t) > -1;
+    c.style.display = ok ? '' : 'none';
+    if (ok) n++;
+  });
+  document.querySelectorAll('.wday').forEach(function (d) {
+    var nx = d.nextElementSibling, any = false;
+    while (nx && nx.classList && nx.classList.contains('evcard')) {
+      if (nx.style.display !== 'none') any = true;
+      nx = nx.nextElementSibling;
+    }
+    d.style.display = any ? '' : 'none';
+  });
+  return n;
+}
+
+// ---------------- publish to GitHub ----------------
+function wB64(dataUrl) { return dataUrl.split(',')[1]; }
+
+async function ghPut(owner, repo, branch, token, path, contentB64, msg, log) {
+  var base = 'https://api.github.com/repos/' + owner + '/' + repo +
+             '/contents/' + path;
+  var head = { Authorization: 'Bearer ' + token,
+               Accept: 'application/vnd.github+json' };
+  var sha = null;
+  var probe = await fetch(base + '?ref=' + encodeURIComponent(branch),
+                          { headers: head });
+  if (probe.status === 200) sha = (await probe.json()).sha;
+  else if (probe.status !== 404)
+    throw new Error(path + ': ' + probe.status + ' ' + probe.statusText);
+  var body = { message: msg, content: contentB64, branch: branch };
+  if (sha) body.sha = sha;
+  var r = await fetch(base, { method: 'PUT', headers: head,
+                              body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(path + ': ' + r.status + ' ' +
+                             (await r.text()).slice(0, 160));
+  log('  saved ' + path);
+}
+
+async function ghDelete(owner, repo, branch, token, path, log) {
+  var base = 'https://api.github.com/repos/' + owner + '/' + repo +
+             '/contents/' + path;
+  var head = { Authorization: 'Bearer ' + token,
+               Accept: 'application/vnd.github+json' };
+  var probe = await fetch(base + '?ref=' + encodeURIComponent(branch),
+                          { headers: head });
+  if (probe.status === 404) { log('  already gone ' + path); return; }
+  if (!probe.ok) throw new Error(path + ': ' + probe.status);
+  var sha = (await probe.json()).sha;
+  var r = await fetch(base, { method: 'DELETE', headers: head,
+    body: JSON.stringify({ message: 'Jalsa 5.0: remove photo', sha: sha,
+                           branch: branch }) });
+  if (!r.ok) throw new Error(path + ': delete ' + r.status);
+  log('  deleted ' + path);
+}
+
+async function wPublish() {
+  var owner = w$('gh-owner').value.trim(), repo = w$('gh-repo').value.trim(),
+      branch = (w$('gh-branch').value.trim() || 'main'),
+      token = w$('gh-token').value.trim();
+  var st = w$('pubstatus'), logEl = w$('publog');
+  function log(m) { logEl.classList.add('on'); logEl.textContent += m + '\n'; }
+  if (!owner || !repo || !token) {
+    st.className = 'status err';
+    st.textContent = 'Owner, repository and token are all required.';
+    return;
+  }
+  sessionStorage.setItem('jalsa_gh',
+    JSON.stringify({ owner: owner, repo: repo, branch: branch }));
+  sessionStorage.setItem('jalsa_gh_t', token);
+
+  w$('dopub').disabled = true;
+  st.className = 'status'; st.textContent = 'Publishing…';
+  logEl.textContent = '';
+  try {
+    // photos first, so winners.json never points at a file that is not there yet
+    var keys = Object.keys(WPHOTOS);
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i], parts = key.split('|');
+      var path = 'photos/' + parts[0] + '--' + parts[1] + '--' + parts[2] + '.jpg';
+      log('uploading photo ' + (i + 1) + ' of ' + keys.length);
+      await ghPut(owner, repo, branch, token, path, wB64(WPHOTOS[key].dataUrl),
+                  'Jalsa 5.0: photo for ' + parts[0], log);
+      var slotId = parts[0] + '|' + parts[1], place = parts[2];
+      var s = WDATA.results[slotId] || (WDATA.results[slotId] = {});
+      s.photos = s.photos || {};
+      s.photos[place] = path;
+    }
+    WDATA.updated = new Date().toISOString().slice(0, 10);
+    var jsonB64 = btoa(unescape(encodeURIComponent(
+      JSON.stringify(WDATA, null, 1))));
+    log('uploading winners.json');
+    await ghPut(owner, repo, branch, token, 'winners.json', jsonB64,
+                'Jalsa 5.0: update winners', log);
+    // only once winners.json has stopped referencing them
+    var dels = Object.keys(WDELETES);
+    for (var d = 0; d < dels.length; d++) {
+      log('removing photo ' + (d + 1) + ' of ' + dels.length);
+      await ghDelete(owner, repo, branch, token, dels[d], log);
+    }
+    WPHOTOS = {}; WDELETES = {}; WDIRTY = false; wMarkDirty();
+    st.className = 'status ok';
+    st.textContent = 'Published. GitHub Pages usually refreshes within a minute.';
+    wRender();
+  } catch (e) {
+    st.className = 'status err';
+    st.textContent = 'Failed: ' + e.message;
+    log('ERROR ' + e.message);
+  } finally {
+    w$('dopub').disabled = false;
+  }
+}
+
+// ---------------- init ----------------
+function initWinners() {
+  // "Record results" is always visible. Clicking it asks for the organisers'
+  // username and password. Residents who never sign in simply cannot switch the
+  // editor on, and even a signed-in organiser needs the GitHub token to save
+  // anything other people can see.
+  var UNLOCKED = sessionStorage.getItem('jalsa_admin') === '1';
+
+  async function sha256hex(txt) {
+    var buf = await crypto.subtle.digest('SHA-256',
+      new TextEncoder().encode(txt));
+    return Array.from(new Uint8Array(buf))
+      .map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+  function setEditing(on) {
+    document.body.classList.toggle('editing', on);
+    w$('editbtn').textContent = on ? 'Done editing' : 'Record results';
+    w$('savebar').hidden = !on;
+  }
+  function openLogin() {
+    w$('adm-err').textContent = '';
+    w$('adm-pw').value = '';
+    w$('loginmodal').classList.add('on');
+    w$('adm-user').focus();
+  }
+  function closeLogin() { w$('loginmodal').classList.remove('on'); }
+
+  async function trySignIn() {
+    var u = (w$('adm-user').value || '').trim().toLowerCase();
+    var p = (w$('adm-pw').value || '');
+    if (!u || !p) {
+      w$('adm-err').textContent = 'Enter both username and password.';
+      return;
+    }
+    var hex = await sha256hex(u + ':' + p);
+    if (hex === ADMIN_HASH) {
+      UNLOCKED = true;
+      sessionStorage.setItem('jalsa_admin', '1');
+      closeLogin();
+      setEditing(true);
+    } else {
+      w$('adm-err').textContent = 'Username or password is not correct.';
+      w$('adm-pw').value = '';
+    }
+  }
+
+  w$('adm-go').addEventListener('click', trySignIn);
+  w$('adm-pw').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); trySignIn(); }
+  });
+  w$('adm-user').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); w$('adm-pw').focus(); }
+  });
+  w$('adm-cancel').addEventListener('click', closeLogin);
+  w$('loginmodal').addEventListener('click', function (e) {
+    if (e.target === w$('loginmodal')) closeLogin();
+  });
+
+  w$('editbtn').addEventListener('click', function () {
+    if (!UNLOCKED) { openLogin(); return; }
+    setEditing(!document.body.classList.contains('editing'));
+  });
+
+  var dl = w$('download');
+  if (dl) dl.addEventListener('click', function () {
+    WDATA.updated = new Date().toISOString().slice(0, 10);
+    var blob = new Blob([JSON.stringify(WDATA, null, 1)],
+                        { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = 'winners.json'; a.click();
+    var keys = Object.keys(WPHOTOS);
+    if (keys.length) {
+      alert('winners.json downloaded.\n\n' + keys.length + ' photo(s) will ' +
+            'download next. Put them in a photos/ folder in the repository.');
+      keys.forEach(function (key) {
+        var p = key.split('|');
+        var a2 = document.createElement('a');
+        a2.href = WPHOTOS[key].dataUrl;
+        a2.download = p[0] + '--' + p[1] + '--' + p[2] + '.jpg';
+        a2.click();
+      });
+    }
+  });
+
+  var pb = w$('pubbtn');
+  if (pb) pb.addEventListener('click', function () {
+    var saved = sessionStorage.getItem('jalsa_gh');
+    if (saved) {
+      try {
+        var g = JSON.parse(saved);
+        w$('gh-owner').value = g.owner || '';
+        w$('gh-repo').value = g.repo || '';
+        w$('gh-branch').value = g.branch || 'main';
+      } catch (e) {}
+    }
+    var t = sessionStorage.getItem('jalsa_gh_t');
+    if (t) w$('gh-token').value = t;
+    w$('modal').classList.add('on');
+    w$('gh-owner').focus();
+  });
+  var cp = w$('cancelpub');
+  if (cp) cp.addEventListener('click', function () {
+    w$('modal').classList.remove('on');
+  });
+  var md = w$('modal');
+  if (md) md.addEventListener('click', function (e) {
+    if (e.target === md) md.classList.remove('on');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (md) md.classList.remove('on');
+    var lm = w$('loginmodal');
+    if (lm) lm.classList.remove('on');
+  });
+  var dp = w$('dopub');
+  if (dp) dp.addEventListener('click', wPublish);
+
+  window.addEventListener('beforeunload', function (e) {
+    if (WDIRTY) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  wLoad();
+}
+</script>
+<script>
+// staggered reveal — one orchestrated moment rather than scattered hovers
+(function () {
+  var evs = [].slice.call(document.querySelectorAll('.ev'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    evs.forEach(function (e) { e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var row = evs.indexOf(en.target);
+        en.target.style.transitionDelay = ((row % 4) * 70) + 'ms';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    evs.forEach(function (e) { io.observe(e); });
+  }
+
+  // filter
+  var q = document.getElementById('q'),
+      tally = document.getElementById('tally'),
+      none = document.getElementById('none');
+  function apply() {
+    var t = (q.value || '').toLowerCase().trim(), n = 0;
+    evs.forEach(function (e) {
+      var ok = !t || e.dataset.k.indexOf(t) > -1;
+      e.style.display = ok ? '' : 'none';
+      if (ok) { n++; e.classList.add('in'); }
+    });
+    document.querySelectorAll('.dayblock').forEach(function (b) {
+      b.style.display =
+        b.querySelectorAll('.ev:not([style*="none"])').length ? '' : 'none';
+    });
+    // the winners board filters on the same query
+    var wn = (typeof wFilter === 'function') ? wFilter(t) : 0;
+    // the timetable filters on the same query
+    document.querySelectorAll('tr[data-k]').forEach(function (tr) {
+      tr.style.display = (!t || tr.dataset.k.indexOf(t) > -1) ? '' : 'none';
+    });
+    document.querySelectorAll('.ttday').forEach(function (d) {
+      d.style.display =
+        d.querySelectorAll('tr[data-k]:not([style*="none"])').length ? '' : 'none';
+    });
+    var wbOn = !document.getElementById('panel-wb').hidden;
+    var ttOn = !document.getElementById('panel-tt').hidden;
+    var shown = wbOn ? wn : (t ? n : evs.length);
+    tally.textContent = shown + (shown === 1 ? ' event' : ' events') +
+      (ttOn ? ' scheduled' : (wbOn ? ' with results' : ''));
+    none.style.display = shown ? 'none' : 'block';
+  }
+  q.addEventListener('input', apply);
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { q.value = ''; apply(); }
+  });
+  document.getElementById('clear').addEventListener('click', function () {
+    q.value = ''; apply(); q.focus();
+  });
+
+  // ---- tabs: Rules is the default view --------------------------------
+  var TABS = [
+    { t: 'tab-rules', p: 'panel-rules', k: 'rules' },
+    { t: 'tab-tt',    p: 'panel-tt',    k: 'tt' },
+    { t: 'tab-wb',    p: 'panel-wb',    k: 'wb' }
+  ];
+  function showTab(kind, focusTab) {
+    TABS.forEach(function (x) {
+      var on = x.k === kind;
+      document.getElementById(x.p).hidden = !on;
+      var b = document.getElementById(x.t);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      if (on && focusTab) b.focus();
+    });
+    apply();
+  }
+  TABS.forEach(function (x, i) {
+    var b = document.getElementById(x.t);
+    b.addEventListener('click', function () { showTab(x.k); });
+    b.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var j = (i + (e.key === 'ArrowRight' ? 1 : TABS.length - 1)) % TABS.length;
+      showTab(TABS[j].k, true);
+    });
+  });
+
+  // clicking an event in the timetable jumps to its rules
+  document.getElementById('panel-tt').addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#ev-"]');
+    if (!a) return;
+    e.preventDefault();
+    var id = a.getAttribute('href').slice(1);
+    showTab('rules');
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.add('in');
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+
+  // deep links: #timetable, #winners, #ev-<slug>
+  (function () {
+    var hash = location.hash || '';
+    if (hash === '#timetable') showTab('tt');
+    else if (hash === '#winners') showTab('wb');
+    else if (hash.indexOf('#ev-') === 0) {
+      showTab('rules');
+      var el = document.getElementById(hash.slice(1));
+      if (el) { el.classList.add('in'); el.scrollIntoView({ block: 'start' }); }
+    }
+  })();
+
+  if (typeof initWinners === 'function') initWinners();
+
+  // back to top
+  var top = document.getElementById('top');
+  top.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+  window.addEventListener('scroll', function () {
+    top.classList.toggle('on', window.pageYOffset > 700);
+  }, { passive: true });
+})();
+</script></body></html>
