@@ -361,6 +361,13 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 .pphoto img{max-width:100%;height:auto;border:1px solid var(--rule);
   display:block;background:#fff}
 .pphoto.thumb img{max-height:150px;width:auto}
+.ptwo{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px}
+.pslot{flex:1 1 130px;min-width:120px}
+.pslot .pslabel{display:block;font-family:"Cinzel",serif;font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:4px}
+.pslot .pphoto{margin-top:0}
+.pslot .pphoto.thumb img{max-height:120px}
 
 /* editor, only shown in admin mode */
 .edit{display:none}
@@ -1107,7 +1114,7 @@ body.editing .prize{background:#fff}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><div class='warn'><b>Use a fine-grained token</b> limited to this one repository, with <b>Contents: Read and write</b> and a short expiry. It is kept only for this browser tab and is never written into the page or the repository.</div><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.<br><br>The token is kept only for this browser tab and is never written into the page or the repository.</div><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1204,14 +1211,39 @@ function wPrize(s, place, label, cls, badge) {
   } else {
     body = wNameLine(st[place]);
   }
+
+  // Doubles: two winners share the medal, so each gets their own photo slot.
+  var photos;
+  if (s.type === 'pair') {
+    var who = st[place] || [];
+    photos = "<div class='ptwo'>";
+    [1, 2].forEach(function (n) {
+      var pk = place + n;
+      var nm = (who[n - 1] || '').trim() || ('Player ' + n);
+      photos += "<div class='pslot'><span class='pslabel'>" + esc(nm) +
+        "</span>" + wPhoto(s.id, pk) +
+        "<div class='edit'>" + wFileCtl(s.id, pk) + "</div></div>";
+    });
+    photos += "</div>";
+  } else {
+    photos = wPhoto(s.id, place) +
+      "<div class='edit'>" + wFileCtl(s.id, place) + "</div>";
+  }
+
   return "<div class='prize " + cls + "'>" +
     "<div class='medal " + badge + "' aria-hidden='true'>" +
       (badge === 't' ? '&#9873;' : (badge === 'g' ? '1' : '2')) + "</div>" +
     "<div class='pbody'><p class='plabel'>" + label + "</p>" + body +
-      wPhoto(s.id, place) +
-      "<div class='edit'>" + wInputs(s.id, place, s.type) +
-        wFileCtl(s.id, place) + "</div>" +
+      "<div class='edit'>" + wInputs(s.id, place, s.type) + "</div>" +
+      photos +
     "</div></div>";
+}
+
+// every photo slot a card can hold, so clearing removes all of them
+function wPlaces(type) {
+  if (type === 'trophy') return ['team'];
+  if (type === 'pair') return ['gold1', 'gold2', 'silver1', 'silver2'];
+  return ['gold', 'silver'];
 }
 
 function wRender() {
@@ -1287,7 +1319,8 @@ function wWire() {
           WDELETES[st.photos[pl]] = true;
         });
       }
-      ['gold', 'silver', 'team'].forEach(function (pl) {
+      var slot = SLOTS.filter(function (x) { return x.id === id; })[0];
+      wPlaces(slot ? slot.type : 'medal').forEach(function (pl) {
         delete WPHOTOS[id + '|' + pl];
       });
       delete WDATA.results[id];
@@ -1353,6 +1386,60 @@ function wFilter(t) {
 }
 
 // ---------------- publish to GitHub ----------------
+// Turn GitHub's terse API errors into something actionable.
+function ghExplain(status, bodyText, owner, repo) {
+  var m = '';
+  try { m = (JSON.parse(bodyText).message || ''); } catch (e) { m = bodyText; }
+  if (status === 401) {
+    return 'The token was rejected (401). It may be expired, revoked, or ' +
+           'pasted with a missing character. Generate a new one.';
+  }
+  if (status === 403 && /not accessible by personal access token/i.test(m)) {
+    return 'The token is valid but has no write access to this repository (403). ' +
+           'On a fine-grained token check BOTH of these: ' +
+           '(1) Repository access = "Only select repositories" with ' +
+           owner + '/' + repo + ' ticked, and ' +
+           '(2) Permissions > Repository permissions > Contents = ' +
+           '"Read and write" (not Account permissions). ' +
+           'Then regenerate or re-save the token.';
+  }
+  if (status === 403) {
+    return 'Forbidden (403): ' + m + '. Usually the Contents permission is ' +
+           'missing, or the repository is owned by an organisation that has ' +
+           'not approved fine-grained tokens.';
+  }
+  if (status === 404) {
+    return 'Not found (404). Either ' + owner + '/' + repo + ' is misspelled, ' +
+           'or the token cannot see that repository at all. Check the owner ' +
+           'and repository names, and that the repo is selected on the token.';
+  }
+  if (status === 409 || status === 422) {
+    return 'Conflict (' + status + '): ' + m + '. Someone else may have ' +
+           'published at the same moment. Reload the page and try again.';
+  }
+  return status + ': ' + m;
+}
+
+// Verify the token can actually write, before uploading anything.
+async function ghCheck(owner, repo, branch, token) {
+  var head = { Authorization: 'Bearer ' + token,
+               Accept: 'application/vnd.github+json' };
+  var r = await fetch('https://api.github.com/repos/' + owner + '/' + repo,
+                      { headers: head });
+  if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
+  var info = await r.json();
+  if (info.permissions && info.permissions.push === false) {
+    throw new Error('The token can read ' + owner + '/' + repo +
+      ' but not write to it. Set Contents to "Read and write".');
+  }
+  var br = await fetch('https://api.github.com/repos/' + owner + '/' + repo +
+    '/branches/' + encodeURIComponent(branch), { headers: head });
+  if (br.status === 404) {
+    throw new Error('Branch "' + branch + '" does not exist in ' + owner + '/' +
+      repo + '. On a new repository it is usually "main".');
+  }
+  return info.private ? 'private' : 'public';
+}
 function wB64(dataUrl) { return dataUrl.split(',')[1]; }
 
 async function ghPut(owner, repo, branch, token, path, contentB64, msg, log) {
@@ -1365,13 +1452,12 @@ async function ghPut(owner, repo, branch, token, path, contentB64, msg, log) {
                           { headers: head });
   if (probe.status === 200) sha = (await probe.json()).sha;
   else if (probe.status !== 404)
-    throw new Error(path + ': ' + probe.status + ' ' + probe.statusText);
+    throw new Error(ghExplain(probe.status, await probe.text(), owner, repo));
   var body = { message: msg, content: contentB64, branch: branch };
   if (sha) body.sha = sha;
   var r = await fetch(base, { method: 'PUT', headers: head,
                               body: JSON.stringify(body) });
-  if (!r.ok) throw new Error(path + ': ' + r.status + ' ' +
-                             (await r.text()).slice(0, 160));
+  if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
   log('  saved ' + path);
 }
 
@@ -1383,12 +1469,13 @@ async function ghDelete(owner, repo, branch, token, path, log) {
   var probe = await fetch(base + '?ref=' + encodeURIComponent(branch),
                           { headers: head });
   if (probe.status === 404) { log('  already gone ' + path); return; }
-  if (!probe.ok) throw new Error(path + ': ' + probe.status);
+  if (!probe.ok)
+    throw new Error(ghExplain(probe.status, await probe.text(), owner, repo));
   var sha = (await probe.json()).sha;
   var r = await fetch(base, { method: 'DELETE', headers: head,
     body: JSON.stringify({ message: 'Jalsa 5.0: remove photo', sha: sha,
                            branch: branch }) });
-  if (!r.ok) throw new Error(path + ': delete ' + r.status);
+  if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
   log('  deleted ' + path);
 }
 
@@ -1411,6 +1498,9 @@ async function wPublish() {
   st.className = 'status'; st.textContent = 'Publishing…';
   logEl.textContent = '';
   try {
+    log('checking access to ' + owner + '/' + repo + ' (' + branch + ')');
+    var vis = await ghCheck(owner, repo, branch, token);
+    log('  ok, ' + vis + ' repository, write access confirmed');
     // photos first, so winners.json never points at a file that is not there yet
     var keys = Object.keys(WPHOTOS);
     for (var i = 0; i < keys.length; i++) {
@@ -1565,6 +1655,36 @@ function initWinners() {
   });
   var dp = w$('dopub');
   if (dp) dp.addEventListener('click', wPublish);
+
+  var ca = w$('checkacc');
+  if (ca) ca.addEventListener('click', async function () {
+    var st = w$('pubstatus'), logEl = w$('publog');
+    var owner = w$('gh-owner').value.trim(), repo = w$('gh-repo').value.trim(),
+        branch = (w$('gh-branch').value.trim() || 'main'),
+        token = w$('gh-token').value.trim();
+    logEl.classList.add('on');
+    logEl.textContent = '';
+    if (!owner || !repo || !token) {
+      st.className = 'status err';
+      st.textContent = 'Owner, repository and token are all required.';
+      return;
+    }
+    ca.disabled = true;
+    st.className = 'status'; st.textContent = 'Checking…';
+    try {
+      var vis = await ghCheck(owner, repo, branch, token);
+      st.className = 'status ok';
+      st.textContent = 'Access confirmed on ' + owner + '/' + repo +
+        ' (' + vis + ', branch ' + branch + '). Safe to publish.';
+      logEl.textContent = 'write access ok\n';
+    } catch (e) {
+      st.className = 'status err';
+      st.textContent = e.message;
+      logEl.textContent = e.message + '\n';
+    } finally {
+      ca.disabled = false;
+    }
+  });
 
   window.addEventListener('beforeunload', function (e) {
     if (WDIRTY) { e.preventDefault(); e.returnValue = ''; }
