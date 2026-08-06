@@ -1,4 +1,21 @@
 {
- "updated": "",
- "results": {}
+ "updated": "2026-08-06",
+ "results": {
+  "carrom|upto-10-years-doubles": {
+   "gold": [
+    "Gold1",
+    "Gold 2"
+   ],
+   "silver": [
+    "Silver1",
+    "Silver2"
+   ],
+   "photos": {
+    "gold1": "photos/carrom--upto-10-years-doubles--gold1.jpg",
+    "gold2": "photos/carrom--upto-10-years-doubles--gold2.jpg",
+    "silver1": "photos/carrom--upto-10-years-doubles--silver1.jpg",
+    "silver2": "photos/carrom--upto-10-years-doubles--silver2.jpg"
+   }
+  }
+ }
 }
