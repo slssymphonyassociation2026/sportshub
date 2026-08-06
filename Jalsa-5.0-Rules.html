@@ -1133,7 +1133,7 @@ body.editing .prize{background:#fff}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1141,7 +1141,7 @@ body.editing .prize{background:#fff}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 05:43</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 05:50</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
@@ -1193,6 +1193,10 @@ function ghForget() {
     localStorage.removeItem(GHR); sessionStorage.removeItem(GHT);
     localStorage.removeItem('jalsa_admin_l');
   } catch (e) {}
+}
+function wDialogOpen() {
+  var m = w$('modal');
+  return !!(m && m.classList.contains('on'));
 }
 function wToast(msg, detail) {
   var t = w$('toast');
@@ -1556,6 +1560,8 @@ async function wPublish() {
   w$('dopub').disabled = true;
   st.className = 'status'; st.textContent = 'Publishing…';
   logEl.textContent = '';
+  var headless = !wDialogOpen();
+  if (headless) wToast('Publishing…', 'Uploading results to GitHub.');
   try {
     log('checking access to ' + owner + '/' + repo + ' (' + branch + ')');
     var vis = await ghCheck(owner, repo, branch, token);
@@ -1608,6 +1614,12 @@ async function wPublish() {
     if (/token|403|401|404|permission|access/i.test(e.message)) {
       var th = w$('tokhelp');
       if (th) th.open = true;
+    }
+    // a one-tap publish that fails needs the dialog opened so the error is seen
+    if (headless) {
+      var t = w$('toast');
+      if (t) t.hidden = true;
+      w$('modal').classList.add('on');
     }
   } finally {
     w$('dopub').disabled = false;
@@ -1698,24 +1710,41 @@ function initWinners() {
     }
   });
 
-  var pb = w$('pubbtn');
-  if (pb) pb.addEventListener('click', function () {
+  // Fill the dialog fields from the saved settings. They exist in the DOM even
+  // when the dialog is closed, which is what lets Publish run in one tap.
+  function fillFromStore() {
     var g = ghLoad();
     w$('gh-owner').value = g.owner;
     w$('gh-repo').value = g.repo;
     w$('gh-branch').value = g.branch;
     w$('gh-token').value = g.token;
     if (w$('gh-remember')) w$('gh-remember').checked = g.remember;
+    return g;
+  }
+  function openPubDialog() {
+    fillFromStore();
     w$('pubstatus').textContent = '';
     w$('pubstatus').className = 'status';
     w$('publog').textContent = '';
     w$('publog').classList.remove('on');
     if (w$('tokhelp')) w$('tokhelp').open = false;
     w$('modal').classList.add('on');
-    // everything already filled in? go straight to the action
+    var g = ghLoad();
     if (g.owner && g.repo && g.token) w$('dopub').focus();
     else w$('gh-owner').focus();
+  }
+
+  var pb = w$('pubbtn');
+  if (pb) pb.addEventListener('click', function () {
+    var g = fillFromStore();
+    // Everything already saved on this device? Publish straight away.
+    // Otherwise ask for the details once.
+    if (g.owner && g.repo && g.token) wPublish();
+    else openPubDialog();
   });
+
+  var ps = w$('pubsetup');
+  if (ps) ps.addEventListener('click', openPubDialog);
 
   var fg = w$('gh-forget');
   if (fg) fg.addEventListener('click', function () {
