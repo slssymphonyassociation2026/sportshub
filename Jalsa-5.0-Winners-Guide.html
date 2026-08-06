@@ -1,0 +1,482 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='robots' content='noindex,nofollow'>
+<title>Jalsa 5.0 — Recording Results</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap' rel='stylesheet'>
+<style>
+/* ============================================================
+   Jalsa 5.0 — 1930s athletics programme
+   midnight indigo + brass, Art Deco geometry, engraved capitals
+   ============================================================ */
+:root{
+  --ink:#0a0a18;            /* poster's darkest navy */
+  --ink-2:#12123a;
+  --ink-3:#1b1b46;
+  --brass:#c9a227;
+  --brass-lt:#f0cf6b;
+  --brass-dk:#8a6d14;
+  --paper:#f4efe2;          /* programme paper */
+  --paper-2:#e8e0cd;
+  --body:#2a2620;
+  --muted:#6b6355;
+  --rule:rgba(201,162,39,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ink); color:var(--body);
+  font-family:"EB Garamond","Iowan Old Style",Georgia,"Times New Roman",serif;
+  font-size:18px; line-height:1.62;
+}
+::selection{background:var(--brass);color:var(--ink)}
+
+/* ---------- deco frame + grain, applied to the dark sections ---------- */
+.dark{
+  position:relative; color:var(--paper);
+  background:
+    radial-gradient(120% 90% at 50% -10%, #26265e 0%, transparent 58%),
+    radial-gradient(80% 60% at 15% 8%, #2b1746 0%, transparent 60%),
+    linear-gradient(180deg,#0a0a18 0%,#101033 55%,#0a0a18 100%);
+}
+.dark::after{           /* fine grain, keeps the flat navy from looking digital */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.26;
+  background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>\
+<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/>\
+</filter><rect width='140' height='140' filter='url(%23n)' opacity='.5'/></svg>");
+}
+.dark > *{position:relative;z-index:1}
+
+/* ---------- masthead ---------- */
+.mast{padding:clamp(26px,6vw,64px) 20px clamp(30px,5vw,54px);text-align:center}
+.mast .frame{
+  max-width:920px;margin:0 auto;padding:clamp(22px,4vw,40px) clamp(16px,4vw,44px);
+  border:1px solid var(--rule); position:relative;
+}
+.mast .frame::before,.mast .frame::after{
+  content:"";position:absolute;left:9px;right:9px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--brass),transparent);
+}
+.mast .frame::before{top:9px} .mast .frame::after{bottom:9px}
+.corner{position:absolute;width:16px;height:16px;border:1px solid var(--brass);opacity:.85}
+.corner.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.corner.tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+.corner.bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+.corner.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+.crest{width:96px;height:auto;margin:0 auto 16px;display:block;
+  border:1px solid var(--brass);padding:5px;background:#0d0d22}
+.eyebrow{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(9px,1.5vw,12px);
+  letter-spacing:.46em;text-transform:uppercase;color:var(--brass-lt);
+  margin:0 0 12px;text-indent:.46em;
+}
+h1.title{
+  font-family:"Cinzel",Georgia,serif;font-weight:700;
+  font-size:clamp(38px,11vw,104px); line-height:.92; margin:0;
+  letter-spacing:.03em; color:var(--paper);
+  text-shadow:0 1px 0 var(--brass-dk),0 0 34px rgba(201,162,39,.22);
+}
+h1.title .pt{color:var(--brass);font-size:.62em;vertical-align:.12em}
+.sub{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(12px,2.4vw,17px);
+  letter-spacing:.30em;text-transform:uppercase;color:var(--paper);
+  margin:16px 0 0;text-indent:.30em;opacity:.9;
+}
+.dbl{display:flex;align-items:center;gap:13px;justify-content:center;margin:20px auto 0;max-width:440px}
+.dbl i{flex:1;height:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);height:3px}
+.dbl b{color:var(--brass);font-size:11px;letter-spacing:.3em;font-family:"Cinzel",serif}
+.mast p.blurb{max-width:600px;margin:20px auto 0;color:#cfc9ba;font-size:16.5px}
+
+/* ---------- sticky index ---------- */
+nav.idx{
+  position:sticky;top:0;z-index:30;background:rgba(10,10,24,.94);
+  backdrop-filter:blur(9px);border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+nav.idx .in{max-width:1080px;margin:0 auto;padding:9px 16px;
+  display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+[hidden]{display:none!important}
+nav.idx .tabs{display:flex;gap:2px;border:1px solid var(--rule);border-radius:2px;
+  padding:2px;background:rgba(255,255,255,.04)}
+nav.idx .tab{
+  font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-lt);background:none;border:0;
+  padding:7px 15px;cursor:pointer;transition:.18s;border-radius:1px}
+nav.idx .tab[aria-selected="true"]{background:var(--brass);color:var(--ink);
+  font-weight:600}
+nav.idx .tab:hover[aria-selected="false"]{color:#fff;background:rgba(255,255,255,.07)}
+nav.idx a.mylink{font-family:"Cinzel",Georgia,serif;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  background:var(--brass);text-decoration:none;padding:8px 13px;
+  border-radius:2px;font-weight:600;white-space:nowrap}
+nav.idx a.mylink:hover{background:var(--brass-lt)}
+nav.idx a,nav.idx button{
+  font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-lt);text-decoration:none;
+  padding:6px 11px;border:1px solid transparent;border-radius:2px;
+  background:none;cursor:pointer;transition:.18s
+}
+nav.idx a:hover,nav.idx button:hover{border-color:var(--brass);color:#fff}
+nav.idx a:focus-visible,nav.idx button:focus-visible,
+nav.idx input:focus-visible{outline:2px solid var(--brass-lt);outline-offset:2px}
+nav.idx input{
+  flex:1 1 190px;min-width:150px;padding:8px 11px;font-size:15px;
+  font-family:inherit;color:var(--paper);background:rgba(255,255,255,.06);
+  border:1px solid var(--rule);border-radius:2px
+}
+nav.idx input::placeholder{color:#9a94a8}
+nav.idx .tally{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.14em;
+  color:var(--brass);text-transform:uppercase}
+
+/* ---------- paper body ---------- */
+main{
+  background:var(--paper);
+  background-image:
+    radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);
+  background-size:4px 4px;
+  padding:clamp(30px,6vw,72px) 20px clamp(40px,7vw,90px);
+}
+.sheet{max-width:1080px;margin:0 auto}
+
+.plate{
+  background:linear-gradient(180deg,#0d0d24,#141438);color:var(--paper);
+  border:1px solid var(--brass-dk);padding:clamp(20px,3.6vw,34px);
+  margin:0 0 clamp(30px,5vw,52px);position:relative
+}
+.plate h2{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(19px,3.4vw,27px);
+  letter-spacing:.10em;text-transform:uppercase;margin:0 0 4px;color:var(--brass-lt)
+}
+.plate .lede{color:#c8c2b3;font-size:16px;margin:0 0 18px}
+ol.gen{counter-reset:g;list-style:none;margin:0;padding:0;
+  columns:2;column-gap:34px}
+ol.gen li{counter-increment:g;break-inside:avoid;padding:0 0 12px 34px;position:relative}
+ol.gen li::before{
+  content:counter(g,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:"Cinzel",serif;font-size:11.5px;color:var(--brass);
+  letter-spacing:.06em
+}
+@media(max-width:720px){ol.gen{columns:1}}
+
+.fair{margin:20px 0 0;padding:15px 17px;border:1px dashed var(--rule);
+  background:rgba(201,162,39,.06)}
+.fair h3{font-family:"Cinzel",serif;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 8px}
+.fair ul{margin:0;padding-left:19px;color:#cfc9ba;font-size:15.5px}
+.fair li{margin:6px 0}
+
+/* ---------- day heading ---------- */
+.day{display:flex;align-items:baseline;gap:16px;margin:clamp(34px,5vw,58px) 0 22px}
+.day h2{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(24px,5vw,44px);
+  letter-spacing:.06em;text-transform:uppercase;margin:0;color:var(--ink-2)
+}
+.day .ct{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.day .ln{flex:1;height:5px;border-top:1px solid var(--brass);
+  border-bottom:1px solid var(--brass);opacity:.5}
+
+/* ---------- event entries ---------- */
+.ev{
+  border-top:1px solid rgba(0,0,0,.16);padding:26px 0 8px;
+  display:grid;grid-template-columns:78px 1fr;gap:clamp(14px,3vw,30px);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .55s ease,transform .55s ease
+}
+.ev.in{opacity:1;transform:none}
+.ev > div{min-width:0}          /* grid items default to min-width:auto and
+                                   refuse to shrink, which pushes wide content
+                                   past the right edge on narrow screens */
+.ev{scroll-margin-top:64px}
+.ev:last-child{border-bottom:1px solid rgba(0,0,0,.16)}
+.num{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(26px,5vw,40px);
+  line-height:1;color:var(--brass-dk);
+  border:1px solid var(--rule);background:#fffdf7;
+  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1/1;box-shadow:inset 0 0 0 3px #fffdf7,0 1px 0 rgba(0,0,0,.08)
+}
+.ev h3{
+  font-family:"Cinzel",Georgia,serif;font-size:clamp(20px,3.6vw,30px);
+  letter-spacing:.02em;margin:0 0 8px;color:var(--ink-2);line-height:1.14
+}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;min-width:0}
+.tag{
+  font-family:"Cinzel",Georgia,serif;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;padding:4px 9px;border:1px solid var(--rule);
+  color:var(--muted);background:#fffdf7;white-space:nowrap
+}
+.tag.hi{border-color:var(--brass);color:var(--brass-dk);font-weight:600}
+.howto{font-size:16.5px;color:#3b352b;margin:0 0 15px;
+  padding-left:15px;border-left:2px solid var(--brass);overflow-wrap:break-word}
+.howto b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk);display:block;margin-bottom:3px}
+ol.rules{counter-reset:r;list-style:none;margin:0;padding:0}
+ol.rules li{counter-increment:r;position:relative;padding:0 0 9px 30px;
+  overflow-wrap:break-word}
+ol.rules li::before{
+  content:counter(r);position:absolute;left:0;top:3px;width:20px;
+  font-family:"Cinzel",serif;font-size:11px;color:var(--brass-dk);
+  text-align:right;border-right:1px solid var(--rule);padding-right:6px;
+  line-height:1.5
+}
+.judge{margin:15px 0 0;padding:13px 15px;background:#fffdf7;
+  border:1px solid var(--rule)}
+.judge b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chip{font-size:14px;padding:3px 11px;border:1px solid var(--brass);
+  border-radius:999px;color:var(--ink-2);background:#fff}
+.cats{margin:14px 0 0;font-size:15px;color:var(--muted);
+  overflow-wrap:break-word}
+.cats b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk);margin-right:7px}
+/* ---------- timetable ---------- */
+.tt{margin:0 0 clamp(30px,5vw,52px)}
+.tt h2{font-family:"Cinzel",Georgia,serif;font-size:clamp(19px,3.4vw,27px);
+  letter-spacing:.10em;text-transform:uppercase;margin:0 0 4px;color:var(--ink-2)}
+.tt .lede{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:640px}
+.ttday{margin:0 0 26px}
+.ttday h3{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brass-dk);margin:0 0 9px;
+  padding-bottom:7px;border-bottom:1px solid var(--brass)}
+table.tt-grid{width:100%;border-collapse:collapse;background:#fffdf7;
+  border:1px solid var(--rule)}
+table.tt-grid th{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:9px 12px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+table.tt-grid td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.07);
+  font-size:16px;vertical-align:top}
+table.tt-grid tr:last-child td{border-bottom:0}
+table.tt-grid td.t{font-family:"Cinzel",serif;font-size:13px;color:var(--brass-dk);
+  white-space:nowrap;letter-spacing:.04em}
+table.tt-grid td.e a{color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid var(--rule);font-weight:600}
+table.tt-grid td.e a:hover{border-bottom-color:var(--brass);color:var(--brass-dk)}
+table.tt-grid td.m{color:var(--muted);font-size:15px}
+table.tt-grid td.m.none{color:#a8a08e;font-style:italic}
+.ttnote{margin:12px 0 0;font-size:14.5px;color:var(--muted);font-style:italic}
+@media(max-width:640px){
+  table.tt-grid,table.tt-grid tbody,table.tt-grid tr,table.tt-grid td{display:block}
+  table.tt-grid thead{display:none}
+  table.tt-grid tr{border-bottom:1px solid var(--rule);padding:11px 12px}
+  table.tt-grid tr:last-child{border-bottom:0}
+  table.tt-grid td{border:0;padding:1px 0;font-size:15.5px}
+  table.tt-grid td.t{font-size:12px;letter-spacing:.14em}
+  table.tt-grid td.e{font-size:17px;margin:2px 0}
+}
+.noresult{display:none;padding:34px 0;text-align:center;color:var(--muted);
+  font-size:17px;font-style:italic}
+
+/* ---------- footer ---------- */
+footer.foot{padding:clamp(30px,5vw,58px) 20px;text-align:center}
+footer.foot .dbl{margin-bottom:20px}
+footer.foot p{margin:6px 0;color:#a9a394;font-size:14px}
+footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass);margin-top:16px}
+
+/* ---------- to top ---------- */
+#top{position:fixed;right:16px;bottom:16px;z-index:40;width:44px;height:44px;
+  border:1px solid var(--brass);background:rgba(10,10,24,.9);color:var(--brass-lt);
+  font-size:17px;cursor:pointer;opacity:0;pointer-events:none;transition:.25s;
+  border-radius:2px}
+#top.on{opacity:1;pointer-events:auto}
+#top:hover{background:var(--brass);color:var(--ink)}
+
+@media(max-width:600px){
+  body{font-size:17px}
+  main{padding:24px 14px 44px}
+  /* Drop the two-column grid: the numeral plate created a wide empty gutter on
+     the left while text was clipped on the right. The number becomes a small
+     rubric above the title and the text gets the full width. */
+  .ev{display:block;padding:22px 0 10px}
+  .num{display:inline-block;width:auto;height:auto;aspect-ratio:auto;
+       padding:2px 10px;font-size:13px;letter-spacing:.14em;
+       margin:0 0 7px;box-shadow:none;line-height:1.5}
+  .ev h3{font-size:21px;overflow-wrap:break-word;hyphens:auto}
+  ol.gen{columns:1}
+  /* Carrom and Chess carry a long free-text time; nowrap would clip it */
+  .tag{white-space:normal;font-size:9.5px;letter-spacing:.1em;
+       line-height:1.45;padding:4px 7px}
+  .howto{font-size:15.5px;padding-left:11px}
+  ol.rules li{padding-left:26px;font-size:15.5px}
+  ol.rules li::before{width:17px;padding-right:5px}
+  .chip{font-size:13px;padding:3px 9px}
+  .day{gap:10px}
+  .day h2{font-size:26px}
+  .sheet{overflow-x:hidden}
+}
+@media(max-width:400px){
+  main{padding:20px 11px 40px}
+  .ev h3{font-size:19px}
+  ol.rules li{padding-left:23px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ev{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- print: a clean paper programme ---------- */
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .dark{background:#fff!important;color:#000!important}
+  .dark::after{display:none}
+  nav.idx,#top,.noresult{display:none!important}
+  h1.title{font-size:30pt;text-shadow:none;color:#000}
+  .eyebrow,.sub,.day .ct{color:#333}
+  main{background:#fff;padding:0}
+  .plate{background:#fff!important;color:#000!important;border:1pt solid #000}
+  .plate h2,.fair h3{color:#000}
+  .plate .lede,.fair ul{color:#222}
+  .ev{opacity:1!important;transform:none!important;page-break-inside:avoid}
+  .crest{filter:grayscale(1)}
+  footer.foot p{color:#333}
+}
+
+/* ---- moderator guide ---- */
+.guide { max-width:760px; margin:0 auto; padding:0 16px 70px; }
+.guide h2 { font-family:"Cinzel",Georgia,serif; font-size:clamp(20px,4vw,28px);
+  margin:44px 0 4px; color:var(--ink); letter-spacing:.02em; }
+.guide h2:first-of-type { margin-top:26px; }
+.guide .sub { font-size:15.5px; color:var(--muted); margin:0 0 18px;
+  line-height:1.6; }
+.step { display:grid; grid-template-columns:52px 1fr; gap:0 16px;
+  padding:20px 0; border-top:1px solid var(--hair); }
+.step:first-of-type { border-top:0; }
+.step .no { font-family:"Cinzel",Georgia,serif; font-size:15px; font-weight:700;
+  color:var(--ink); background:var(--brass); border-radius:2px; height:34px;
+  display:flex; align-items:center; justify-content:center; }
+.step h3 { margin:4px 0 6px; font-size:19px; font-family:"Cinzel",Georgia,serif;
+  font-weight:600; }
+.step p { margin:0 0 8px; font-size:16.5px; line-height:1.6; }
+.step p:last-child { margin-bottom:0; }
+.step ul { margin:6px 0 8px; padding-left:20px; font-size:16px; line-height:1.6; }
+.step li { margin:5px 0; }
+.step .once { display:inline-block; font-family:"Cinzel",serif; font-size:9.5px;
+  letter-spacing:.14em; text-transform:uppercase; background:#efe7d4;
+  border:1px solid var(--rule); color:var(--brass-dk); padding:2px 8px;
+  border-radius:2px; margin-left:8px; vertical-align:2px; }
+kbd { font-family:"Cinzel",Georgia,serif; font-size:12.5px; letter-spacing:.06em;
+  background:#fffdf7; border:1px solid var(--rule); border-bottom-width:2px;
+  border-radius:3px; padding:2px 8px; white-space:nowrap; color:var(--ink); }
+.shot { margin:12px 0 4px; }
+figure.shot { padding:0; }
+figure.shot img { display:block; width:100%; height:auto; border:1px solid
+  var(--rule); background:#fff; }
+figure.shot figcaption { font-size:13.5px; color:var(--muted); margin-top:6px;
+  font-style:italic; }
+.shot.missing { border:1px dashed var(--rule); background:#fffdf7;
+  padding:14px 15px; }
+.shot.missing b { display:block; font-family:"Cinzel",serif; font-size:10px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--brass-dk);
+  margin-bottom:6px; }
+.shot.missing code { display:block; font-family:ui-monospace,Menlo,monospace;
+  font-size:12.5px; color:var(--ink); margin-bottom:4px; }
+.shot.missing span { font-size:14px; color:var(--muted); }
+.care { border:1px solid #c9a227; background:#fffdf3; padding:16px 18px;
+  margin:26px 0; }
+.care h3 { font-family:"Cinzel",Georgia,serif; font-size:14px;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 8px;
+  color:#7a5c1e; }
+.care p, .care li { font-size:16px; line-height:1.6; }
+.care ul { margin:8px 0 0; padding-left:20px; }
+table.tb { width:100%; border-collapse:collapse; margin:14px 0 0;
+  font-size:15.5px; }
+table.tb th { font-family:"Cinzel",Georgia,serif; font-size:10.5px;
+  text-transform:uppercase; letter-spacing:.1em; color:var(--muted);
+  text-align:left; padding:9px 10px; border-bottom:1px solid var(--rule); }
+table.tb td { padding:11px 10px; border-bottom:1px solid var(--hair);
+  vertical-align:top; line-height:1.55; }
+table.tb td:first-child { font-weight:600; width:38%; }
+.tocbox { border:1px solid var(--rule); background:#fffdf7; padding:15px 18px;
+  margin:24px 0 0; }
+.tocbox h3 { font-family:"Cinzel",Georgia,serif; font-size:10.5px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--brass-dk);
+  margin:0 0 8px; }
+.tocbox ol { margin:0; padding-left:20px; font-size:16px; line-height:1.75; }
+.tocbox a { color:var(--ink); text-decoration:none;
+  border-bottom:1px solid var(--rule); }
+.tocbox a:hover { color:var(--brass-dk); }
+@media (max-width:600px) {
+  .step { grid-template-columns:1fr; gap:8px; }
+  .step .no { width:34px; }
+  .step h3 { font-size:17.5px; }
+  .step p, .step ul { font-size:16px; }
+  table.tb td:first-child { width:auto; }
+  table.tb, table.tb thead, table.tb tbody, table.tb tr, table.tb td { display:block; }
+  table.tb thead { display:none; }
+  table.tb tr { border-bottom:1px solid var(--rule); padding:10px 0; }
+  table.tb td { border:0; padding:3px 0; }
+  table.tb td:first-child { color:var(--brass-dk); }
+}
+@media print {
+  .tocbox { break-inside:avoid; }
+  .step { break-inside:avoid; }
+  figure.shot img { max-height:90mm; width:auto; }
+}
+</style></head><body>
+<header class='dark mast'><div class='frame'>
+<span class='corner tl'></span>
+<span class='corner tr'></span>
+<span class='corner bl'></span>
+<span class='corner br'></span>
+<img class='crest' src='data:image/jpeg;base64,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' alt='Jalsa 5.0'>
+<p class='kick'>SLS Symphony &middot; Jalsa 5.0</p>
+<h1>Recording Results</h1>
+<p class='blurb'>A short guide for whoever is putting winners on the board. Setting up takes about two minutes and is only needed once per phone. After that a result takes under a minute.</p>
+</div></header>
+<main><div class='guide'>
+<div class='tocbox'><h3>What is in this guide</h3><ol>
+<li><a href='#setup'>Setting up your phone, once</a></li>
+<li><a href='#record'>Recording a result</a></li>
+<li><a href='#fix'>Fixing a mistake</a></li>
+<li><a href='#care'>Before you photograph anyone</a></li>
+<li><a href='#trouble'>If something goes wrong</a></li>
+</ol></div>
+<h2 id='setup'>Setting up your phone</h2>
+<p class='sub'>You do this once. The board remembers it, so from then on publishing is a single tap. You will need two things sent to you privately: the <b>username and password</b>, and the <b>settings file with its passphrase</b>.</p>
+<div class='step'><div class='no'>1</div><div><h3>Open the winners board</h3><p>Tap the link sent in the team group, then choose the <kbd>Winners</kbd> tab at the top of the page.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/01-winners-tab.png</code><span>The three tabs at the top, with Winners selected.</span></div></div></div><div class='step'><div class='no'>2</div><div><h3>Tap Record results</h3><p>It sits just above the list of events. Everyone in the society can see this board; only signed-in organisers can change it.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/02-record-results.png</code><span>The Record results button.</span></div></div></div><div class='step'><div class='no'>3</div><div><h3>Sign in</h3><p>Enter the username and password shared with you privately. They are the same for the whole organising team.</p><p>The board now shows name boxes and photo buttons on every card.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/03-sign-in.png</code><span>The sign-in box asking for username and password.</span></div></div></div><div class='step'><div class='no'>4</div><div><h3>Open Publish and find Quick setup<span class=once>once only</span></h3><p>Tap <kbd>Publish</kbd>. The first section is <b>Quick setup</b>.</p><p>Type the <b>passphrase</b> you were given, then tap <kbd>Load from file</kbd> and pick the settings file from the group.</p><p>On an iPhone the file picker can be awkward. If so, tap <kbd>Paste text</kbd> instead, paste the block from the chat, and tap <kbd>Load pasted text</kbd>.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/04-publish-dialog.png</code><span>The Publish dialog, showing Quick setup at the top.</span></div></div></div><div class='step'><div class='no'>5</div><div><h3>Check it loaded<span class=once>once only</span></h3><p>You should see a green line naming the repository. That is the whole setup done — this device will remember it, so you will not be asked again.</p><p>Delete the settings file from your phone now. You no longer need it.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/05-loaded.png</code><span>The green confirmation after the settings file has loaded.</span></div></div></div>
+<h2 id='record'>Recording a result</h2>
+<p class='sub'>Do this as each event finishes, while the names are still fresh.</p>
+<div class='step'><div class='no'>6</div><div><h3>Find the event</h3><p>Use the search box and type the event name, for example <i>skating</i>. Each age group and each Singles or Doubles category has its own card.</p><p>Check the category on the card before you type. It is easy to put a result on the wrong age group.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/06-find-event.png</code><span>The search box with an event found below it.</span></div></div></div><div class='step'><div class='no'>7</div><div><h3>Type the winners&#x27; names</h3><p><b>Gold</b> is first place, <b>Silver</b> is second.</p><ul><li>Normal events: one name in each.</li><li>Doubles: two names in Gold and two in Silver.</li><li>Team events: the team name, and the members if you have them.</li></ul><p>Spell the name the way the participant did on the registration form, so it matches the rest of the records.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/07-enter-names.png</code><span>A Gold and Silver card with the name boxes visible.</span></div></div></div><div class='step'><div class='no'>8</div><div><h3>Add the photos</h3><p>Tap <kbd>Add photo</kbd> and either take one or choose one from your gallery. It is shrunk automatically, so there is no need to resize anything first.</p><p>Photos are optional. A result with names and no photo is perfectly fine.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/08-add-photo.png</code><span>The Add photo button and a chosen photo.</span></div></div></div><div class='step'><div class='no'>9</div><div><h3>Doubles have four photo slots</h3><p>Two Gold winners and two Silver winners, so four slots. Each one is labelled with the player's name once you have typed it.</p><p>Type the names first, then add the photos — that way the labels tell you which slot is whose.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/09-doubles.png</code><span>A Doubles card showing all four photo slots.</span></div></div></div><div class='step'><div class='no'>10</div><div><h3>Publish</h3><p>Tap <kbd>Publish</kbd>. After the one-time setup this is a single tap, with nothing to fill in.</p><p>Photos upload first, then the results. Leave the page open until it finishes.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/10-publish.png</code><span>The Publish button.</span></div></div></div><div class='step'><div class='no'>11</div><div><h3>Confirm it went up</h3><p>You will get a confirmation saying it was published. The live site catches up within about a minute.</p><p>Reload the page and you should see your result. If you do not, publish again — nothing breaks by publishing twice.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/11-published.png</code><span>The &#x27;Published to GitHub&#x27; confirmation.</span></div></div></div>
+<h2 id='fix'>Fixing a mistake</h2>
+<p class='sub'>Everything can be changed after publishing. Nothing is final.</p>
+<div class='step'><div class='no'>12</div><div><h3>Change a name</h3><p>Type over it and tap <kbd>Publish</kbd> again.</p></div></div><div class='step'><div class='no'>13</div><div><h3>Replace or remove a photo</h3><p><kbd>Change photo</kbd> swaps it. <kbd>remove</kbd> takes it away entirely, and the old file is deleted from the repository when you publish.</p></div></div><div class='step'><div class='no'>14</div><div><h3>Clear a whole result</h3><p><kbd>Clear this result</kbd> at the bottom of the card wipes the names and the photos for that one event. It asks first.</p><p>Nothing is actually changed for anyone else until you <kbd>Publish</kbd>.</p><div class='shot missing'><b>Screenshot to add</b><code>screens/12-clear.png</code><span>The Clear this result button on a card.</span></div></div></div>
+<div class='care' id='care'>
+<h3>Before you photograph anyone</h3>
+<p>The winners board is on a public website. Anyone with the link can see the photos, and once published they are difficult to remove completely.</p>
+<ul>
+<li><b>Ask a parent first before photographing a child.</b> If the parent is not there, skip the photo.</li>
+<li>If anyone would rather not be photographed, record just the name. A result without a photo is completely normal.</li>
+<li>Photograph the winner holding their medal, not the crowd. Avoid catching other children in the background.</li>
+<li>Never photograph anything with a flat number, a phone number or a registration sheet visible.</li>
+</ul></div>
+<h2 id='trouble'>If something goes wrong</h2>
+<p class='sub'>Nothing here is urgent. A result recorded late is not a problem; a wrong result published confidently is.</p>
+<table class='tb'><thead><tr><th>What you see</th><th>What to do</th></tr></thead><tbody>
+<tr><td>Nothing happens when I tap Record results</td><td>You are probably signed in already. Look for the name boxes on the cards — if they are there, you can start typing.</td></tr>
+<tr><td>It says the passphrase is wrong</td><td>Check for a capital letter or a trailing space. The passphrase is not the same as the board password. If it still fails, ask for the file to be sent again — a part-copied file gives the same message.</td></tr>
+<tr><td>It says the settings text is incomplete</td><td>Only part of the block was copied. Make sure you have everything from BEGIN to END, then paste it again.</td></tr>
+<tr><td>403 or “not accessible by personal access token”</td><td>The saved token has expired or lost its permission. Tell whoever set up the settings file — they need to issue a new one. Nothing you can fix on your phone.</td></tr>
+<tr><td>404 or “not found”</td><td>Same thing: the settings need re-issuing. Do not retype anything by hand.</td></tr>
+<tr><td>The photo will not upload</td><td>Very large photos from some cameras can fail. Take a normal photo rather than a RAW or Live Photo, or publish the names first and add the photo afterwards.</td></tr>
+<tr><td>I published to the wrong event</td><td>Open the correct card, enter the result there, then use Clear this result on the wrong one, and publish once.</td></tr>
+<tr><td>Someone else is publishing at the same time</td><td>Wait for them to finish, reload the page, then make your change. Two people publishing at the same moment can overwrite one another.</td></tr>
+</tbody></table>
+<div class='care' style='border-color:var(--rule);background:#fffdf7'>
+<h3>Two things to keep to yourself</h3>
+<ul>
+<li>The board password and the settings passphrase. Do not put either in the residents' group.</li>
+<li>The settings file. Delete it from your phone once you have loaded it — it does not need to stay in your downloads.</li>
+</ul></div>
+</div></main>
+<footer class='foot'><span class='rule'></span>
+<p>Jalsa 5.0 &middot; Sports Day 2026 &middot; issued 06 August 2026</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 18:45</p>
+<p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
+</footer>
+</body></html>

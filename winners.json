@@ -1,22 +1,4 @@
 {
- "updated": "2026-08-06",
- "results": {
-  "chess|upto-12-years-singles": {
-   "gold": [
-    "Winner Of Gold "
-   ],
-   "silver": [
-    "Runner up Silver"
-   ],
-   "photos": {
-    "gold": "photos/chess--upto-12-years-singles--gold.jpg"
-   }
-  },
-  "carrom|upto-10-years-doubles": {
-   "photos": {
-    "gold1": "photos/carrom--upto-10-years-doubles--gold1.jpg",
-    "gold2": "photos/carrom--upto-10-years-doubles--gold2.jpg"
-   }
-  }
- }
+ "updated": "",
+ "results": {}
 }

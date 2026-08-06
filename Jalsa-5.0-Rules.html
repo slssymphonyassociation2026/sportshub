@@ -1196,7 +1196,7 @@ details.manual[open] > summary::after{content:' \25B4'}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><div class='fileimp'><p class='fihead'>Quick setup</p><p class='finote'>If the organisers sent you a settings file, load it here instead of typing anything. Enter the passphrase, then pick the file &mdash; or paste its text.</p><input id='gh-pass' type='password' autocomplete='off' placeholder='File passphrase' aria-label='Settings file passphrase'><div class='firow'><label class='btn fbtn'>Load from file<input type='file' id='gh-file' accept='.txt,text/plain'></label><button class='btn' id='gh-paste' type='button'>Paste text</button><button class='btn' id='gh-export' type='button'>Save to file</button></div><textarea id='gh-blob' rows='4' hidden placeholder='Paste the settings text here, then tap Load' aria-label='Settings text'></textarea><p class='status' id='fistatus'></p></div><details class='manual' id='manual'><summary>Or enter the details by hand</summary><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><a class='btn' href='Jalsa-5.0-Winners-Guide.html' target='_blank' rel='noopener'>How to use this</a><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><div class='fileimp'><p class='fihead'>Quick setup</p><p class='finote'>If the organisers sent you a settings file, load it here instead of typing anything. Enter the passphrase, then pick the file &mdash; or paste its text.</p><input id='gh-pass' type='password' autocomplete='off' placeholder='File passphrase' aria-label='Settings file passphrase'><div class='firow'><label class='btn fbtn'>Load from file<input type='file' id='gh-file' accept='.txt,text/plain'></label><button class='btn' id='gh-paste' type='button'>Paste text</button><button class='btn' id='gh-export' type='button'>Save to file</button></div><textarea id='gh-blob' rows='4' hidden placeholder='Paste the settings text here, then tap Load' aria-label='Settings text'></textarea><p class='status' id='fistatus'></p></div><details class='manual' id='manual'><summary>Or enter the details by hand</summary><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1204,7 +1204,7 @@ details.manual[open] > summary::after{content:' \25B4'}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 17:43</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 18:45</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
@@ -1621,6 +1621,30 @@ function settingsFileText(blob) {
 }
 
 // ---------------- publish to GitHub ----------------
+// Every call gets a deadline. Without one, a stalled mobile connection leaves
+// the publish spinning with no way out, which reads as "it hangs" rather than
+// "the network went away".
+var GH_TIMEOUT = 25000;
+
+async function ghFetch(url, opts, what) {
+  var ctl = new AbortController();
+  var timer = setTimeout(function () { ctl.abort(); }, GH_TIMEOUT);
+  try {
+    return await fetch(url, Object.assign({}, opts || {}, { signal: ctl.signal }));
+  } catch (e) {
+    if (e && e.name === 'AbortError') {
+      throw new Error((what || 'That request') + ' timed out after ' +
+        Math.round(GH_TIMEOUT / 1000) + ' seconds. Check your signal and tap ' +
+        'Publish again — anything already uploaded will not be sent twice.');
+    }
+    throw new Error('Could not reach GitHub' +
+      (what ? ' while ' + what : '') + '. Check your internet connection and ' +
+      'tap Publish again.');
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 // Turn GitHub's terse API errors into something actionable.
 function ghExplain(status, bodyText, owner, repo) {
   var m = '';
@@ -1659,16 +1683,17 @@ function ghExplain(status, bodyText, owner, repo) {
 async function ghCheck(owner, repo, branch, token) {
   var head = { Authorization: 'Bearer ' + token,
                Accept: 'application/vnd.github+json' };
-  var r = await fetch('https://api.github.com/repos/' + owner + '/' + repo,
-                      { headers: head });
+  var r = await ghFetch('https://api.github.com/repos/' + owner + '/' + repo,
+                        { headers: head }, 'checking the repository');
   if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
   var info = await r.json();
   if (info.permissions && info.permissions.push === false) {
     throw new Error('The token can read ' + owner + '/' + repo +
       ' but not write to it. Set Contents to "Read and write".');
   }
-  var br = await fetch('https://api.github.com/repos/' + owner + '/' + repo +
-    '/branches/' + encodeURIComponent(branch), { headers: head });
+  var br = await ghFetch('https://api.github.com/repos/' + owner + '/' + repo +
+    '/branches/' + encodeURIComponent(branch), { headers: head },
+    'checking the branch');
   if (br.status === 404) {
     throw new Error('Branch "' + branch + '" does not exist in ' + owner + '/' +
       repo + '. On a new repository it is usually "main".');
@@ -1677,41 +1702,78 @@ async function ghCheck(owner, repo, branch, token) {
 }
 function wB64(dataUrl) { return dataUrl.split(',')[1]; }
 
-async function ghPut(owner, repo, branch, token, path, contentB64, msg, log) {
-  var base = 'https://api.github.com/repos/' + owner + '/' + repo +
-             '/contents/' + path;
-  var head = { Authorization: 'Bearer ' + token,
-               Accept: 'application/vnd.github+json' };
-  var sha = null;
-  var probe = await fetch(base + '?ref=' + encodeURIComponent(branch),
-                          { headers: head });
-  if (probe.status === 200) sha = (await probe.json()).sha;
-  else if (probe.status !== 404)
-    throw new Error(ghExplain(probe.status, await probe.text(), owner, repo));
-  var body = { message: msg, content: contentB64, branch: branch };
-  if (sha) body.sha = sha;
-  var r = await fetch(base, { method: 'PUT', headers: head,
-                              body: JSON.stringify(body) });
+// One commit for the whole publish, using the Git Data API rather than the
+// contents API.
+//
+// The contents API writes one commit per file. Five files meant five commits,
+// and GitHub Pages starts a deployment for every commit and runs them strictly
+// one at a time - so a single Publish queued five deployments behind whatever
+// was already going. That is what made deploys sit in deployment_queued until
+// they timed out.
+//
+// Blobs are cheap to create and do not touch a branch. Only the final ref update
+// is a commit, so one Publish now costs Pages exactly one deployment. It is also
+// atomic: either every photo and the results list land together, or nothing does.
+async function ghJson(url, opts, what, owner, repo) {
+  var r = await ghFetch(url, opts, what);
   if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
-  log('  saved ' + path);
+  return r.json();
 }
 
-async function ghDelete(owner, repo, branch, token, path, log) {
-  var base = 'https://api.github.com/repos/' + owner + '/' + repo +
-             '/contents/' + path;
+async function ghCommitAllPrepared(owner, repo, branch, token, files, deletes,
+                                   msg, log) {
+  var api = 'https://api.github.com/repos/' + owner + '/' + repo;
   var head = { Authorization: 'Bearer ' + token,
-               Accept: 'application/vnd.github+json' };
-  var probe = await fetch(base + '?ref=' + encodeURIComponent(branch),
-                          { headers: head });
-  if (probe.status === 404) { log('  already gone ' + path); return; }
-  if (!probe.ok)
-    throw new Error(ghExplain(probe.status, await probe.text(), owner, repo));
-  var sha = (await probe.json()).sha;
-  var r = await fetch(base, { method: 'DELETE', headers: head,
-    body: JSON.stringify({ message: 'Jalsa 5.0: remove photo', sha: sha,
-                           branch: branch }) });
-  if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
-  log('  deleted ' + path);
+               Accept: 'application/vnd.github+json',
+               'Content-Type': 'application/json' };
+  var G = function (u, w) {
+    return ghJson(api + u, { headers: head }, w, owner, repo);
+  };
+  var P = function (u, body, w) {
+    return ghJson(api + u, { method: 'POST', headers: head,
+      body: JSON.stringify(body) }, w, owner, repo);
+  };
+
+  var ref = await G('/git/ref/heads/' + encodeURIComponent(branch),
+                    'reading the branch');
+  var baseSha = ref.object.sha;
+  var baseCommit = await G('/git/commits/' + baseSha, 'reading the last commit');
+
+  var tree = [];
+  for (var i = 0; i < files.length; i++) {
+    var f = files[i];
+    var sha = f.sha;
+    if (!sha) {
+      var blob = await P('/git/blobs', { content: f.b64, encoding: 'base64' },
+                         'uploading ' + f.path);
+      sha = blob.sha;
+    }
+    tree.push({ path: f.path, mode: '100644', type: 'blob', sha: sha });
+  }
+  (deletes || []).forEach(function (path) {
+    tree.push({ path: path, mode: '100644', type: 'blob', sha: null });
+  });
+  if (!tree.length) return null;
+
+  var newTree = await P('/git/trees', { base_tree: baseCommit.tree.sha,
+                                        tree: tree }, 'building the file tree');
+  var commit = await P('/git/commits', { message: msg, tree: newTree.sha,
+                                         parents: [baseSha] },
+                       'creating the commit');
+  var upd = await ghFetch(api + '/git/refs/heads/' + encodeURIComponent(branch),
+    { method: 'PATCH', headers: head,
+      body: JSON.stringify({ sha: commit.sha, force: false }) },
+    'publishing the commit');
+  if (!upd.ok) {
+    var body = await upd.text();
+    if (upd.status === 422) {
+      throw new Error('Somebody else published while you were uploading. ' +
+        'Reload the page and tap Publish again — your photos are already ' +
+        'uploaded, so it will be quick.');
+    }
+    throw new Error(ghExplain(upd.status, body, owner, repo));
+  }
+  return commit.sha;
 }
 
 async function wPublish() {
@@ -1737,32 +1799,46 @@ async function wPublish() {
     log('checking access to ' + owner + '/' + repo + ' (' + branch + ')');
     var vis = await ghCheck(owner, repo, branch, token);
     log('  ok, ' + vis + ' repository, write access confirmed');
-    // photos first, so winners.json never points at a file that is not there yet
-    var keys = Object.keys(WPHOTOS);
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i], parts = key.split('|');
-      var path = 'photos/' + parts[0] + '--' + parts[1] + '--' + parts[2] + '.jpg';
-      log('uploading photo ' + (i + 1) + ' of ' + keys.length);
-      await ghPut(owner, repo, branch, token, path, wB64(WPHOTOS[key].dataUrl),
-                  'Jalsa 5.0: photo for ' + parts[0], log);
-      var slotId = parts[0] + '|' + parts[1], place = parts[2];
-      var s = WDATA.results[slotId] || (WDATA.results[slotId] = {});
-      s.photos = s.photos || {};
-      s.photos[place] = path;
-    }
-    WDATA.updated = new Date().toISOString().slice(0, 10);
-    var jsonB64 = btoa(unescape(encodeURIComponent(
-      JSON.stringify(WDATA, null, 1))));
-    log('uploading winners.json');
-    await ghPut(owner, repo, branch, token, 'winners.json', jsonB64,
-                'Jalsa 5.0: update winners', log);
-    // only once winners.json has stopped referencing them
+    // Everything goes into a single commit, so Pages runs one deployment per
+    // publish rather than one per file.
+    //
+    // Nothing local is updated until the commit lands. A blob that no commit
+    // references is garbage-collected by GitHub, so marking a photo as "done"
+    // before the commit succeeded would leave winners.json pointing at a file
+    // that quietly disappears.
+    var pending = Object.keys(WPHOTOS);
     var dels = Object.keys(WDELETES);
-    for (var d = 0; d < dels.length; d++) {
-      log('removing photo ' + (d + 1) + ' of ' + dels.length);
-      await ghDelete(owner, repo, branch, token, dels[d], log);
-    }
-    var nPhotos = keys.length, nGone = dels.length;
+    var nPhotos = pending.length, nGone = dels.length;
+
+    // photo paths are derived from the slot id, so they are known up front and
+    // winners.json can be built before anything is uploaded
+    var next = JSON.parse(JSON.stringify(WDATA));
+    var files = pending.map(function (key) {
+      var parts = key.split('|');
+      var path = 'photos/' + parts[0] + '--' + parts[1] + '--' + parts[2] + '.jpg';
+      var slotId = parts[0] + '|' + parts[1], place = parts[2];
+      var slot = next.results[slotId] || (next.results[slotId] = {});
+      slot.photos = slot.photos || {};
+      slot.photos[place] = path;
+      return { path: path, b64: wB64(WPHOTOS[key].dataUrl) };
+    });
+    next.updated = new Date().toISOString().slice(0, 10);
+    files.push({ path: 'winners.json',
+                 b64: btoa(unescape(encodeURIComponent(
+                   JSON.stringify(next, null, 1)))) });
+
+    log(nPhotos + ' photo(s) + winners.json' +
+        (nGone ? ', removing ' + nGone : '') + ' — one commit');
+    var sha = await ghCommitAllPrepared(owner, repo, branch, token, files, dels,
+      'Jalsa 5.0: update winners' +
+      (nPhotos ? ' (+' + nPhotos + ' photo' + (nPhotos === 1 ? '' : 's') + ')'
+               : ''), log);
+    if (sha) log('committed ' + sha.slice(0, 7));
+
+    // only now is it safe to forget the pending work
+    WDATA = next;
+
+    var nGone = dels.length;
     WPHOTOS = {}; WDELETES = {}; WDIRTY = false; wMarkDirty();
     st.className = 'status ok';
     st.textContent = 'Published.';
@@ -1779,8 +1855,13 @@ async function wPublish() {
     }, 700);
   } catch (e) {
     st.className = 'status err';
-    st.textContent = 'Failed: ' + e.message;
+    // The commit is all-or-nothing, so a failure has changed nothing on GitHub
+    // and nothing has been lost locally. Retrying is always safe.
+    st.textContent = 'Failed: ' + e.message +
+      ' — nothing was published, and your names and photos are still here. ' +
+      'Tap Publish to try again.';
     log('ERROR ' + e.message);
+    log('nothing was committed; safe to retry');
     // surface the setup instructions only when they are actually relevant
     if (/token|403|401|404|permission|access/i.test(e.message)) {
       var th = w$('tokhelp');
