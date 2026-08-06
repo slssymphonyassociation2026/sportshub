@@ -2,6 +2,7 @@
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <meta name='robots' content='noindex,nofollow,noarchive'>
 <title>Jalsa 5.0 — Sports Day 2026 · Rules &amp; Regulations</title>
+<script>(function(){try{var t=localStorage.getItem('jalsa_theme');if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name='description' content='Rules and regulations for all 24 events at Jalsa 5.0 Sports Day 2026, SLS Symphony.'>
 <link rel='preconnect' href='https://fonts.googleapis.com'>
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -22,7 +23,18 @@
   --paper-2:#e8e0cd;
   --body:#2a2620;
   --muted:#6b6355;
+  /* Times are the one thing people squint at on a phone in daylight, so they get
+     their own near-ink colour. brass-dk (#8a6d14) measured 4.28:1 on the paper
+     background — below the 4.5:1 needed for normal-size text. This is 10.9:1. */
+  --time:#4a3a06;
+  --time-bg:#f7f0da;
   --rule:rgba(201,162,39,.42);
+  /* Surfaces, so a dark theme has something to reassign. --ink stays the dark
+     backdrop and stays dark text on brass in both themes; --paper stays light
+     text on the dark masthead. Only these three flip. */
+  --sheet:#f4efe2;          /* the programme sheet */
+  --card:var(--card);           /* panels laid on the sheet */
+  --hair:var(--hair);   /* hairlines within a card */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -91,6 +103,48 @@ h1.title .pt{color:var(--brass);font-size:.62em;vertical-align:.12em}
 .dbl b{color:var(--brass);font-size:11px;letter-spacing:.3em;font-family:"Cinzel",serif}
 .mast p.blurb{max-width:600px;margin:20px auto 0;color:#cfc9ba;font-size:16.5px}
 
+/* ---------- dark theme ----------
+   Only surfaces and text flip. Brass stays brass in both themes, and --ink stays
+   dark text sitting on brass, so accents and focus rings need no per-theme
+   handling at all. Every pair below was measured; the weakest is 7.4:1. */
+html[data-theme="dark"]{
+  --sheet:#12122b;
+  --card:#1a1a38;
+  --paper-2:#23234a;
+  --body:#e4dece;
+  --muted:#a8a293;
+  --ink-2:#f2ecdc;
+  --time:#f0cf6b;
+  --time-bg:#2b2b50;
+  --hair:rgba(255,255,255,.10);
+  --rule:rgba(201,162,39,.34);
+}
+html[data-theme="dark"] body{background:#08081a}
+html[data-theme="dark"] main{color:var(--body)}
+/* the paper grain is tuned for a light sheet */
+html[data-theme="dark"] main::before{opacity:.22}
+/* Status panels carry their own tints for meaning, so they need a dark pair
+   rather than a token. Contrast measured: 8.9:1 and 7.6:1. */
+html[data-theme="dark"] .toast{background:#12301f;border-color:#2f6042;
+  border-left-color:#4cae70;color:#bfe3ca}
+html[data-theme="dark"] .modal .warn{background:#2d1616;border-color:#5c2b2b;
+  color:#f0bcb4}
+html[data-theme="dark"] .tidylist label:hover{background:rgba(255,255,255,.06)}
+html[data-theme="dark"] .namegrid button:hover{background:rgba(255,255,255,.07);
+  color:var(--brass-lt)}
+
+/* the toggle */
+button.tsw{
+  font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;background:none;border:1px solid var(--rule);
+  color:var(--brass-lt);padding:6px 9px;border-radius:2px;cursor:pointer;
+  line-height:1;display:inline-flex;align-items:center;gap:6px;transition:.18s}
+button.tsw:hover{background:rgba(255,255,255,.07);color:#fff}
+button.tsw:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+button.tsw svg{width:15px;height:15px;display:block;flex:none}
+button.tsw .tlab{display:inline}
+@media(max-width:600px){button.tsw{padding:7px 8px}button.tsw .tlab{display:none}}
+
 /* ---------- sticky index ---------- */
 nav.idx{
   position:sticky;top:0;z-index:30;background:rgba(10,10,24,.94);
@@ -134,7 +188,7 @@ nav.idx .tally{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.14em;
 
 /* ---------- paper body ---------- */
 main{
-  background:var(--paper);
+  background:var(--sheet);
   background-image:
     radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);
   background-size:4px 4px;
@@ -196,9 +250,9 @@ ol.gen li::before{
 .num{
   font-family:"Cinzel",Georgia,serif;font-size:clamp(26px,5vw,40px);
   line-height:1;color:var(--brass-dk);
-  border:1px solid var(--rule);background:#fffdf7;
+  border:1px solid var(--rule);background:var(--card);
   display:flex;align-items:center;justify-content:center;
-  aspect-ratio:1/1;box-shadow:inset 0 0 0 3px #fffdf7,0 1px 0 rgba(0,0,0,.08)
+  aspect-ratio:1/1;box-shadow:inset 0 0 0 3px var(--card),0 1px 0 rgba(0,0,0,.08)
 }
 .ev h3{
   font-family:"Cinzel",Georgia,serif;font-size:clamp(20px,3.6vw,30px);
@@ -208,7 +262,7 @@ ol.gen li::before{
 .tag{
   font-family:"Cinzel",Georgia,serif;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;padding:4px 9px;border:1px solid var(--rule);
-  color:var(--muted);background:#fffdf7;white-space:nowrap
+  color:var(--muted);background:var(--card);white-space:nowrap
 }
 .tag.hi{border-color:var(--brass);color:var(--brass-dk);font-weight:600}
 .howto{font-size:16.5px;color:#3b352b;margin:0 0 15px;
@@ -224,13 +278,13 @@ ol.rules li::before{
   text-align:right;border-right:1px solid var(--rule);padding-right:6px;
   line-height:1.5
 }
-.judge{margin:15px 0 0;padding:13px 15px;background:#fffdf7;
+.judge{margin:15px 0 0;padding:13px 15px;background:var(--card);
   border:1px solid var(--rule)}
 .judge b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--brass-dk)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .chip{font-size:14px;padding:3px 11px;border:1px solid var(--brass);
-  border-radius:999px;color:var(--ink-2);background:#fff}
+  border-radius:999px;color:var(--ink-2);background:var(--card)}
 .cats{margin:14px 0 0;font-size:15px;color:var(--muted);
   overflow-wrap:break-word}
 .cats b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
@@ -244,16 +298,17 @@ ol.rules li::before{
 .ttday h3{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.24em;
   text-transform:uppercase;color:var(--brass-dk);margin:0 0 9px;
   padding-bottom:7px;border-bottom:1px solid var(--brass)}
-table.tt-grid{width:100%;border-collapse:collapse;background:#fffdf7;
+table.tt-grid{width:100%;border-collapse:collapse;background:var(--card);
   border:1px solid var(--rule)}
 table.tt-grid th{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted);text-align:left;
   padding:9px 12px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
-table.tt-grid td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.07);
+table.tt-grid td{padding:10px 12px;border-bottom:1px solid var(--hair);
   font-size:16px;vertical-align:top}
 table.tt-grid tr:last-child td{border-bottom:0}
-table.tt-grid td.t{font-family:"Cinzel",serif;font-size:13px;color:var(--brass-dk);
-  white-space:nowrap;letter-spacing:.04em}
+table.tt-grid td.t{font-family:"Cinzel",serif;font-size:14.5px;color:var(--time);
+  font-weight:600;background:var(--time-bg);white-space:normal;
+  line-height:1.4;overflow-wrap:break-word;letter-spacing:.02em}
 table.tt-grid td.e a{color:var(--ink-2);text-decoration:none;
   border-bottom:1px solid var(--rule);font-weight:600}
 table.tt-grid td.e a:hover{border-bottom-color:var(--brass);color:var(--brass-dk)}
@@ -323,13 +378,13 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 /* ---------- print: a clean paper programme ---------- */
 @media print{
   @page{size:A4;margin:14mm 12mm}
-  body{background:#fff;color:#000;font-size:10.5pt}
+  body{background:var(--card);color:#000;font-size:10.5pt}
   .dark{background:#fff!important;color:#000!important}
   .dark::after{display:none}
   nav.idx,#top,.noresult{display:none!important}
   h1.title{font-size:30pt;text-shadow:none;color:#000}
   .eyebrow,.sub,.day .ct{color:#333}
-  main{background:#fff;padding:0}
+  main{background:var(--card);padding:0}
   .plate{background:#fff!important;color:#000!important;border:1pt solid #000}
   .plate h2,.fair h3{color:#000}
   .plate .lede,.fair ul{color:#222}
@@ -340,12 +395,12 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 
 /* ---------------- winners board ---------------- */
 .wbtools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;
-  background:#fffdf7;border:1px solid var(--rule);padding:12px 14px;
+  background:var(--card);border:1px solid var(--rule);padding:12px 14px;
   margin:0 0 26px}
 .wbtools .sp{flex:1}
 .btn{font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;padding:9px 15px;border:1px solid var(--brass);
-  background:#fff;color:var(--brass-dk);cursor:pointer;border-radius:2px;
+  background:var(--card);color:var(--brass-dk);cursor:pointer;border-radius:2px;
   transition:.18s}
 .btn:hover{background:var(--brass);color:var(--ink)}
 .btn.solid{background:var(--ink-2);color:var(--paper);border-color:var(--ink-2)}
@@ -375,13 +430,13 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
   margin:0;color:var(--ink-2);letter-spacing:.02em}
 .evhead .cat{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--brass-dk);border:1px solid var(--rule);
-  padding:3px 9px;background:#fffdf7}
+  padding:3px 9px;background:var(--card)}
 .evhead .when{font-size:13.5px;color:var(--muted)}
 
 .prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:14px;margin-top:14px}
 .prize{display:flex;gap:13px;align-items:flex-start;
-  background:#fffdf7;border:1px solid var(--rule);padding:12px}
+  background:var(--card);border:1px solid var(--rule);padding:12px}
 .prize.gold{border-left:4px solid #c9a227}
 .prize.silver{border-left:4px solid #9aa3ab}
 .prize.trophy{border-left:4px solid #7a5c1e}
@@ -401,7 +456,7 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 .pmembers{font-size:14px;color:var(--muted);margin-top:3px}
 .pphoto{margin-top:9px}
 .pphoto img{max-width:100%;height:auto;border:1px solid var(--rule);
-  display:block;background:#fff}
+  display:block;background:var(--card)}
 .pphoto.thumb img{max-height:150px;width:auto}
 .ptwo{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px}
 .pslot{flex:1 1 130px;min-width:120px}
@@ -414,9 +469,9 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 /* editor, only shown in admin mode */
 .edit{display:none}
 body.editing .edit{display:block}
-body.editing .prize{background:#fff}
+body.editing .prize{background:var(--card)}
 .edit input[type=text]{width:100%;padding:8px 10px;font-family:inherit;
-  font-size:16px;border:1px solid var(--rule);background:#fff;margin-top:5px}
+  font-size:16px;border:1px solid var(--rule);background:var(--card);margin-top:5px}
 .edit input[type=text]:focus-visible{outline:2px solid var(--brass);
   outline-offset:1px}
 .edit .row2{display:flex;gap:6px}
@@ -424,7 +479,7 @@ body.editing .prize{background:#fff}
 .filewrap{margin-top:7px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
 .filewrap label{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--brass-dk);border:1px dashed var(--brass);
-  padding:5px 10px;cursor:pointer;background:#fff}
+  padding:5px 10px;cursor:pointer;background:var(--card)}
 .filewrap label:hover{background:var(--brass);color:var(--ink)}
 .filewrap input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
 .filewrap .fn{font-size:13px;color:var(--muted)}
@@ -444,7 +499,7 @@ body.editing .prize{background:#fff}
   letter-spacing:.18em;text-transform:uppercase;color:var(--brass-dk);
   margin:12px 0 4px}
 .modal .card input{width:100%;padding:10px 12px;font-family:inherit;
-  font-size:16px;border:1px solid var(--rule);background:#fff}
+  font-size:16px;border:1px solid var(--rule);background:var(--card)}
 .tokhelp{margin:14px 0 0}
 .tokhelp > summary{cursor:pointer;list-style:none;font-family:"Cinzel",serif;
   font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
@@ -457,17 +512,17 @@ body.editing .prize{background:#fff}
 .modal .warn{background:#fff6f6;border:1px solid #e7c3c3;padding:10px 12px;
   font-size:13.5px;color:#7d2b2b;margin:14px 0 0}
 .modal .acts{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
-.fileimp{background:#fffdf7;border:1px solid var(--brass);padding:13px;
+.fileimp{background:var(--card);border:1px solid var(--brass);padding:13px;
   margin:4px 0 16px}
 .fileimp .fihead{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--brass-dk);margin:0 0 5px}
 .fileimp .finote{font-size:13.5px;color:var(--muted);margin:0 0 10px;
   line-height:1.5}
 .fileimp input[type=password]{width:100%;padding:10px 12px;font-family:inherit;
-  font-size:16px;border:1px solid var(--rule);background:#fff}
+  font-size:16px;border:1px solid var(--rule);background:var(--card)}
 .fileimp textarea{width:100%;margin-top:8px;padding:9px 11px;font-family:
   ui-monospace,Menlo,monospace;font-size:12px;border:1px solid var(--rule);
-  background:#fff;resize:vertical}
+  background:var(--card);resize:vertical}
 .firow{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
 .firow .btn{flex:1 1 auto}
 label.btn.fbtn{position:relative;overflow:hidden;text-align:center}
@@ -481,8 +536,21 @@ details.manual > summary{cursor:pointer;list-style:none;font-family:"Cinzel",ser
 details.manual > summary::-webkit-details-marker{display:none}
 details.manual > summary::after{content:' \25BE'}
 details.manual[open] > summary::after{content:' \25B4'}
+.tidylist{margin:12px 0 0;max-height:300px;overflow:auto;border:1px solid
+  var(--rule);background:var(--card)}
+.tidylist label{display:flex;gap:9px;align-items:center;padding:9px 11px;
+  border-bottom:1px solid #eee;font-size:14px;cursor:pointer}
+.tidylist label:last-child{border-bottom:0}
+.tidylist label:hover{background:#faf6ec}
+.tidylist input{width:auto;flex:0 0 auto;transform:scale(1.15)}
+.tidylist .fp{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:12px;
+  word-break:break-all}
+.tidylist .sz{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.tidynone{padding:16px;text-align:center;color:#1c6b3a;font-size:15px}
+.tidybar{display:flex;gap:8px;align-items:center;margin:10px 0 0;flex-wrap:wrap}
+.tidybar .sp{flex:1}
 .log{margin-top:14px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;
-  max-height:180px;overflow:auto;background:#fff;border:1px solid var(--rule);
+  max-height:180px;overflow:auto;background:var(--card);border:1px solid var(--rule);
   padding:9px;display:none;white-space:pre-wrap}
 .log.on{display:block}
 .status{font-size:14px;color:var(--muted)}
@@ -520,6 +588,7 @@ details.manual[open] > summary::after{content:' \25B4'}
 <a class='mylink' href='Jalsa-5.0-My-Events.html'>My Events &#8250;</a>
 <input id='q' type='search' placeholder='Find an event…' aria-label='Find an event'>
 <button id='clear' type='button'>Clear</button>
+<button type='button' class='tsw' id='themesw' aria-live='polite' title='Switch between light and dark'><span class='ticon'></span><span class='tlab'></span></button>
 <span class='tally' id='tally'>24 events</span>
 </div></nav>
 <main><div class='sheet'>
@@ -530,13 +599,13 @@ details.manual[open] > summary::after{content:' \25B4'}
 <div class='ttday'><h3>Saturday 8 August</h3>
 <table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
 <tr data-k='carrom club house saturday 8 august'>
-<td class='t'>Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards</td>
+<td class='t'>Adult: 9.30 AM Onwards<br>Kids: 12:30 PM Onwards</td>
 <td class='e'><a href='#ev-carrom'>Carrom</a></td>
 <td>Club House</td>
 <td class='m'>Deepak,Subhasis</td>
 </tr>
 <tr data-k='chess club house saturday 8 august'>
-<td class='t'>Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards</td>
+<td class='t'>Adult: 11:30 AM Onwards<br>Kids: 1:30 PM Onwards</td>
 <td class='e'><a href='#ev-chess'>Chess</a></td>
 <td>Club House</td>
 <td class='m'>Praneeth, Raja</td>
@@ -1196,7 +1265,7 @@ details.manual[open] > summary::after{content:' \25B4'}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><a class='btn' href='Jalsa-5.0-Winners-Guide.html' target='_blank' rel='noopener'>How to use this</a><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><div class='fileimp'><p class='fihead'>Quick setup</p><p class='finote'>If the organisers sent you a settings file, load it here instead of typing anything. Enter the passphrase, then pick the file &mdash; or paste its text.</p><input id='gh-pass' type='password' autocomplete='off' placeholder='File passphrase' aria-label='Settings file passphrase'><div class='firow'><label class='btn fbtn'>Load from file<input type='file' id='gh-file' accept='.txt,text/plain'></label><button class='btn' id='gh-paste' type='button'>Paste text</button><button class='btn' id='gh-export' type='button'>Save to file</button></div><textarea id='gh-blob' rows='4' hidden placeholder='Paste the settings text here, then tap Load' aria-label='Settings text'></textarea><p class='status' id='fistatus'></p></div><details class='manual' id='manual'><summary>Or enter the details by hand</summary><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button> <button class='btn' id='tidybtn' type='button' title='Find photos no result points at'>Tidy up</button></span><span class='sp'></span><a class='btn' id='guidelink' href='Jalsa-5.0-Winners-Guide.html' target='_blank' rel='noopener' hidden>How to use this</a><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><label class='remember'><input type='checkbox' id='adm-remember' checked> Stay signed in on this device</label><p class='rnote'>Only tick this on a phone or laptop that is yours.</p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><div class='fileimp'><p class='fihead'>Quick setup</p><p class='finote'>If the organisers sent you a settings file, load it here instead of typing anything. Enter the passphrase, then pick the file &mdash; or paste its text.</p><input id='gh-pass' type='password' autocomplete='off' placeholder='File passphrase' aria-label='Settings file passphrase'><div class='firow'><label class='btn fbtn'>Load from file<input type='file' id='gh-file' accept='.txt,text/plain'></label><button class='btn' id='gh-paste' type='button'>Paste text</button><button class='btn' id='gh-export' type='button'>Save to file</button></div><textarea id='gh-blob' rows='4' hidden placeholder='Paste the settings text here, then tap Load' aria-label='Settings text'></textarea><p class='status' id='fistatus'></p></div><details class='manual' id='manual'><summary>Or enter the details by hand</summary><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div><div class='modal' id='tidymodal' role='dialog' aria-modal='true' aria-labelledby='tidyh'><div class='card'><h3 id='tidyh'>Tidy up photos</h3><p>Files in <code>photos/</code> that no result points at. These are usually left over from a result that was cleared or a name that was corrected. Nothing is removed until you confirm.</p><div id='tidybody'></div><p class='status' id='tidystatus'></p><div class='log' id='tidylog'></div><div class='acts'><button class='btn' id='tidyclose' type='button'>Close</button><button class='btn solid' id='tidygo' type='button'>Delete selected</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1204,10 +1273,11 @@ details.manual[open] > summary::after{content:' \25B4'}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 18:45</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 23:56</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
+<script>var RAWBASE="https://raw.githubusercontent.com/slssymphonyassociation2026/sportshub/main/";</script>
 <script>var ADMIN_HASH="b66616a56b62ca0ecca2fb61542c63fc73f81ba8c8f6ebaf7b70be3844e9ae7b";</script>
 <script>var DAYS=["Saturday 8 August", "Sunday 9 August", "Saturday 15 August"];</script>
 <script>var SLOTS=[{"id":"carrom|upto-10-years-doubles","event":"Carrom","cat":"Upto 10 Years \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|10-14-years-doubles","event":"Carrom","cat":"10-14 Years \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|adults-singles","event":"Carrom","cat":"Adults \u2014 Singles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"medal"},{"id":"carrom|adults-doubles","event":"Carrom","cat":"Adults \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"chess|upto-12-years-singles","event":"Chess","cat":"Upto 12 Years \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|12-18-years-singles","event":"Chess","cat":"12-18 Years \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|senior-singles","event":"Chess","cat":"Senior \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"dessert-making|all-participants","event":"Dessert Making","cat":"","day":"Saturday 8 August","time":"1:00 PM","type":"medal"},{"id":"bouquet-making|all-participants","event":"Bouquet Making","cat":"","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|5-to-10-years","event":"Slow Cycling","cat":"5 to 10 Years","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|11-to-15-years","event":"Slow Cycling","cat":"11 to 15 Years","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"rangoli|all-participants","event":"Rangoli","cat":"","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-1-lap|6-to-10-years","event":"Swimming \u2014 1 Lap","cat":"6 to 10 Years","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|11-to-15-years","event":"Swimming \u2014 2 Laps","cat":"11 to 15 Years","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|adults","event":"Swimming \u2014 2 Laps","cat":"Adults","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"skating|5-to-8-years","event":"Skating","cat":"5 to 8 Years","day":"Saturday 8 August","time":"4:30 PM","type":"medal"},{"id":"skating|9-to-12-years","event":"Skating","cat":"9 to 12 Years","day":"Saturday 8 August","time":"4:30 PM","type":"medal"},{"id":"table-tennis|kids-upto-12-years-doubles","event":"Table Tennis","cat":"Kids upto 12 Years \u2014 Doubles","day":"Saturday 8 August","time":"5:00 PM","type":"pair"},{"id":"table-tennis|adults-doubles","event":"Table Tennis","cat":"Adults \u2014 Doubles","day":"Saturday 8 August","time":"5:00 PM","type":"pair"},{"id":"tug-of-war|all-participants","event":"Tug of War","cat":"","day":"Saturday 8 August","time":"6:00 PM","type":"trophy"},{"id":"fancy-dress-kids|0-6-years","event":"Fancy Dress (Kids)","cat":"0-6 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|6-10-years","event":"Fancy Dress (Kids)","cat":"6-10 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|10-15-years","event":"Fancy Dress (Kids)","cat":"10-15 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"lemon-spoon-race|below-6-years","event":"Lemon Spoon Race","cat":"Below 6 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|6-to-10-years","event":"Lemon Spoon Race","cat":"6 to 10 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|11-to-15-years","event":"Lemon Spoon Race","cat":"11 to 15 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|adults","event":"Lemon Spoon Race","cat":"Adults","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"sack-race|below-6-years","event":"Sack Race","cat":"Below 6 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|6-to-10-years","event":"Sack Race","cat":"6 to 10 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|11-to-15-years","event":"Sack Race","cat":"11 to 15 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|adults","event":"Sack Race","cat":"Adults","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"race-50-m|below-6-years","event":"Race \u2014 50 m","cat":"Below 6 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|7-to-10-years","event":"Race \u2014 50 m","cat":"7 to 10 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|11-to-15-years","event":"Race \u2014 50 m","cat":"11 to 15 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|adults","event":"Race \u2014 50 m","cat":"Adults","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-100-m|11-to-15-years","event":"Race \u2014 100 m","cat":"11 to 15 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-100-m|adults","event":"Race \u2014 100 m","cat":"Adults","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"skipping|below-6-years","event":"Skipping","cat":"Below 6 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|6-to-10-years","event":"Skipping","cat":"6 to 10 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|11-to-15-years","event":"Skipping","cat":"11 to 15 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|adults","event":"Skipping","cat":"Adults","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"dodge-ball-women|adults-12","event":"Dodge Ball (Women)","cat":"Adults (12+)","day":"Sunday 9 August","time":"12:15 PM","type":"trophy"},{"id":"football|all-participants","event":"Football","cat":"","day":"Sunday 9 August","time":"1:15 PM","type":"trophy"},{"id":"cricket|all-participants","event":"Cricket","cat":"","day":"Sunday 9 August","time":"2:10 PM","type":"trophy"},{"id":"musical-chair|all-participants","event":"Musical Chair","cat":"","day":"Sunday 9 August","time":"5:00 PM","type":"medal"},{"id":"antakshari|all-participants","event":"Antakshari","cat":"","day":"Sunday 9 August","time":"8:30 PM","type":"trophy"},{"id":"treasure-hunt|all-participants","event":"Treasure Hunt","cat":"","day":"Saturday 15 August","time":"11:00 AM","type":"trophy"},{"id":"painting|below-6-years","event":"Painting","cat":"Below 6 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"},{"id":"painting|6-to-10-years","event":"Painting","cat":"6 to 10 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"},{"id":"painting|11-to-15-years","event":"Painting","cat":"11 to 15 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"}];</script>
@@ -1256,6 +1326,7 @@ function ghForget() {
     localStorage.removeItem(GHK); localStorage.removeItem(GHT);
     localStorage.removeItem(GHR); sessionStorage.removeItem(GHT);
     localStorage.removeItem('jalsa_admin_l');
+    sessionStorage.removeItem('jalsa_admin');
   } catch (e) {}
 }
 function wDialogOpen() {
@@ -1270,14 +1341,56 @@ function wToast(msg, detail) {
   try { t.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
 }
 
+// WSRC is prefixed onto photo paths. Empty when the page and the data are served
+// from the same place, which is the normal case on GitHub Pages.
+var WSRC = '';
+
+// Read the published results. The copy sitting next to the page is tried first,
+// so nothing changes on Pages. If that is missing or stale — which is what
+// happens when the page is served from anywhere else, or while a Pages
+// deployment is stuck — fall back to reading straight from the repository.
+async function wFetchJson(url) {
+  var r = await fetch(url, { cache: 'no-store' });
+  if (!r.ok) throw new Error(String(r.status));
+  var j = await r.json();
+  if (!j || !j.results) throw new Error('not a winners file');
+  return j;
+}
+
 async function wLoad() {
-  try {
-    var r = await fetch('winners.json?t=' + Date.now(), { cache: 'no-store' });
-    if (r.ok) {
-      var j = await r.json();
-      if (j && j.results) WDATA = j;
-    }
-  } catch (e) { /* opened from disk, or not committed yet */ }
+  var stamp = '?t=' + Date.now();
+  var local = null, remote = null;
+  try { local = await wFetchJson('winners.json' + stamp); } catch (e) {}
+  if (RAWBASE) {
+    try { remote = await wFetchJson(RAWBASE + 'winners.json' + stamp); }
+    catch (e) {}
+  }
+  // Prefer whichever was updated later. On Pages they are the same file; when a
+  // deployment is lagging, the repository copy is the newer one.
+  if (local && remote) {
+    // updated is a date, so a second publish on the same day ties. When it does,
+    // trust whichever copy holds more results rather than assuming the served
+    // one is current.
+    var count = function (j) {
+      var n = 0;
+      Object.keys(j.results || {}).forEach(function (k) {
+        var r = j.results[k] || {};
+        n += (r.gold || []).length + (r.silver || []).length +
+             (r.team ? 1 : 0) + Object.keys(r.photos || {}).length;
+      });
+      return n;
+    };
+    var ru = String(remote.updated || ''), lu = String(local.updated || '');
+    var pick = (ru > lu || (ru === lu && count(remote) > count(local)))
+      ? remote : local;
+    WDATA = pick;
+    if (pick === remote) WSRC = RAWBASE;
+  } else if (remote) {
+    WDATA = remote;
+    WSRC = RAWBASE;
+  } else if (local) {
+    WDATA = local;
+  }
   wRender();
 }
 
@@ -1295,10 +1408,18 @@ function wNameLine(v) {
 function wPhoto(id, place) {
   var pend = WPHOTOS[id + '|' + place];
   var saved = (wState(id).photos || {})[place];
-  var src = pend ? pend.dataUrl : (saved || '');
+  var src = pend ? pend.dataUrl : (saved ? WSRC + saved : '');
   if (!src) return '';
-  return "<div class='pphoto thumb'><img src='" + esc(src) + "' alt='" +
-    esc(place) + " winner'></div>";
+  // If the served copy is missing — which is exactly what happens while a Pages
+  // deployment is lagging behind the commit — fall back to the file in the
+  // repository. One retry only, so a genuinely missing photo does not loop.
+  var retry = '';
+  if (!pend && saved && RAWBASE && src.indexOf(RAWBASE) !== 0) {
+    retry = " onerror=\"if(!this.dataset.retried){this.dataset.retried=1;" +
+            "this.src='" + RAWBASE + saved + "';}\"";
+  }
+  return "<div class='pphoto thumb'><img src='" + esc(src) + "'" + retry +
+    " alt='" + esc(place) + " winner'></div>";
 }
 function wFileCtl(id, place) {
   var key = id + '|' + place;
@@ -1878,13 +1999,169 @@ async function wPublish() {
   }
 }
 
+// ---------------- tidy up orphaned photos ----------------
+// Every photo path any result currently points at, including ones staged but not
+// yet published, so nothing in flight is ever offered for deletion.
+function wReferenced() {
+  var used = {};
+  Object.keys(WDATA.results || {}).forEach(function (id) {
+    var ph = (WDATA.results[id] || {}).photos || {};
+    Object.keys(ph).forEach(function (place) { if (ph[place]) used[ph[place]] = 1; });
+  });
+  // pending uploads land on deterministic paths, so reserve those too
+  Object.keys(WPHOTOS).forEach(function (key) {
+    var p = key.split('|');
+    used['photos/' + p[0] + '--' + p[1] + '--' + p[2] + '.jpg'] = 1;
+  });
+  return used;
+}
+
+// Listing a public repository needs no token. Deleting does, but that is only
+// reached after the moderator has confirmed.
+async function wListPhotos(owner, repo, branch, token) {
+  var url = 'https://api.github.com/repos/' + owner + '/' + repo +
+            '/contents/photos?ref=' + encodeURIComponent(branch);
+  var head = { Accept: 'application/vnd.github+json' };
+  if (token) head.Authorization = 'Bearer ' + token;
+  var r = await ghFetch(url, { headers: head }, 'listing the photos folder');
+  if (r.status === 404) return [];          // no photos/ folder yet
+  if (!r.ok) throw new Error(ghExplain(r.status, await r.text(), owner, repo));
+  var list = await r.json();
+  if (!Array.isArray(list)) return [];
+  return list.filter(function (x) { return x.type === 'file'; })
+             .map(function (x) { return { path: x.path, size: x.size }; });
+}
+
+function wTidyRender(orphans) {
+  var body = w$('tidybody');
+  if (!orphans.length) {
+    body.innerHTML = "<p class='tidynone'>Nothing to tidy. Every photo in the " +
+      'repository belongs to a result.</p>';
+    w$('tidygo').disabled = true;
+    return;
+  }
+  var total = orphans.reduce(function (a, x) { return a + (x.size || 0); }, 0);
+  var o = ["<div class='tidylist'>"];
+  orphans.forEach(function (x, i) {
+    o.push("<label><input type='checkbox' data-orphan='" + i + "' checked>" +
+      "<span class='fp'>" + esc(x.path.replace(/^photos\//, '')) + '</span>' +
+      "<span class='sz'>" + Math.round((x.size || 0) / 1024) + ' KB</span>' +
+      '</label>');
+  });
+  o.push('</div>');
+  o.push("<div class='tidybar'><span class='hint'>" + orphans.length +
+    ' orphaned file' + (orphans.length === 1 ? '' : 's') + ', ' +
+    Math.round(total / 1024) + " KB</span><span class='sp'></span>" +
+    "<button type='button' class='btn' id='tidyall'>All</button>" +
+    "<button type='button' class='btn' id='tidynone'>None</button></div>");
+  body.innerHTML = o.join('');
+  w$('tidygo').disabled = false;
+
+  var flip = function (on) {
+    body.querySelectorAll('[data-orphan]').forEach(function (c) {
+      c.checked = on;
+    });
+  };
+  w$('tidyall').addEventListener('click', function () { flip(true); });
+  w$('tidynone').addEventListener('click', function () { flip(false); });
+}
+
+var WORPHANS = [];
+
+async function wTidyScan() {
+  var g = ghLoad();
+  var st = w$('tidystatus');
+  st.className = 'status';
+  st.textContent = 'Looking…';
+  w$('tidylog').textContent = '';
+  w$('tidylog').classList.remove('on');
+  w$('tidybody').innerHTML = '';
+  w$('tidygo').disabled = true;
+  if (!g.owner || !g.repo) {
+    st.className = 'status err';
+    st.textContent = 'Load the publish settings first — Publish, then Quick setup.';
+    return;
+  }
+  try {
+    var files = await wListPhotos(g.owner, g.repo, g.branch || 'main', g.token);
+    var used = wReferenced();
+    WORPHANS = files.filter(function (x) { return !used[x.path]; });
+    var kept = files.length - WORPHANS.length;
+    st.className = 'status';
+    st.textContent = files.length + ' photo' + (files.length === 1 ? '' : 's') +
+      ' in the repository, ' + kept + ' in use.';
+    wTidyRender(WORPHANS);
+  } catch (e) {
+    st.className = 'status err';
+    st.textContent = e.message;
+  }
+}
+
+async function wTidyDelete() {
+  var g = ghLoad();
+  var st = w$('tidystatus'), logEl = w$('tidylog');
+  function log(m) { logEl.classList.add('on'); logEl.textContent += m + '\n'; }
+  var picked = [];
+  w$('tidybody').querySelectorAll('[data-orphan]').forEach(function (c) {
+    if (c.checked) picked.push(WORPHANS[parseInt(c.getAttribute('data-orphan'), 10)]);
+  });
+  if (!picked.length) {
+    st.className = 'status err';
+    st.textContent = 'Nothing ticked.';
+    return;
+  }
+  if (!g.token) {
+    st.className = 'status err';
+    st.textContent = 'The publish settings are needed to delete. Open Publish ' +
+      'and load them first.';
+    return;
+  }
+  if (!confirm('Permanently delete ' + picked.length + ' photo' +
+      (picked.length === 1 ? '' : 's') + ' from the repository? This cannot be ' +
+      'undone from here.')) return;
+
+  w$('tidygo').disabled = true;
+  st.className = 'status';
+  st.textContent = 'Deleting…';
+  try {
+    // one commit for the lot, same as publishing: Pages sees a single deployment
+    var sha = await ghCommitAllPrepared(g.owner, g.repo, g.branch || 'main',
+      g.token, [], picked.map(function (x) { return x.path; }),
+      'Jalsa 5.0: tidy up ' + picked.length + ' unused photo' +
+      (picked.length === 1 ? '' : 's'), log);
+    // rescan first so the list refreshes, then restate the outcome — the scan
+    // writes its own status line and would otherwise wipe the confirmation
+    await wTidyScan();
+    st.className = 'status ok';
+    st.textContent = 'Removed ' + picked.length + ' file' +
+      (picked.length === 1 ? '' : 's') + '.' +
+      (sha ? ' Commit ' + sha.slice(0, 7) + '.' : '') +
+      ' The photos are gone from the repository.';
+  } catch (e) {
+    st.className = 'status err';
+    st.textContent = 'Failed: ' + e.message + ' — nothing was deleted.';
+    log('ERROR ' + e.message);
+    w$('tidygo').disabled = false;
+  }
+}
+
 // ---------------- init ----------------
 function initWinners() {
   // "Record results" is always visible. Clicking it asks for the organisers'
   // username and password. Residents who never sign in simply cannot switch the
   // editor on, and even a signed-in organiser needs the GitHub token to save
   // anything other people can see.
-  var UNLOCKED = sessionStorage.getItem('jalsa_admin') === '1';
+  // A remembered sign-in stores the credentials, not a "logged in" flag: a flag
+  // in localStorage could simply be set by anyone. What is stored is re-verified
+  // against ADMIN_HASH on every load. Same trust model as the GitHub token,
+  // which already lives on this device, and cleared by "Forget saved details".
+  var UNLOCKED = false;
+  var ADMKEY = 'jalsa_admin_l';
+
+  function showOrganiserBits(on) {
+    var gl = w$('guidelink');
+    if (gl) gl.hidden = !on;
+  }
 
   async function sha256hex(txt) {
     var buf = await crypto.subtle.digest('SHA-256',
@@ -1915,7 +2192,13 @@ function initWinners() {
     var hex = await sha256hex(u + ':' + p);
     if (hex === ADMIN_HASH) {
       UNLOCKED = true;
-      sessionStorage.setItem('jalsa_admin', '1');
+      try {
+        var rem = w$('adm-remember');
+        if (!rem || rem.checked) localStorage.setItem(ADMKEY, u + ':' + p);
+        else localStorage.removeItem(ADMKEY);
+        sessionStorage.setItem('jalsa_admin', u + ':' + p);
+      } catch (e) {}
+      showOrganiserBits(true);
       closeLogin();
       setEditing(true);
     } else {
@@ -1935,6 +2218,23 @@ function initWinners() {
   w$('loginmodal').addEventListener('click', function (e) {
     if (e.target === w$('loginmodal')) closeLogin();
   });
+
+  (async function restore() {
+    var saved = null;
+    try {
+      saved = localStorage.getItem(ADMKEY) ||
+              sessionStorage.getItem('jalsa_admin');
+    } catch (e) {}
+    if (!saved || saved.indexOf(':') < 0) return;
+    try {
+      if (await sha256hex(saved) === ADMIN_HASH) {
+        UNLOCKED = true;
+        showOrganiserBits(true);
+      } else {
+        localStorage.removeItem(ADMKEY);
+      }
+    } catch (e) {}
+  })();
 
   w$('editbtn').addEventListener('click', function () {
     if (!UNLOCKED) { openLogin(); return; }
@@ -2137,9 +2437,27 @@ function initWinners() {
     if (md) md.classList.remove('on');
     var lm = w$('loginmodal');
     if (lm) lm.classList.remove('on');
+    var tm2 = w$('tidymodal');
+    if (tm2) tm2.classList.remove('on');
   });
   var dp = w$('dopub');
   if (dp) dp.addEventListener('click', wPublish);
+
+  var tb = w$('tidybtn');
+  if (tb) tb.addEventListener('click', function () {
+    w$('tidymodal').classList.add('on');
+    wTidyScan();
+  });
+  var tc = w$('tidyclose');
+  if (tc) tc.addEventListener('click', function () {
+    w$('tidymodal').classList.remove('on');
+  });
+  var tg = w$('tidygo');
+  if (tg) tg.addEventListener('click', wTidyDelete);
+  var tm = w$('tidymodal');
+  if (tm) tm.addEventListener('click', function (e) {
+    if (e.target === tm) tm.classList.remove('on');
+  });
 
   var ca = w$('checkacc');
   if (ca) ca.addEventListener('click', async function () {
@@ -2179,6 +2497,48 @@ function initWinners() {
 
   wLoad();
 }
+</script>
+<script>
+(function () {
+  var btn = document.getElementById('themesw');
+  if (!btn) return;
+  var SUN = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='12' r='4.2'/><path d='M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6'/></svg>", MOON = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z'/></svg>";
+  var icon = btn.querySelector('.ticon'), lab = btn.querySelector('.tlab');
+
+  function current() {
+    return document.documentElement.getAttribute('data-theme') === 'dark'
+      ? 'dark' : 'light';
+  }
+  function paint() {
+    var dark = current() === 'dark';
+    // the control shows what you will get, not what you have
+    icon.innerHTML = dark ? SUN : MOON;
+    lab.textContent = dark ? 'Light' : 'Dark';
+    btn.setAttribute('aria-label',
+      dark ? 'Switch to the light theme' : 'Switch to the dark theme');
+  }
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('jalsa_theme', next); } catch (e) {}
+    paint();
+  });
+  // follow the system only while the reader has not expressed a preference
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme:dark)');
+    var onSystem = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem('jalsa_theme'); } catch (err) {}
+      if (saved) return;
+      document.documentElement.setAttribute('data-theme',
+        e.matches ? 'dark' : 'light');
+      paint();
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onSystem);
+    else if (mq.addListener) mq.addListener(onSystem);
+  }
+  paint();
+})();
 </script>
 <script>
 // staggered reveal — one orchestrated moment rather than scattered hovers
