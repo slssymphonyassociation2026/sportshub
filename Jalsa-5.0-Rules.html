@@ -109,6 +109,11 @@ nav.idx .tab{
 nav.idx .tab[aria-selected="true"]{background:var(--brass);color:var(--ink);
   font-weight:600}
 nav.idx .tab:hover[aria-selected="false"]{color:#fff;background:rgba(255,255,255,.07)}
+nav.idx a.mylink{font-family:"Cinzel",Georgia,serif;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  background:var(--brass);text-decoration:none;padding:8px 13px;
+  border-radius:2px;font-weight:600;white-space:nowrap}
+nav.idx a.mylink:hover{background:var(--brass-lt)}
 nav.idx a,nav.idx button{
   font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--brass-lt);text-decoration:none;
@@ -452,6 +457,30 @@ body.editing .prize{background:#fff}
 .modal .warn{background:#fff6f6;border:1px solid #e7c3c3;padding:10px 12px;
   font-size:13.5px;color:#7d2b2b;margin:14px 0 0}
 .modal .acts{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+.fileimp{background:#fffdf7;border:1px solid var(--brass);padding:13px;
+  margin:4px 0 16px}
+.fileimp .fihead{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass-dk);margin:0 0 5px}
+.fileimp .finote{font-size:13.5px;color:var(--muted);margin:0 0 10px;
+  line-height:1.5}
+.fileimp input[type=password]{width:100%;padding:10px 12px;font-family:inherit;
+  font-size:16px;border:1px solid var(--rule);background:#fff}
+.fileimp textarea{width:100%;margin-top:8px;padding:9px 11px;font-family:
+  ui-monospace,Menlo,monospace;font-size:12px;border:1px solid var(--rule);
+  background:#fff;resize:vertical}
+.firow{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.firow .btn{flex:1 1 auto}
+label.btn.fbtn{position:relative;overflow:hidden;text-align:center}
+label.btn.fbtn input[type=file]{position:absolute;inset:0;opacity:0;width:100%;
+  height:100%;cursor:pointer}
+details.manual{margin:6px 0 0}
+details.manual > summary{cursor:pointer;list-style:none;font-family:"Cinzel",serif;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass-dk);border-bottom:1px dotted var(--rule);
+  display:inline-block;padding-bottom:2px}
+details.manual > summary::-webkit-details-marker{display:none}
+details.manual > summary::after{content:' \25BE'}
+details.manual[open] > summary::after{content:' \25B4'}
 .log{margin-top:14px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;
   max-height:180px;overflow:auto;background:#fff;border:1px solid var(--rule);
   padding:9px;display:none;white-space:pre-wrap}
@@ -488,6 +517,7 @@ body.editing .prize{background:#fff}
 <button class='tab' id='tab-tt' role='tab' aria-selected='false' aria-controls='panel-tt'>Timetable</button>
 <button class='tab' id='tab-wb' role='tab' aria-selected='false' aria-controls='panel-wb'>Winners</button>
 </div>
+<a class='mylink' href='Jalsa-5.0-My-Events.html'>My Events &#8250;</a>
 <input id='q' type='search' placeholder='Find an event…' aria-label='Find an event'>
 <button id='clear' type='button'>Clear</button>
 <span class='tally' id='tally'>24 events</span>
@@ -1166,7 +1196,7 @@ body.editing .prize{background:#fff}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish</button> <button class='btn' id='pubsetup' type='button' title='Change GitHub details'>&#9881;</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><div class='fileimp'><p class='fihead'>Quick setup</p><p class='finote'>If the organisers sent you a settings file, load it here instead of typing anything. Enter the passphrase, then pick the file &mdash; or paste its text.</p><input id='gh-pass' type='password' autocomplete='off' placeholder='File passphrase' aria-label='Settings file passphrase'><div class='firow'><label class='btn fbtn'>Load from file<input type='file' id='gh-file' accept='.txt,text/plain'></label><button class='btn' id='gh-paste' type='button'>Paste text</button><button class='btn' id='gh-export' type='button'>Save to file</button></div><textarea id='gh-blob' rows='4' hidden placeholder='Paste the settings text here, then tap Load' aria-label='Settings text'></textarea><p class='status' id='fistatus'></p></div><details class='manual' id='manual'><summary>Or enter the details by hand</summary><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1174,7 +1204,7 @@ body.editing .prize{background:#fff}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 11:53</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 17:43</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
@@ -1483,6 +1513,113 @@ function wFilter(t) {
   return n;
 }
 
+// ---------------- encrypted settings file ----------------
+// Typing a 90-character fine-grained token on a phone, once per moderator, is
+// the worst part of this tool. So one person sets it up, exports an encrypted
+// settings file, and everybody else loads it with a short passphrase.
+//
+// The file on its own is useless: AES-256-GCM, key from PBKDF2-SHA256 x 250,000
+// over the passphrase. File and passphrase must travel separately - the file in
+// the group chat, the passphrase said out loud or sent one-to-one. GCM also
+// means a tampered file fails to decrypt rather than yielding rubbish.
+var SET_ITERS = 250000, SET_MAGIC = 'jalsa1';
+
+function sB64(u8) {
+  var s = '';
+  for (var i = 0; i < u8.length; i++) s += String.fromCharCode(u8[i]);
+  return btoa(s);
+}
+function sB64d(str) {
+  var raw = atob(str), out = new Uint8Array(raw.length);
+  for (var i = 0; i < raw.length; i++) out[i] = raw.charCodeAt(i);
+  return out;
+}
+async function sKey(pass, salt, usage) {
+  var base = await crypto.subtle.importKey('raw',
+    new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits']);
+  var bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: salt, iterations: SET_ITERS, hash: 'SHA-256' },
+    base, 256);
+  return crypto.subtle.importKey('raw', new Uint8Array(bits), 'AES-GCM', false,
+    usage);
+}
+
+async function settingsPack(obj, pass) {
+  var salt = crypto.getRandomValues(new Uint8Array(16));
+  var iv = crypto.getRandomValues(new Uint8Array(12));
+  var key = await sKey(pass, salt, ['encrypt']);
+  var ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key,
+    new TextEncoder().encode(JSON.stringify(obj)));
+  return SET_MAGIC + '.' + sB64(salt) + '.' + sB64(iv) + '.' +
+    sB64(new Uint8Array(ct));
+}
+
+var SET_BEGIN = '-----JALSA SETTINGS BEGIN-----';
+var SET_END = '-----JALSA SETTINGS END-----';
+
+// Pulls the payload out of whatever gets pasted in. Chat apps wrap long lines at
+// arbitrary points, so the BEGIN/END markers are what make this reliable: take
+// everything between them and drop all whitespace. A bare blob with no markers
+// still works as a fallback.
+function settingsBody(text) {
+  var s = String(text == null ? '' : text);
+  var i = s.indexOf(SET_BEGIN), j = s.indexOf(SET_END);
+  if (i > -1 && j > i) return s.slice(i + SET_BEGIN.length, j).replace(/\s+/g, '');
+  var k = s.indexOf(SET_MAGIC + '.');
+  if (k < 0) return '';
+  var m = /^(jalsa1\.[A-Za-z0-9+/=]+\.[A-Za-z0-9+/=]+\.[A-Za-z0-9+/=]+)/
+    .exec(s.slice(k).replace(/\s+/g, ''));
+  return m ? m[1] : '';
+}
+
+async function settingsUnpack(text, pass) {
+  var body = settingsBody(text);
+  if (!body) {
+    throw new Error('That does not look like a Jalsa settings file. It should ' +
+      'contain a block starting with "jalsa1.".');
+  }
+  var parts = body.split('.');
+  if (parts.length !== 4 || !parts[1] || !parts[2] || !parts[3]) {
+    throw new Error('The settings text is incomplete — it looks like only part ' +
+      'of the file was copied.');
+  }
+  var key = await sKey(pass, sB64d(parts[1]), ['decrypt']);
+  var pt;
+  try {
+    pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: sB64d(parts[2]) },
+      key, sB64d(parts[3]));
+  } catch (e) {
+    throw new Error('Wrong passphrase, or the file has been altered.');
+  }
+  var obj = JSON.parse(new TextDecoder().decode(new Uint8Array(pt)));
+  if (!obj || !obj.owner || !obj.repo || !obj.token) {
+    throw new Error('The file decrypted but is missing the owner, repository ' +
+      'or token.');
+  }
+  return obj;
+}
+
+function settingsFileText(blob) {
+  // Wrapped at 64 characters so it survives being pasted into a chat, and
+  // fenced with markers so the parser can find it whatever surrounds it.
+  var wrapped = blob.replace(/(.{64})/g, '$1\n');
+  return [
+    'JALSA 5.0 - WINNERS BOARD PUBLISH SETTINGS',
+    '',
+    'Encrypted. Open the winners board, tap Publish, and use',
+    '"Load from file" with the passphrase you were given.',
+    '',
+    'Keep the passphrase OUT of the same message as this file.',
+    'Delete this file once you have loaded it.',
+    'Never commit it to the repository.',
+    '',
+    SET_BEGIN,
+    wrapped.replace(/\n$/, ''),
+    SET_END,
+    ''
+  ].join('\n');
+}
+
 // ---------------- publish to GitHub ----------------
 // Turn GitHub's terse API errors into something actionable.
 function ghExplain(status, bodyText, owner, repo) {
@@ -1762,10 +1899,20 @@ function initWinners() {
     w$('publog').textContent = '';
     w$('publog').classList.remove('on');
     if (w$('tokhelp')) w$('tokhelp').open = false;
+    if (w$('fistatus')) { w$('fistatus').textContent = '';
+                          w$('fistatus').className = 'status'; }
+    if (w$('gh-blob')) { w$('gh-blob').hidden = true; w$('gh-blob').value = ''; }
+    if (w$('gh-paste')) w$('gh-paste').textContent = 'Paste text';
     w$('modal').classList.add('on');
     var g = ghLoad();
-    if (g.owner && g.repo && g.token) w$('dopub').focus();
-    else w$('gh-owner').focus();
+    if (g.owner && g.repo && g.token) {
+      if (w$('manual')) w$('manual').open = false;
+      w$('dopub').focus();
+    } else {
+      // nothing stored yet: the settings file is the easy path, so start there
+      if (w$('manual')) w$('manual').open = false;
+      if (w$('gh-pass')) w$('gh-pass').focus();
+    }
   }
 
   var pb = w$('pubbtn');
@@ -1780,11 +1927,117 @@ function initWinners() {
   var ps = w$('pubsetup');
   if (ps) ps.addEventListener('click', openPubDialog);
 
+  // ---- encrypted settings file: load and save ----
+  function fiSay(msg, kind) {
+    var el = w$('fistatus');
+    if (!el) return;
+    el.className = 'status' + (kind ? ' ' + kind : '');
+    el.textContent = msg;
+  }
+
+  function applySettings(obj) {
+    w$('gh-owner').value = obj.owner || '';
+    w$('gh-repo').value = obj.repo || '';
+    w$('gh-branch').value = obj.branch || 'main';
+    w$('gh-token').value = obj.token || '';
+    var remember = !w$('gh-remember') || w$('gh-remember').checked;
+    ghSave(obj.owner, obj.repo, obj.branch || 'main', obj.token, remember);
+  }
+
+  async function loadSettingsText(text) {
+    var pass = (w$('gh-pass') ? w$('gh-pass').value : '').trim();
+    if (!pass) { fiSay('Enter the passphrase first.', 'err'); return; }
+    fiSay('Opening…');
+    try {
+      var obj = await settingsUnpack(text, pass);
+      applySettings(obj);
+      w$('gh-pass').value = '';
+      var blobEl = w$('gh-blob');
+      if (blobEl) { blobEl.value = ''; blobEl.hidden = true; }
+      fiSay('Loaded ' + obj.owner + '/' + obj.repo +
+        '. You can delete the file now.', 'ok');
+      // nothing left to type, so put them on the button that matters
+      w$('dopub').focus();
+    } catch (e) {
+      fiSay(e.message, 'err');
+    }
+  }
+
+  var fin = w$('gh-file');
+  if (fin) fin.addEventListener('change', function () {
+    var f = fin.files && fin.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { loadSettingsText(String(r.result || '')); };
+    r.onerror = function () { fiSay('Could not read that file.', 'err'); };
+    r.readAsText(f);
+    fin.value = '';           // allow picking the same file again after a retry
+  });
+
+  // Paste is the reliable path on iOS, where the file picker is awkward.
+  var pasteBtn = w$('gh-paste');
+  if (pasteBtn) pasteBtn.addEventListener('click', function () {
+    var el = w$('gh-blob');
+    if (!el) return;
+    if (el.hidden) {
+      el.hidden = false;
+      el.focus();
+      pasteBtn.textContent = 'Load pasted text';
+      fiSay('Paste the settings text, then tap Load pasted text.');
+      return;
+    }
+    if (!el.value.trim()) { fiSay('Nothing pasted yet.', 'err'); return; }
+    loadSettingsText(el.value);
+    pasteBtn.textContent = 'Paste text';
+  });
+
+  var exp = w$('gh-export');
+  if (exp) exp.addEventListener('click', async function () {
+    var owner = w$('gh-owner').value.trim(), repo = w$('gh-repo').value.trim(),
+        branch = w$('gh-branch').value.trim() || 'main',
+        token = w$('gh-token').value.trim();
+    var pass = (w$('gh-pass') ? w$('gh-pass').value : '').trim();
+    if (!owner || !repo || !token) {
+      w$('manual').open = true;
+      fiSay('Fill in the username, repository and token first — those are what ' +
+            'get saved into the file.', 'err');
+      return;
+    }
+    if (pass.length < 6) {
+      fiSay('Choose a passphrase of at least 6 characters. Share it separately ' +
+            'from the file.', 'err');
+      if (w$('gh-pass')) w$('gh-pass').focus();
+      return;
+    }
+    fiSay('Encrypting…');
+    try {
+      var blob = await settingsPack(
+        { owner: owner, repo: repo, branch: branch, token: token }, pass);
+      var text = settingsFileText(blob);
+      var url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'jalsa-publish-settings.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      // Some mobile browsers silently ignore a download; showing the text means
+      // it can always be copied into a message instead.
+      var el = w$('gh-blob');
+      if (el) { el.hidden = false; el.value = text; }
+      fiSay('Saved as jalsa-publish-settings.txt. If no download appeared, copy ' +
+            'the text below instead. Send the passphrase separately.', 'ok');
+    } catch (e) {
+      fiSay('Could not build the file: ' + e.message, 'err');
+    }
+  });
+
   var fg = w$('gh-forget');
   if (fg) fg.addEventListener('click', function () {
     ghForget();
-    ['gh-owner', 'gh-repo', 'gh-token'].forEach(function (i) {
-      w$(i).value = '';
+    ['gh-owner', 'gh-repo', 'gh-token', 'gh-pass'].forEach(function (i) {
+      if (w$(i)) w$(i).value = '';
     });
     w$('gh-branch').value = 'main';
     w$('pubstatus').className = 'status ok';
