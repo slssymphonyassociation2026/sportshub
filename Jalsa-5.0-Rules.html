@@ -324,6 +324,16 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
   padding:6px 11px}
 .btn.clr:hover{background:#8d3a3a;color:#fff;border-color:#8d3a3a}
 .hint{font-size:14px;color:var(--muted)}
+.toast{background:#f0f8f2;border:1px solid #b9dcc4;border-left:4px solid #1c6b3a;
+  padding:12px 14px;margin:0 0 18px;font-size:15px;color:#1c5230}
+.toast b{display:block;font-family:"Cinzel",serif;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
+.remember{display:flex;gap:8px;align-items:center;margin:14px 0 4px;
+  font-size:14.5px;color:var(--body)}
+.remember input{width:auto;flex:0 0 auto;transform:scale(1.15)}
+.rnote{font-size:13px;color:var(--muted);margin:0}
+.linkbtn{background:none;border:0;padding:0;color:#a33;font:inherit;
+  font-size:13px;text-decoration:underline;cursor:pointer}
 .wbintro{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:660px}
 
 .evcard{border-top:1px solid rgba(0,0,0,.16);padding:22px 0}
@@ -373,8 +383,8 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 .edit{display:none}
 body.editing .edit{display:block}
 body.editing .prize{background:#fff}
-.edit input[type=text]{width:100%;padding:7px 9px;font-family:inherit;
-  font-size:15.5px;border:1px solid var(--rule);background:#fff;margin-top:5px}
+.edit input[type=text]{width:100%;padding:8px 10px;font-family:inherit;
+  font-size:16px;border:1px solid var(--rule);background:#fff;margin-top:5px}
 .edit input[type=text]:focus-visible{outline:2px solid var(--brass);
   outline-offset:1px}
 .edit .row2{display:flex;gap:6px}
@@ -401,8 +411,17 @@ body.editing .prize{background:#fff}
 .modal .card label.f{display:block;font-family:"Cinzel",serif;font-size:10px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--brass-dk);
   margin:12px 0 4px}
-.modal .card input{width:100%;padding:9px 11px;font-family:inherit;
-  font-size:15.5px;border:1px solid var(--rule);background:#fff}
+.modal .card input{width:100%;padding:10px 12px;font-family:inherit;
+  font-size:16px;border:1px solid var(--rule);background:#fff}
+.tokhelp{margin:14px 0 0}
+.tokhelp > summary{cursor:pointer;list-style:none;font-family:"Cinzel",serif;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass-dk);border-bottom:1px dotted var(--rule);
+  display:inline-block;padding-bottom:2px}
+.tokhelp > summary::-webkit-details-marker{display:none}
+.tokhelp > summary::after{content:' \25BE'}
+.tokhelp[open] > summary::after{content:' \25B4'}
+.tokhelp[open] > summary{color:var(--ink-2)}
 .modal .warn{background:#fff6f6;border:1px solid #e7c3c3;padding:10px 12px;
   font-size:13.5px;color:#7d2b2b;margin:14px 0 0}
 .modal .acts{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
@@ -1114,7 +1133,7 @@ body.editing .prize{background:#fff}
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
-<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.<br><br>The token is kept only for this browser tab and is never written into the page or the repository.</div><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
+<p class='wbintro'>Gold and Silver for individual events, two of each for the doubles categories, and a trophy for the team events. <span id='updated'></span></p><div class='wbtools' id='wbtools'><button class='btn' id='editbtn' type='button'>Record results</button><span id='savebar' hidden><button class='btn solid' id='pubbtn' type='button'>Publish to GitHub</button> <button class='btn' id='download' type='button'>Download files</button></span><span class='sp'></span><span class='hint' id='dirty'></span></div><p class='hint' style='margin:0 0 18px'><span id='wtally'></span></p><div class='toast' id='toast' hidden></div><div id='board'></div><div class='modal' id='loginmodal' role='dialog' aria-modal='true' aria-labelledby='lgh'><div class='card'><h3 id='lgh'>Organisers sign in</h3><p>Recording results is limited to the organising team. Residents can view the board without signing in.</p><label class='f' for='adm-user'>Username</label><input id='adm-user' autocapitalize='none' spellcheck='false' autocomplete='username'><label class='f' for='adm-pw'>Password</label><input id='adm-pw' type='password' autocomplete='current-password'><p class='status err' id='adm-err'></p><div class='acts'><button class='btn' id='adm-cancel' type='button'>Cancel</button><button class='btn solid' id='adm-go' type='button'>Sign in</button></div></div></div><div class='modal' id='modal' role='dialog' aria-modal='true' aria-labelledby='pubh'><div class='card'><h3 id='pubh'>Publish to GitHub</h3><p>This commits <code>winners.json</code> and any photos straight into the repository, so everyone sees them.</p><label class='f' for='gh-owner'>GitHub username</label><input id='gh-owner' autocapitalize='none' spellcheck='false'><label class='f' for='gh-repo'>Repository</label><input id='gh-repo' autocapitalize='none' spellcheck='false'><label class='f' for='gh-branch'>Branch</label><input id='gh-branch' value='main' autocapitalize='none' spellcheck='false'><label class='f' for='gh-token'>Personal access token</label><input id='gh-token' type='password' autocomplete='off'><details class='tokhelp' id='tokhelp'><summary>Trouble with the token?</summary><div class='warn'><b>Creating the token</b><br>GitHub &rarr; Settings &rarr; Developer settings &rarr; <b>Fine-grained tokens</b> &rarr; Generate new token, then set:<br>&bull; <b>Repository access</b>: Only select repositories &rarr; tick this repo<br>&bull; <b>Permissions &rarr; Repository permissions &rarr; Contents</b>: <b>Read and write</b><br>Contents lives under <i>Repository</i> permissions, not <i>Account</i> permissions &mdash; missing that is what causes a 403.<br><br>A classic token also works: tick <b>public_repo</b> for a public repository.</div></details><label class='remember'><input type='checkbox' id='gh-remember' checked> Remember these details on this device</label><p class='rnote'>Saved on this device only, never in the page or the repository. Use only on a phone or laptop that is yours. <button type='button' class='linkbtn' id='gh-forget'>Forget saved details</button></p><div class='log' id='publog'></div><p class='status' id='pubstatus'></p><div class='acts'><button class='btn' id='cancelpub' type='button'>Cancel</button><button class='btn' id='checkacc' type='button'>Check access</button><button class='btn solid' id='dopub' type='button'>Publish</button></div></div></div>
 </div>
 <p class='noresult' id='none'>No event matches that search.</p>
 </div></main>
@@ -1122,7 +1141,7 @@ body.editing .prize{background:#fff}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 05:29</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 05:43</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
@@ -1142,6 +1161,46 @@ var WDELETES = {};         // repo paths to delete when publishing
 var WDIRTY = false;
 
 function w$(id) { return document.getElementById(id); }
+
+// Organisers work from phones, where tabs get killed constantly. Settings live
+// in localStorage so nothing has to be retyped; the token is only kept if the
+// "remember" box is ticked, and can be forgotten in one click.
+var GHK = 'jalsa_gh', GHT = 'jalsa_gh_token', GHR = 'jalsa_gh_remember';
+function ghLoad() {
+  var out = { owner: '', repo: '', branch: 'main', token: '', remember: true };
+  try {
+    var j = JSON.parse(localStorage.getItem(GHK) || '{}');
+    out.owner = j.owner || ''; out.repo = j.repo || '';
+    out.branch = j.branch || 'main';
+  } catch (e) {}
+  out.remember = localStorage.getItem(GHR) !== '0';
+  out.token = (out.remember ? localStorage.getItem(GHT) : null) ||
+              sessionStorage.getItem(GHT) || '';
+  return out;
+}
+function ghSave(owner, repo, branch, token, remember) {
+  try {
+    localStorage.setItem(GHK, JSON.stringify(
+      { owner: owner, repo: repo, branch: branch }));
+    localStorage.setItem(GHR, remember ? '1' : '0');
+    if (remember) localStorage.setItem(GHT, token);
+    else { localStorage.removeItem(GHT); sessionStorage.setItem(GHT, token); }
+  } catch (e) {}
+}
+function ghForget() {
+  try {
+    localStorage.removeItem(GHK); localStorage.removeItem(GHT);
+    localStorage.removeItem(GHR); sessionStorage.removeItem(GHT);
+    localStorage.removeItem('jalsa_admin_l');
+  } catch (e) {}
+}
+function wToast(msg, detail) {
+  var t = w$('toast');
+  if (!t) return;
+  t.innerHTML = '<b>' + esc(msg) + '</b>' + esc(detail || '');
+  t.hidden = false;
+  try { t.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+}
 
 async function wLoad() {
   try {
@@ -1491,9 +1550,8 @@ async function wPublish() {
     st.textContent = 'Owner, repository and token are all required.';
     return;
   }
-  sessionStorage.setItem('jalsa_gh',
-    JSON.stringify({ owner: owner, repo: repo, branch: branch }));
-  sessionStorage.setItem('jalsa_gh_t', token);
+  var remember = !w$('gh-remember') || w$('gh-remember').checked;
+  ghSave(owner, repo, branch, token, remember);
 
   w$('dopub').disabled = true;
   st.className = 'status'; st.textContent = 'Publishing…';
@@ -1527,14 +1585,30 @@ async function wPublish() {
       log('removing photo ' + (d + 1) + ' of ' + dels.length);
       await ghDelete(owner, repo, branch, token, dels[d], log);
     }
+    var nPhotos = keys.length, nGone = dels.length;
     WPHOTOS = {}; WDELETES = {}; WDIRTY = false; wMarkDirty();
     st.className = 'status ok';
-    st.textContent = 'Published. GitHub Pages usually refreshes within a minute.';
+    st.textContent = 'Published.';
     wRender();
+    // close the dialog and show the result on the board itself
+    setTimeout(function () {
+      w$('modal').classList.remove('on');
+      var bits = [];
+      if (nPhotos) bits.push(nPhotos + (nPhotos === 1 ? ' photo' : ' photos'));
+      if (nGone) bits.push(nGone + ' removed');
+      wToast('Published to GitHub',
+        'Results saved' + (bits.length ? ' with ' + bits.join(' and ') : '') +
+        '. The live site updates within about a minute.');
+    }, 700);
   } catch (e) {
     st.className = 'status err';
     st.textContent = 'Failed: ' + e.message;
     log('ERROR ' + e.message);
+    // surface the setup instructions only when they are actually relevant
+    if (/token|403|401|404|permission|access/i.test(e.message)) {
+      var th = w$('tokhelp');
+      if (th) th.open = true;
+    }
   } finally {
     w$('dopub').disabled = false;
   }
@@ -1626,19 +1700,32 @@ function initWinners() {
 
   var pb = w$('pubbtn');
   if (pb) pb.addEventListener('click', function () {
-    var saved = sessionStorage.getItem('jalsa_gh');
-    if (saved) {
-      try {
-        var g = JSON.parse(saved);
-        w$('gh-owner').value = g.owner || '';
-        w$('gh-repo').value = g.repo || '';
-        w$('gh-branch').value = g.branch || 'main';
-      } catch (e) {}
-    }
-    var t = sessionStorage.getItem('jalsa_gh_t');
-    if (t) w$('gh-token').value = t;
+    var g = ghLoad();
+    w$('gh-owner').value = g.owner;
+    w$('gh-repo').value = g.repo;
+    w$('gh-branch').value = g.branch;
+    w$('gh-token').value = g.token;
+    if (w$('gh-remember')) w$('gh-remember').checked = g.remember;
+    w$('pubstatus').textContent = '';
+    w$('pubstatus').className = 'status';
+    w$('publog').textContent = '';
+    w$('publog').classList.remove('on');
+    if (w$('tokhelp')) w$('tokhelp').open = false;
     w$('modal').classList.add('on');
-    w$('gh-owner').focus();
+    // everything already filled in? go straight to the action
+    if (g.owner && g.repo && g.token) w$('dopub').focus();
+    else w$('gh-owner').focus();
+  });
+
+  var fg = w$('gh-forget');
+  if (fg) fg.addEventListener('click', function () {
+    ghForget();
+    ['gh-owner', 'gh-repo', 'gh-token'].forEach(function (i) {
+      w$(i).value = '';
+    });
+    w$('gh-branch').value = 'main';
+    w$('pubstatus').className = 'status ok';
+    w$('pubstatus').textContent = 'Saved details cleared from this device.';
   });
   var cp = w$('cancelpub');
   if (cp) cp.addEventListener('click', function () {
@@ -1682,6 +1769,8 @@ function initWinners() {
       st.className = 'status err';
       st.textContent = e.message;
       logEl.textContent = e.message + '\n';
+      var th = w$('tokhelp');
+      if (th) th.open = true;
     } finally {
       ca.disabled = false;
     }
@@ -1760,7 +1849,15 @@ function initWinners() {
     { t: 'tab-tt',    p: 'panel-tt',    k: 'tt' },
     { t: 'tab-wb',    p: 'panel-wb',    k: 'wb' }
   ];
-  function showTab(kind, focusTab) {
+  var HASH = { rules: 'rules', tt: 'timetable', wb: 'winners' };
+  function setHash(frag) {
+    // replaceState keeps the refresh position without filling up history
+    try {
+      history.replaceState(null, '', frag ? '#' + frag :
+        location.pathname + location.search);
+    } catch (e) { location.hash = frag || ''; }
+  }
+  function showTab(kind, focusTab, hashOverride) {
     TABS.forEach(function (x) {
       var on = x.k === kind;
       document.getElementById(x.p).hidden = !on;
@@ -1768,6 +1865,7 @@ function initWinners() {
       b.setAttribute('aria-selected', on ? 'true' : 'false');
       if (on && focusTab) b.focus();
     });
+    setHash(hashOverride !== undefined ? hashOverride : HASH[kind]);
     apply();
   }
   TABS.forEach(function (x, i) {
@@ -1787,7 +1885,7 @@ function initWinners() {
     if (!a) return;
     e.preventDefault();
     var id = a.getAttribute('href').slice(1);
-    showTab('rules');
+    showTab('rules', false, id);      // keep #ev-... so a refresh returns here
     var el = document.getElementById(id);
     if (el) {
       el.classList.add('in');
@@ -1795,17 +1893,27 @@ function initWinners() {
     }
   });
 
-  // deep links: #timetable, #winners, #ev-<slug>
-  (function () {
+  // restore the tab from the URL: #timetable, #winners, #rules, #ev-<slug>
+  function routeFromHash() {
     var hash = location.hash || '';
-    if (hash === '#timetable') showTab('tt');
-    else if (hash === '#winners') showTab('wb');
-    else if (hash.indexOf('#ev-') === 0) {
-      showTab('rules');
-      var el = document.getElementById(hash.slice(1));
-      if (el) { el.classList.add('in'); el.scrollIntoView({ block: 'start' }); }
+    if (hash === '#timetable') { showTab('tt'); return; }
+    if (hash === '#winners') { showTab('wb'); return; }
+    if (hash.indexOf('#ev-') === 0) {
+      var id = hash.slice(1);
+      showTab('rules', false, id);
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.add('in');
+        el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth',
+                            block: 'start' });
+      }
+      return;
     }
-  })();
+    showTab('rules');
+  }
+  routeFromHash();
+  // replaceState does not fire hashchange, so this only catches real navigation
+  window.addEventListener('hashchange', routeFromHash);
 
   if (typeof initWinners === 'function') initWinners();
 
