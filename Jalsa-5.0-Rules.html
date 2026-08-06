@@ -183,6 +183,9 @@ ol.gen li::before{
   transition:opacity .55s ease,transform .55s ease
 }
 .ev.in{opacity:1;transform:none}
+.ev > div{min-width:0}          /* grid items default to min-width:auto and
+                                   refuse to shrink, which pushes wide content
+                                   past the right edge on narrow screens */
 .ev{scroll-margin-top:64px}
 .ev:last-child{border-bottom:1px solid rgba(0,0,0,.16)}
 .num{
@@ -196,7 +199,7 @@ ol.gen li::before{
   font-family:"Cinzel",Georgia,serif;font-size:clamp(20px,3.6vw,30px);
   letter-spacing:.02em;margin:0 0 8px;color:var(--ink-2);line-height:1.14
 }
-.meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;min-width:0}
 .tag{
   font-family:"Cinzel",Georgia,serif;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;padding:4px 9px;border:1px solid var(--rule);
@@ -204,11 +207,12 @@ ol.gen li::before{
 }
 .tag.hi{border-color:var(--brass);color:var(--brass-dk);font-weight:600}
 .howto{font-size:16.5px;color:#3b352b;margin:0 0 15px;
-  padding-left:15px;border-left:2px solid var(--brass)}
+  padding-left:15px;border-left:2px solid var(--brass);overflow-wrap:break-word}
 .howto b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--brass-dk);display:block;margin-bottom:3px}
 ol.rules{counter-reset:r;list-style:none;margin:0;padding:0}
-ol.rules li{counter-increment:r;position:relative;padding:0 0 9px 30px}
+ol.rules li{counter-increment:r;position:relative;padding:0 0 9px 30px;
+  overflow-wrap:break-word}
 ol.rules li::before{
   content:counter(r);position:absolute;left:0;top:3px;width:20px;
   font-family:"Cinzel",serif;font-size:11px;color:var(--brass-dk);
@@ -222,7 +226,8 @@ ol.rules li::before{
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .chip{font-size:14px;padding:3px 11px;border:1px solid var(--brass);
   border-radius:999px;color:var(--ink-2);background:#fff}
-.cats{margin:14px 0 0;font-size:15px;color:var(--muted)}
+.cats{margin:14px 0 0;font-size:15px;color:var(--muted);
+  overflow-wrap:break-word}
 .cats b{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--brass-dk);margin-right:7px}
 /* ---------- timetable ---------- */
@@ -279,9 +284,31 @@ footer.foot .cr{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.16em;
 
 @media(max-width:600px){
   body{font-size:17px}
-  .ev{grid-template-columns:52px 1fr;gap:13px}
-  .num{font-size:21px}
+  main{padding:24px 14px 44px}
+  /* Drop the two-column grid: the numeral plate created a wide empty gutter on
+     the left while text was clipped on the right. The number becomes a small
+     rubric above the title and the text gets the full width. */
+  .ev{display:block;padding:22px 0 10px}
+  .num{display:inline-block;width:auto;height:auto;aspect-ratio:auto;
+       padding:2px 10px;font-size:13px;letter-spacing:.14em;
+       margin:0 0 7px;box-shadow:none;line-height:1.5}
+  .ev h3{font-size:21px;overflow-wrap:break-word;hyphens:auto}
   ol.gen{columns:1}
+  /* Carrom and Chess carry a long free-text time; nowrap would clip it */
+  .tag{white-space:normal;font-size:9.5px;letter-spacing:.1em;
+       line-height:1.45;padding:4px 7px}
+  .howto{font-size:15.5px;padding-left:11px}
+  ol.rules li{padding-left:26px;font-size:15.5px}
+  ol.rules li::before{width:17px;padding-right:5px}
+  .chip{font-size:13px;padding:3px 9px}
+  .day{gap:10px}
+  .day h2{font-size:26px}
+  .sheet{overflow-x:hidden}
+}
+@media(max-width:400px){
+  main{padding:20px 11px 40px}
+  .ev h3{font-size:19px}
+  ol.rules li{padding-left:23px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -470,154 +497,157 @@ body.editing .prize{background:#fff}
 <section class='tt' id='timetable'>
 <h2>Timetable</h2>
 <p class='lede'>Report at your venue 15 minutes before your event. Several events run in parallel, so check the times for everything you have entered.</p>
-<div class='ttday'><h3>Saturday</h3>
+<div class='ttday'><h3>Saturday 8 August</h3>
 <table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
-<tr data-k='carrom club house saturday'>
+<tr data-k='carrom club house saturday 8 august'>
 <td class='t'>Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards</td>
 <td class='e'><a href='#ev-carrom'>Carrom</a></td>
 <td>Club House</td>
 <td class='m'>Deepak,Subhasis</td>
 </tr>
-<tr data-k='chess club house saturday'>
+<tr data-k='chess club house saturday 8 august'>
 <td class='t'>Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards</td>
 <td class='e'><a href='#ev-chess'>Chess</a></td>
 <td>Club House</td>
 <td class='m'>Praneeth, Raja</td>
 </tr>
-<tr data-k='dessert making b block, near gym saturday'>
+<tr data-k='dessert making b block, near gym saturday 8 august'>
 <td class='t'>1:00 PM</td>
 <td class='e'><a href='#ev-dessert-making'>Dessert Making</a></td>
 <td>B Block, Near Gym</td>
 <td class='m none'>Judging panel</td>
 </tr>
-<tr data-k='bouquet making b block, near gym saturday'>
+<tr data-k='bouquet making b block, near gym saturday 8 august'>
 <td class='t'>2:00 PM</td>
 <td class='e'><a href='#ev-bouquet-making'>Bouquet Making</a></td>
 <td>B Block, Near Gym</td>
 <td class='m none'>Judging panel</td>
 </tr>
-<tr data-k='slow cycling b block, basement saturday'>
+<tr data-k='slow cycling b block, basement saturday 8 august'>
 <td class='t'>2:00 PM</td>
 <td class='e'><a href='#ev-slow-cycling'>Slow Cycling</a></td>
 <td>B Block, Basement</td>
 <td class='m'>Deepak, Ashish</td>
 </tr>
-<tr data-k='rangoli c block, near club house saturday'>
+<tr data-k='rangoli c block, near club house saturday 8 august'>
 <td class='t'>3:30 PM</td>
 <td class='e'><a href='#ev-rangoli'>Rangoli</a></td>
 <td>C Block, Near Club House</td>
 <td class='m none'>Judging panel</td>
 </tr>
-<tr data-k='swimming — 1 lap swimming pool saturday'>
+<tr data-k='swimming — 1 lap swimming pool saturday 8 august'>
 <td class='t'>3:30 PM</td>
 <td class='e'><a href='#ev-swimming-1-lap'>Swimming — 1 Lap</a></td>
 <td>Swimming Pool</td>
 <td class='m'>Harvinder, Abhisek</td>
 </tr>
-<tr data-k='swimming — 2 laps swimming pool saturday'>
+<tr data-k='swimming — 2 laps swimming pool saturday 8 august'>
 <td class='t'>3:30 PM</td>
 <td class='e'><a href='#ev-swimming-2-laps'>Swimming — 2 Laps</a></td>
 <td>Swimming Pool</td>
 <td class='m'>Harvinder, Abhisek</td>
 </tr>
-<tr data-k='skating b block, basement saturday'>
+<tr data-k='skating b block, basement saturday 8 august'>
 <td class='t'>4:30 PM</td>
 <td class='e'><a href='#ev-skating'>Skating</a></td>
 <td>B Block, Basement</td>
 <td class='m'>Harvinder,Ashish</td>
 </tr>
-<tr data-k='table tennis club house saturday'>
+<tr data-k='table tennis club house saturday 8 august'>
 <td class='t'>5:00 PM</td>
 <td class='e'><a href='#ev-table-tennis'>Table Tennis</a></td>
 <td>Club House</td>
 <td class='m'>Manoj, Saurabh</td>
 </tr>
-<tr data-k='tug of war b block, basement saturday'>
+<tr data-k='tug of war b block, basement saturday 8 august'>
 <td class='t'>6:00 PM</td>
 <td class='e'><a href='#ev-tug-of-war'>Tug of War</a></td>
 <td>B Block, Basement</td>
 <td class='m'>Subhasis</td>
 </tr>
-<tr data-k='fancy dress (kids) big party hall saturday'>
+<tr data-k='fancy dress (kids) big party hall saturday 8 august'>
 <td class='t'>7:00 PM</td>
 <td class='e'><a href='#ev-fancy-dress-kids'>Fancy Dress (Kids)</a></td>
 <td>Big Party Hall</td>
 <td class='m none'>Judging panel</td>
 </tr>
 </tbody></table></div>
-<div class='ttday'><h3>Sunday</h3>
+<div class='ttday'><h3>Sunday 9 August</h3>
 <table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
-<tr data-k='lemon spoon race brandcom sports arena sunday'>
+<tr data-k='lemon spoon race brandcom sports arena sunday 9 august'>
 <td class='t'>9:00 AM</td>
 <td class='e'><a href='#ev-lemon-spoon-race'>Lemon Spoon Race</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='sack race brandcom sports arena sunday'>
+<tr data-k='sack race brandcom sports arena sunday 9 august'>
 <td class='t'>10:30 AM</td>
 <td class='e'><a href='#ev-sack-race'>Sack Race</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='treasure hunt club house sunday'>
-<td class='t'>11:00 AM</td>
-<td class='e'><a href='#ev-treasure-hunt'>Treasure Hunt</a></td>
-<td>Club House</td>
-<td class='m none'>Not published</td>
-</tr>
-<tr data-k='race — 50 m brandcom sports arena sunday'>
+<tr data-k='race — 50 m brandcom sports arena sunday 9 august'>
 <td class='t'>11:30 AM</td>
 <td class='e'><a href='#ev-race-50-m'>Race — 50 m</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='race — 100 m brandcom sports arena sunday'>
+<tr data-k='race — 100 m brandcom sports arena sunday 9 august'>
 <td class='t'>11:30 AM</td>
 <td class='e'><a href='#ev-race-100-m'>Race — 100 m</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='skipping brandcom sports arena sunday'>
+<tr data-k='skipping brandcom sports arena sunday 9 august'>
 <td class='t'>12:00 PM</td>
 <td class='e'><a href='#ev-skipping'>Skipping</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='dodge ball (women) brandcom sports arena sunday'>
+<tr data-k='dodge ball (women) brandcom sports arena sunday 9 august'>
 <td class='t'>12:15 PM</td>
 <td class='e'><a href='#ev-dodge-ball-women'>Dodge Ball (Women)</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='painting big party hall sunday'>
-<td class='t'>12:30 PM</td>
-<td class='e'><a href='#ev-painting'>Painting</a></td>
-<td>Big Party Hall</td>
-<td class='m none'>Judging panel</td>
-</tr>
-<tr data-k='football brandcom sports arena sunday'>
+<tr data-k='football brandcom sports arena sunday 9 august'>
 <td class='t'>1:15 PM</td>
 <td class='e'><a href='#ev-football'>Football</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='cricket brandcom sports arena sunday'>
+<tr data-k='cricket brandcom sports arena sunday 9 august'>
 <td class='t'>2:10 PM</td>
 <td class='e'><a href='#ev-cricket'>Cricket</a></td>
 <td>Brandcom Sports Arena</td>
 <td class='m'>&mdash;</td>
 </tr>
-<tr data-k='musical chair c block sunday'>
+<tr data-k='musical chair c block sunday 9 august'>
 <td class='t'>5:00 PM</td>
 <td class='e'><a href='#ev-musical-chair'>Musical Chair</a></td>
 <td>C Block</td>
 <td class='m'>Deepak, Subasis</td>
 </tr>
-<tr data-k='antakshari big party hall sunday'>
+<tr data-k='antakshari big party hall sunday 9 august'>
 <td class='t'>8:30 PM</td>
 <td class='e'><a href='#ev-antakshari'>Antakshari</a></td>
 <td>Big Party Hall</td>
 <td class='m'>Rama, Kaushik, Vivek</td>
+</tr>
+</tbody></table></div>
+<div class='ttday'><h3>Saturday 15 August</h3>
+<table class='tt-grid'><thead><tr><th>Time</th><th>Event</th><th>Where</th><th>Moderator</th></tr></thead><tbody>
+<tr data-k='treasure hunt club house saturday 15 august'>
+<td class='t'>11:00 AM</td>
+<td class='e'><a href='#ev-treasure-hunt'>Treasure Hunt</a></td>
+<td>Club House</td>
+<td class='m none'>Not published</td>
+</tr>
+<tr data-k='painting big party hall saturday 15 august'>
+<td class='t'>12:30 PM</td>
+<td class='e'><a href='#ev-painting'>Painting</a></td>
+<td>Big Party Hall</td>
+<td class='m none'>Judging panel</td>
 </tr>
 </tbody></table></div>
 <p class='ttnote'>Judges are not listed in advance, so that scoring stays impartial. The Treasure Hunt moderator is not listed either, since that would give away the clues.</p>
@@ -643,9 +673,9 @@ body.editing .prize{background:#fff}
 <li>Please be on time. Your name will be called once when your heat or match is due. After that call and a short wait, the moderator may award a walkover to your opponent.</li>
 </ul></div>
 </section>
-<div class='dayblock'><div class='day' id='saturday'>
-<h2>Saturday</h2><span class='ln'></span><span class='ct'>12 events</span></div>
-<article class='ev' id='ev-carrom' data-k='carrom club house saturday upto 10 years — doubles 10-14 years — doubles adults — singles adults — doubles'>
+<div class='dayblock'><div class='day' id='saturday-8-august'>
+<h2>Saturday 8 August</h2><span class='ln'></span><span class='ct'>12 events</span></div>
+<article class='ev' id='ev-carrom' data-k='carrom club house saturday 8 august upto 10 years — doubles 10-14 years — doubles adults — singles adults — doubles'>
 <div class='num' aria-hidden='true'>01</div>
 <div>
 <h3>Carrom</h3>
@@ -666,7 +696,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Upto 10 Years — Doubles &nbsp;·&nbsp; 10-14 Years — Doubles &nbsp;·&nbsp; Adults — Singles &nbsp;·&nbsp; Adults — Doubles</p>
 </div></article>
-<article class='ev' id='ev-chess' data-k='chess club house saturday upto 12 years — singles 12-18 years — singles senior — singles'>
+<article class='ev' id='ev-chess' data-k='chess club house saturday 8 august upto 12 years — singles 12-18 years — singles senior — singles'>
 <div class='num' aria-hidden='true'>02</div>
 <div>
 <h3>Chess</h3>
@@ -685,7 +715,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Upto 12 Years — Singles &nbsp;·&nbsp; 12-18 Years — Singles &nbsp;·&nbsp; Senior — Singles</p>
 </div></article>
-<article class='ev' id='ev-dessert-making' data-k='dessert making b block, near gym saturday'>
+<article class='ev' id='ev-dessert-making' data-k='dessert making b block, near gym saturday 8 august'>
 <div class='num' aria-hidden='true'>03</div>
 <div>
 <h3>Dessert Making</h3>
@@ -708,7 +738,7 @@ body.editing .prize{background:#fff}
 <span class='chip'>Creativity with the core ingredient</span>
 </div></div>
 </div></article>
-<article class='ev' id='ev-bouquet-making' data-k='bouquet making b block, near gym saturday'>
+<article class='ev' id='ev-bouquet-making' data-k='bouquet making b block, near gym saturday 8 august'>
 <div class='num' aria-hidden='true'>04</div>
 <div>
 <h3>Bouquet Making</h3>
@@ -730,7 +760,7 @@ body.editing .prize{background:#fff}
 <span class='chip'>Presentation</span>
 </div></div>
 </div></article>
-<article class='ev' id='ev-slow-cycling' data-k='slow cycling b block, basement saturday 5 to 10 years 11 to 15 years'>
+<article class='ev' id='ev-slow-cycling' data-k='slow cycling b block, basement saturday 8 august 5 to 10 years 11 to 15 years'>
 <div class='num' aria-hidden='true'>05</div>
 <div>
 <h3>Slow Cycling</h3>
@@ -750,7 +780,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>5 to 10 Years &nbsp;·&nbsp; 11 to 15 Years</p>
 </div></article>
-<article class='ev' id='ev-rangoli' data-k='rangoli c block, near club house saturday'>
+<article class='ev' id='ev-rangoli' data-k='rangoli c block, near club house saturday 8 august'>
 <div class='num' aria-hidden='true'>06</div>
 <div>
 <h3>Rangoli</h3>
@@ -774,7 +804,7 @@ body.editing .prize{background:#fff}
 <span class='chip'>Neatness</span>
 </div></div>
 </div></article>
-<article class='ev' id='ev-swimming-1-lap' data-k='swimming — 1 lap swimming pool saturday 6 to 10 years'>
+<article class='ev' id='ev-swimming-1-lap' data-k='swimming — 1 lap swimming pool saturday 8 august 6 to 10 years'>
 <div class='num' aria-hidden='true'>07</div>
 <div>
 <h3>Swimming — 1 Lap</h3>
@@ -794,7 +824,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>6 to 10 Years</p>
 </div></article>
-<article class='ev' id='ev-swimming-2-laps' data-k='swimming — 2 laps swimming pool saturday 11 to 15 years adults'>
+<article class='ev' id='ev-swimming-2-laps' data-k='swimming — 2 laps swimming pool saturday 8 august 11 to 15 years adults'>
 <div class='num' aria-hidden='true'>08</div>
 <div>
 <h3>Swimming — 2 Laps</h3>
@@ -814,7 +844,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-skating' data-k='skating b block, basement saturday 5 to 8 years 9 to 12 years'>
+<article class='ev' id='ev-skating' data-k='skating b block, basement saturday 8 august 5 to 8 years 9 to 12 years'>
 <div class='num' aria-hidden='true'>09</div>
 <div>
 <h3>Skating</h3>
@@ -831,7 +861,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>5 to 8 Years &nbsp;·&nbsp; 9 to 12 Years</p>
 </div></article>
-<article class='ev' id='ev-table-tennis' data-k='table tennis club house saturday kids upto 12 years — doubles adults — doubles'>
+<article class='ev' id='ev-table-tennis' data-k='table tennis club house saturday 8 august kids upto 12 years — doubles adults — doubles'>
 <div class='num' aria-hidden='true'>10</div>
 <div>
 <h3>Table Tennis</h3>
@@ -851,7 +881,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Kids upto 12 Years — Doubles &nbsp;·&nbsp; Adults — Doubles</p>
 </div></article>
-<article class='ev' id='ev-tug-of-war' data-k='tug of war b block, basement saturday'>
+<article class='ev' id='ev-tug-of-war' data-k='tug of war b block, basement saturday 8 august'>
 <div class='num' aria-hidden='true'>11</div>
 <div>
 <h3>Tug of War</h3>
@@ -859,7 +889,7 @@ body.editing .prize{background:#fff}
 <span class='tag hi'>6:00 PM</span>
 <span class='tag'>B Block, Basement</span>
 </div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random at the venue, so the sides are balanced rather than chosen. The moderator will explain the running order before you start.</p>
+<p class='howto'><b>How it is played</b>Nothing is drawn in advance. Teams are made up at the venue, at random and in front of everyone, so the sides are balanced rather than chosen. The moderator will explain the format before you start.</p>
 <ol class='rules'>
 <li>Two categories only: Men&#x27;s and Women&#x27;s. There is no block-versus-block contest.</li>
 <li>Teams are drawn at random on the day, so the sides are balanced rather than chosen.</li>
@@ -872,7 +902,7 @@ body.editing .prize{background:#fff}
 <li>Closed footwear required. No sandals or bare feet.</li>
 </ol>
 </div></article>
-<article class='ev' id='ev-fancy-dress-kids' data-k='fancy dress (kids) big party hall saturday 0-6 years 6-10 years 10-15 years'>
+<article class='ev' id='ev-fancy-dress-kids' data-k='fancy dress (kids) big party hall saturday 8 august 0-6 years 6-10 years 10-15 years'>
 <div class='num' aria-hidden='true'>12</div>
 <div>
 <h3>Fancy Dress (Kids)</h3>
@@ -898,9 +928,9 @@ body.editing .prize{background:#fff}
 <p class='cats'><b>Categories</b>0-6 Years &nbsp;·&nbsp; 6-10 Years &nbsp;·&nbsp; 10-15 Years</p>
 </div></article>
 </div>
-<div class='dayblock'><div class='day' id='sunday'>
-<h2>Sunday</h2><span class='ln'></span><span class='ct'>12 events</span></div>
-<article class='ev' id='ev-lemon-spoon-race' data-k='lemon spoon race brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
+<div class='dayblock'><div class='day' id='sunday-9-august'>
+<h2>Sunday 9 August</h2><span class='ln'></span><span class='ct'>10 events</span></div>
+<article class='ev' id='ev-lemon-spoon-race' data-k='lemon spoon race brandcom sports arena sunday 9 august below 6 years 6 to 10 years 11 to 15 years adults'>
 <div class='num' aria-hidden='true'>13</div>
 <div>
 <h3>Lemon Spoon Race</h3>
@@ -917,7 +947,7 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-sack-race' data-k='sack race brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
+<article class='ev' id='ev-sack-race' data-k='sack race brandcom sports arena sunday 9 august below 6 years 6 to 10 years 11 to 15 years adults'>
 <div class='num' aria-hidden='true'>14</div>
 <div>
 <h3>Sack Race</h3>
@@ -934,27 +964,8 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-treasure-hunt' data-k='treasure hunt club house sunday'>
+<article class='ev' id='ev-race-50-m' data-k='race — 50 m brandcom sports arena sunday 9 august below 6 years 7 to 10 years 11 to 15 years adults'>
 <div class='num' aria-hidden='true'>15</div>
-<div>
-<h3>Treasure Hunt</h3>
-<div class='meta'>
-<span class='tag hi'>11:00 AM</span>
-<span class='tag'>Club House</span>
-</div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random and play a round-robin: every team plays every other team once. Most points wins.</p>
-<ol class='rules'>
-<li>Kids only. Teams of 4-5, drawn at random.</li>
-<li>Clues must be solved sequentially.</li>
-<li>Mobile phones and internet searches are not allowed, unless the moderator announces a round where a phone is required.</li>
-<li>No damaging apartment property, and no entering another resident&#x27;s flat.</li>
-<li>The first team completing all clues correctly wins.</li>
-<li>Each team must stay together; splitting up to cover more ground is not allowed.</li>
-<li>At least two adult volunteers must be positioned along the route.</li>
-</ol>
-</div></article>
-<article class='ev' id='ev-race-50-m' data-k='race — 50 m brandcom sports arena sunday below 6 years 7 to 10 years 11 to 15 years adults'>
-<div class='num' aria-hidden='true'>16</div>
 <div>
 <h3>Race — 50 m</h3>
 <div class='meta'>
@@ -971,8 +982,8 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 7 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-race-100-m' data-k='race — 100 m brandcom sports arena sunday 11 to 15 years adults'>
-<div class='num' aria-hidden='true'>17</div>
+<article class='ev' id='ev-race-100-m' data-k='race — 100 m brandcom sports arena sunday 9 august 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>16</div>
 <div>
 <h3>Race — 100 m</h3>
 <div class='meta'>
@@ -989,8 +1000,8 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-skipping' data-k='skipping brandcom sports arena sunday below 6 years 6 to 10 years 11 to 15 years adults'>
-<div class='num' aria-hidden='true'>18</div>
+<article class='ev' id='ev-skipping' data-k='skipping brandcom sports arena sunday 9 august below 6 years 6 to 10 years 11 to 15 years adults'>
+<div class='num' aria-hidden='true'>17</div>
 <div>
 <h3>Skipping</h3>
 <div class='meta'>
@@ -1007,17 +1018,17 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years &nbsp;·&nbsp; Adults</p>
 </div></article>
-<article class='ev' id='ev-dodge-ball-women' data-k='dodge ball (women) brandcom sports arena sunday adults (12+)'>
-<div class='num' aria-hidden='true'>19</div>
+<article class='ev' id='ev-dodge-ball-women' data-k='dodge ball (women) brandcom sports arena sunday 9 august adults (12+)'>
+<div class='num' aria-hidden='true'>18</div>
 <div>
 <h3>Dodge Ball (Women)</h3>
 <div class='meta'>
 <span class='tag hi'>12:15 PM</span>
 <span class='tag'>Brandcom Sports Arena</span>
 </div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random and play a round-robin: every team plays every other team once. Most points wins.</p>
+<p class='howto'><b>How it is played</b>Nothing is drawn in advance. Teams are made up at the venue, at random and in front of everyone, so the sides are balanced rather than chosen. The moderator will explain the format before you start.</p>
 <ol class='rules'>
-<li>Teams of equal size, drawn at random. Round-robin, best of 3 rounds per match.</li>
+<li>Teams of equal size, drawn at random at the venue in front of everyone. Round-robin, best of 3 rounds per match.</li>
 <li>Players hit by a live ball below the shoulders are out.</li>
 <li>Headshots are not counted and the thrower is warned.</li>
 <li>If a thrown ball is caught before touching the ground, the thrower is out.</li>
@@ -1025,8 +1036,109 @@ body.editing .prize{background:#fff}
 </ol>
 <p class='cats'><b>Categories</b>Adults (12+)</p>
 </div></article>
-<article class='ev' id='ev-painting' data-k='painting big party hall sunday below 6 years 6 to 10 years 11 to 15 years'>
+<article class='ev' id='ev-football' data-k='football brandcom sports arena sunday 9 august'>
+<div class='num' aria-hidden='true'>19</div>
+<div>
+<h3>Football</h3>
+<div class='meta'>
+<span class='tag hi'>1:15 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
+<ol class='rules'>
+<li>5-a-side, knockout.</li>
+<li>Match duration: 10 minutes per half.</li>
+<li>Kick-off starts each half.</li>
+<li>Goalkeeper may use hands only inside the penalty area.</li>
+<li>No dangerous tackles. Sliding tackles are not allowed.</li>
+<li>Ball crossing the touchline results in a kick-in.</li>
+<li>Goal kick when the attacking team last touches before the goal line.</li>
+<li>Corner kick when the defending team last touches.</li>
+<li>Draw after normal time: penalty shootout, 3 kicks each.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-cricket' data-k='cricket brandcom sports arena sunday 9 august'>
 <div class='num' aria-hidden='true'>20</div>
+<div>
+<h3>Cricket</h3>
+<div class='meta'>
+<span class='tag hi'>2:10 PM</span>
+<span class='tag'>Brandcom Sports Arena</span>
+</div>
+<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
+<ol class='rules'>
+<li>Knockout tournament. Teams of 6-8 players.</li>
+<li>6 overs per innings.</li>
+<li>Toss decides batting or bowling.</li>
+<li>Each bowler can bowl a maximum of 1 over.</li>
+<li>No-ball and Wide each award 1 extra run and an additional delivery.</li>
+<li>Free Hit after a front-foot no-ball.</li>
+<li>Runs completed before a run-out are counted.</li>
+<li>One substitute fielder allowed; the substitute cannot bat or bowl.</li>
+<li>Tie: Super Over. If still tied, the team with more boundaries wins.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-musical-chair' data-k='musical chair c block sunday 9 august'>
+<div class='num' aria-hidden='true'>21</div>
+<div>
+<h3>Musical Chair</h3>
+<div class='meta'>
+<span class='tag hi'>5:00 PM</span>
+<span class='tag'>C Block</span>
+</div>
+<p class='howto'><b>How it is played</b>Run in batches, then a final. The last few standing in each batch go through to the final.</p>
+<ol class='rules'>
+<li>Run in batches, then a final. Chairs = participants minus one in every round.</li>
+<li>Participants circle the chairs in one direction only while the music plays. You must keep moving forward.</li>
+<li>When the music stops you may only take a chair ahead of you. You cannot turn back or reverse to reach an empty chair you have already passed.</li>
+<li>When the music stops, sit down. The participant left standing is out, and one chair is removed.</li>
+<li>Holding, pushing or pulling another participant is an immediate elimination.</li>
+<li>A participant may not touch or hold a chair while the music is playing.</li>
+<li>If two participants land on the same chair, whoever is more fully seated stays; if it cannot be called, both leave and the chair is contested by a re-run between the two.</li>
+<li>The music operator must face away from the chairs so that stops cannot be timed to anyone&#x27;s position.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-antakshari' data-k='antakshari big party hall sunday 9 august'>
+<div class='num' aria-hidden='true'>22</div>
+<div>
+<h3>Antakshari</h3>
+<div class='meta'>
+<span class='tag hi'>8:30 PM</span>
+<span class='tag'>Big Party Hall</span>
+</div>
+<p class='howto'><b>How it is played</b>Nothing is drawn in advance. Teams are made up at the venue, at random and in front of everyone, so the sides are balanced rather than chosen. The moderator will explain the format before you start.</p>
+<ol class='rules'>
+<li>A team event. The host will explain the full format, teams and scoring at the start of the round.</li>
+<li>The host&#x27;s decision is final on every call — letters, repeats, timing and points.</li>
+<li>Please do not argue with the host or the moderators. Raise anything you disagree with politely, once, and then accept the call.</li>
+<li>Songs must be from officially released film, album, devotional or folk music.</li>
+<li>Keep it clean and family-friendly. This is the last event of the evening and everyone is watching.</li>
+</ol>
+</div></article>
+</div>
+<div class='dayblock'><div class='day' id='saturday-15-august'>
+<h2>Saturday 15 August</h2><span class='ln'></span><span class='ct'>2 events</span></div>
+<article class='ev' id='ev-treasure-hunt' data-k='treasure hunt club house saturday 15 august'>
+<div class='num' aria-hidden='true'>23</div>
+<div>
+<h3>Treasure Hunt</h3>
+<div class='meta'>
+<span class='tag hi'>11:00 AM</span>
+<span class='tag'>Club House</span>
+</div>
+<p class='howto'><b>How it is played</b>Nothing is drawn in advance. Teams are made up at the venue, at random and in front of everyone, so the sides are balanced rather than chosen. The moderator will explain the format before you start.</p>
+<ol class='rules'>
+<li>Kids only. Teams of 4-5, drawn at random at the venue.</li>
+<li>Clues must be solved sequentially.</li>
+<li>Mobile phones and internet searches are not allowed, unless the moderator announces a round where a phone is required.</li>
+<li>No damaging apartment property, and no entering another resident&#x27;s flat.</li>
+<li>The first team completing all clues correctly wins.</li>
+<li>Each team must stay together; splitting up to cover more ground is not allowed.</li>
+<li>At least two adult volunteers must be positioned along the route.</li>
+</ol>
+</div></article>
+<article class='ev' id='ev-painting' data-k='painting big party hall saturday 15 august below 6 years 6 to 10 years 11 to 15 years'>
+<div class='num' aria-hidden='true'>24</div>
 <div>
 <h3>Painting</h3>
 <div class='meta'>
@@ -1051,85 +1163,6 @@ body.editing .prize{background:#fff}
 </div></div>
 <p class='cats'><b>Categories</b>Below 6 Years &nbsp;·&nbsp; 6 to 10 Years &nbsp;·&nbsp; 11 to 15 Years</p>
 </div></article>
-<article class='ev' id='ev-football' data-k='football brandcom sports arena sunday'>
-<div class='num' aria-hidden='true'>21</div>
-<div>
-<h3>Football</h3>
-<div class='meta'>
-<span class='tag hi'>1:15 PM</span>
-<span class='tag'>Brandcom Sports Arena</span>
-</div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
-<ol class='rules'>
-<li>5-a-side, knockout.</li>
-<li>Match duration: 10 minutes per half.</li>
-<li>Kick-off starts each half.</li>
-<li>Goalkeeper may use hands only inside the penalty area.</li>
-<li>No dangerous tackles. Sliding tackles are not allowed.</li>
-<li>Ball crossing the touchline results in a kick-in.</li>
-<li>Goal kick when the attacking team last touches before the goal line.</li>
-<li>Corner kick when the defending team last touches.</li>
-<li>Draw after normal time: penalty shootout, 3 kicks each.</li>
-</ol>
-</div></article>
-<article class='ev' id='ev-cricket' data-k='cricket brandcom sports arena sunday'>
-<div class='num' aria-hidden='true'>22</div>
-<div>
-<h3>Cricket</h3>
-<div class='meta'>
-<span class='tag hi'>2:10 PM</span>
-<span class='tag'>Brandcom Sports Arena</span>
-</div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random, then play a knockout — semi-finals and a final.</p>
-<ol class='rules'>
-<li>Knockout tournament. Teams of 6-8 players.</li>
-<li>6 overs per innings.</li>
-<li>Toss decides batting or bowling.</li>
-<li>Each bowler can bowl a maximum of 1 over.</li>
-<li>No-ball and Wide each award 1 extra run and an additional delivery.</li>
-<li>Free Hit after a front-foot no-ball.</li>
-<li>Runs completed before a run-out are counted.</li>
-<li>One substitute fielder allowed; the substitute cannot bat or bowl.</li>
-<li>Tie: Super Over. If still tied, the team with more boundaries wins.</li>
-</ol>
-</div></article>
-<article class='ev' id='ev-musical-chair' data-k='musical chair c block sunday'>
-<div class='num' aria-hidden='true'>23</div>
-<div>
-<h3>Musical Chair</h3>
-<div class='meta'>
-<span class='tag hi'>5:00 PM</span>
-<span class='tag'>C Block</span>
-</div>
-<p class='howto'><b>How it is played</b>Run in batches, then a final. The last few standing in each batch go through to the final.</p>
-<ol class='rules'>
-<li>Run in batches, then a final. Chairs = participants minus one in every round.</li>
-<li>Participants circle the chairs in one direction only while the music plays. You must keep moving forward.</li>
-<li>When the music stops you may only take a chair ahead of you. You cannot turn back or reverse to reach an empty chair you have already passed.</li>
-<li>When the music stops, sit down. The participant left standing is out, and one chair is removed.</li>
-<li>Holding, pushing or pulling another participant is an immediate elimination.</li>
-<li>A participant may not touch or hold a chair while the music is playing.</li>
-<li>If two participants land on the same chair, whoever is more fully seated stays; if it cannot be called, both leave and the chair is contested by a re-run between the two.</li>
-<li>The music operator must face away from the chairs so that stops cannot be timed to anyone&#x27;s position.</li>
-</ol>
-</div></article>
-<article class='ev' id='ev-antakshari' data-k='antakshari big party hall sunday'>
-<div class='num' aria-hidden='true'>24</div>
-<div>
-<h3>Antakshari</h3>
-<div class='meta'>
-<span class='tag hi'>8:30 PM</span>
-<span class='tag'>Big Party Hall</span>
-</div>
-<p class='howto'><b>How it is played</b>Teams are drawn at random at the venue, so the sides are balanced rather than chosen. The moderator will explain the running order before you start.</p>
-<ol class='rules'>
-<li>A team event. The host will explain the full format, teams and scoring at the start of the round.</li>
-<li>The host&#x27;s decision is final on every call — letters, repeats, timing and points.</li>
-<li>Please do not argue with the host or the moderators. Raise anything you disagree with politely, once, and then accept the call.</li>
-<li>Songs must be from officially released film, album, devotional or folk music.</li>
-<li>Keep it clean and family-friendly. This is the last event of the evening and everyone is watching.</li>
-</ol>
-</div></article>
 </div>
 </div>
 <div id='panel-wb' role='tabpanel' aria-labelledby='tab-wb' hidden>
@@ -1141,12 +1174,13 @@ body.editing .prize{background:#fff}
 <div class='dbl'><i></i><b>&#10022;</b><i></i></div>
 <p>Decisions of the organisers and referees are final. If a rule is unclear on the day, ask your event moderator.</p>
 <p>Jalsa 5.0 &middot; Sports Day 2026 &middot; 24 events &middot; issued 06 August 2026</p>
-<p style='font-size:11px;color:#6b6355'>build 2026-08-06 05:50</p>
+<p style='font-size:11px;color:#6b6355'>build 2026-08-06 11:05</p>
 <p class='cr'>&copy; 2026 SLS Symphony Welfare Association. All rights reserved.</p>
 </footer>
 <button id='top' type='button' aria-label='Back to top'>&#8593;</button>
 <script>var ADMIN_HASH="b66616a56b62ca0ecca2fb61542c63fc73f81ba8c8f6ebaf7b70be3844e9ae7b";</script>
-<script>var SLOTS=[{"id":"carrom|upto-10-years-doubles","event":"Carrom","cat":"Upto 10 Years \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|10-14-years-doubles","event":"Carrom","cat":"10-14 Years \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|adults-singles","event":"Carrom","cat":"Adults \u2014 Singles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"medal"},{"id":"carrom|adults-doubles","event":"Carrom","cat":"Adults \u2014 Doubles","day":"Saturday","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"chess|upto-12-years-singles","event":"Chess","cat":"Upto 12 Years \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|12-18-years-singles","event":"Chess","cat":"12-18 Years \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|senior-singles","event":"Chess","cat":"Senior \u2014 Singles","day":"Saturday","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"dessert-making|all-participants","event":"Dessert Making","cat":"","day":"Saturday","time":"1:00 PM","type":"medal"},{"id":"bouquet-making|all-participants","event":"Bouquet Making","cat":"","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|5-to-10-years","event":"Slow Cycling","cat":"5 to 10 Years","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|11-to-15-years","event":"Slow Cycling","cat":"11 to 15 Years","day":"Saturday","time":"2:00 PM","type":"medal"},{"id":"rangoli|all-participants","event":"Rangoli","cat":"","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-1-lap|6-to-10-years","event":"Swimming \u2014 1 Lap","cat":"6 to 10 Years","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|11-to-15-years","event":"Swimming \u2014 2 Laps","cat":"11 to 15 Years","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|adults","event":"Swimming \u2014 2 Laps","cat":"Adults","day":"Saturday","time":"3:30 PM","type":"medal"},{"id":"skating|5-to-8-years","event":"Skating","cat":"5 to 8 Years","day":"Saturday","time":"4:30 PM","type":"medal"},{"id":"skating|9-to-12-years","event":"Skating","cat":"9 to 12 Years","day":"Saturday","time":"4:30 PM","type":"medal"},{"id":"table-tennis|kids-upto-12-years-doubles","event":"Table Tennis","cat":"Kids upto 12 Years \u2014 Doubles","day":"Saturday","time":"5:00 PM","type":"pair"},{"id":"table-tennis|adults-doubles","event":"Table Tennis","cat":"Adults \u2014 Doubles","day":"Saturday","time":"5:00 PM","type":"pair"},{"id":"tug-of-war|all-participants","event":"Tug of War","cat":"","day":"Saturday","time":"6:00 PM","type":"trophy"},{"id":"fancy-dress-kids|0-6-years","event":"Fancy Dress (Kids)","cat":"0-6 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|6-10-years","event":"Fancy Dress (Kids)","cat":"6-10 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|10-15-years","event":"Fancy Dress (Kids)","cat":"10-15 Years","day":"Saturday","time":"7:00 PM","type":"medal"},{"id":"lemon-spoon-race|below-6-years","event":"Lemon Spoon Race","cat":"Below 6 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|6-to-10-years","event":"Lemon Spoon Race","cat":"6 to 10 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|11-to-15-years","event":"Lemon Spoon Race","cat":"11 to 15 Years","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|adults","event":"Lemon Spoon Race","cat":"Adults","day":"Sunday","time":"9:00 AM","type":"medal"},{"id":"sack-race|below-6-years","event":"Sack Race","cat":"Below 6 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|6-to-10-years","event":"Sack Race","cat":"6 to 10 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|11-to-15-years","event":"Sack Race","cat":"11 to 15 Years","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"sack-race|adults","event":"Sack Race","cat":"Adults","day":"Sunday","time":"10:30 AM","type":"medal"},{"id":"treasure-hunt|all-participants","event":"Treasure Hunt","cat":"","day":"Sunday","time":"11:00 AM","type":"trophy"},{"id":"race-50-m|below-6-years","event":"Race \u2014 50 m","cat":"Below 6 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|7-to-10-years","event":"Race \u2014 50 m","cat":"7 to 10 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|11-to-15-years","event":"Race \u2014 50 m","cat":"11 to 15 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-50-m|adults","event":"Race \u2014 50 m","cat":"Adults","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-100-m|11-to-15-years","event":"Race \u2014 100 m","cat":"11 to 15 Years","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"race-100-m|adults","event":"Race \u2014 100 m","cat":"Adults","day":"Sunday","time":"11:30 AM","type":"medal"},{"id":"skipping|below-6-years","event":"Skipping","cat":"Below 6 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|6-to-10-years","event":"Skipping","cat":"6 to 10 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|11-to-15-years","event":"Skipping","cat":"11 to 15 Years","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"skipping|adults","event":"Skipping","cat":"Adults","day":"Sunday","time":"12:00 PM","type":"medal"},{"id":"dodge-ball-women|adults-12","event":"Dodge Ball (Women)","cat":"Adults (12+)","day":"Sunday","time":"12:15 PM","type":"trophy"},{"id":"painting|below-6-years","event":"Painting","cat":"Below 6 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"painting|6-to-10-years","event":"Painting","cat":"6 to 10 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"painting|11-to-15-years","event":"Painting","cat":"11 to 15 Years","day":"Sunday","time":"12:30 PM","type":"medal"},{"id":"football|all-participants","event":"Football","cat":"","day":"Sunday","time":"1:15 PM","type":"trophy"},{"id":"cricket|all-participants","event":"Cricket","cat":"","day":"Sunday","time":"2:10 PM","type":"trophy"},{"id":"musical-chair|all-participants","event":"Musical Chair","cat":"","day":"Sunday","time":"5:00 PM","type":"medal"},{"id":"antakshari|all-participants","event":"Antakshari","cat":"","day":"Sunday","time":"8:30 PM","type":"trophy"}];</script>
+<script>var DAYS=["Saturday 8 August", "Sunday 9 August", "Saturday 15 August"];</script>
+<script>var SLOTS=[{"id":"carrom|upto-10-years-doubles","event":"Carrom","cat":"Upto 10 Years \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|10-14-years-doubles","event":"Carrom","cat":"10-14 Years \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"carrom|adults-singles","event":"Carrom","cat":"Adults \u2014 Singles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"medal"},{"id":"carrom|adults-doubles","event":"Carrom","cat":"Adults \u2014 Doubles","day":"Saturday 8 August","time":"Adult: 9.30 AM Onwards / Kids: 12:30 PM Onwards","type":"pair"},{"id":"chess|upto-12-years-singles","event":"Chess","cat":"Upto 12 Years \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|12-18-years-singles","event":"Chess","cat":"12-18 Years \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"chess|senior-singles","event":"Chess","cat":"Senior \u2014 Singles","day":"Saturday 8 August","time":"Adult: 11:30 AM Onwards / Kids: 1:30 PM Onwards","type":"medal"},{"id":"dessert-making|all-participants","event":"Dessert Making","cat":"","day":"Saturday 8 August","time":"1:00 PM","type":"medal"},{"id":"bouquet-making|all-participants","event":"Bouquet Making","cat":"","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|5-to-10-years","event":"Slow Cycling","cat":"5 to 10 Years","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"slow-cycling|11-to-15-years","event":"Slow Cycling","cat":"11 to 15 Years","day":"Saturday 8 August","time":"2:00 PM","type":"medal"},{"id":"rangoli|all-participants","event":"Rangoli","cat":"","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-1-lap|6-to-10-years","event":"Swimming \u2014 1 Lap","cat":"6 to 10 Years","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|11-to-15-years","event":"Swimming \u2014 2 Laps","cat":"11 to 15 Years","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"swimming-2-laps|adults","event":"Swimming \u2014 2 Laps","cat":"Adults","day":"Saturday 8 August","time":"3:30 PM","type":"medal"},{"id":"skating|5-to-8-years","event":"Skating","cat":"5 to 8 Years","day":"Saturday 8 August","time":"4:30 PM","type":"medal"},{"id":"skating|9-to-12-years","event":"Skating","cat":"9 to 12 Years","day":"Saturday 8 August","time":"4:30 PM","type":"medal"},{"id":"table-tennis|kids-upto-12-years-doubles","event":"Table Tennis","cat":"Kids upto 12 Years \u2014 Doubles","day":"Saturday 8 August","time":"5:00 PM","type":"pair"},{"id":"table-tennis|adults-doubles","event":"Table Tennis","cat":"Adults \u2014 Doubles","day":"Saturday 8 August","time":"5:00 PM","type":"pair"},{"id":"tug-of-war|all-participants","event":"Tug of War","cat":"","day":"Saturday 8 August","time":"6:00 PM","type":"trophy"},{"id":"fancy-dress-kids|0-6-years","event":"Fancy Dress (Kids)","cat":"0-6 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|6-10-years","event":"Fancy Dress (Kids)","cat":"6-10 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"fancy-dress-kids|10-15-years","event":"Fancy Dress (Kids)","cat":"10-15 Years","day":"Saturday 8 August","time":"7:00 PM","type":"medal"},{"id":"lemon-spoon-race|below-6-years","event":"Lemon Spoon Race","cat":"Below 6 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|6-to-10-years","event":"Lemon Spoon Race","cat":"6 to 10 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|11-to-15-years","event":"Lemon Spoon Race","cat":"11 to 15 Years","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"lemon-spoon-race|adults","event":"Lemon Spoon Race","cat":"Adults","day":"Sunday 9 August","time":"9:00 AM","type":"medal"},{"id":"sack-race|below-6-years","event":"Sack Race","cat":"Below 6 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|6-to-10-years","event":"Sack Race","cat":"6 to 10 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|11-to-15-years","event":"Sack Race","cat":"11 to 15 Years","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"sack-race|adults","event":"Sack Race","cat":"Adults","day":"Sunday 9 August","time":"10:30 AM","type":"medal"},{"id":"race-50-m|below-6-years","event":"Race \u2014 50 m","cat":"Below 6 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|7-to-10-years","event":"Race \u2014 50 m","cat":"7 to 10 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|11-to-15-years","event":"Race \u2014 50 m","cat":"11 to 15 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-50-m|adults","event":"Race \u2014 50 m","cat":"Adults","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-100-m|11-to-15-years","event":"Race \u2014 100 m","cat":"11 to 15 Years","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"race-100-m|adults","event":"Race \u2014 100 m","cat":"Adults","day":"Sunday 9 August","time":"11:30 AM","type":"medal"},{"id":"skipping|below-6-years","event":"Skipping","cat":"Below 6 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|6-to-10-years","event":"Skipping","cat":"6 to 10 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|11-to-15-years","event":"Skipping","cat":"11 to 15 Years","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"skipping|adults","event":"Skipping","cat":"Adults","day":"Sunday 9 August","time":"12:00 PM","type":"medal"},{"id":"dodge-ball-women|adults-12","event":"Dodge Ball (Women)","cat":"Adults (12+)","day":"Sunday 9 August","time":"12:15 PM","type":"trophy"},{"id":"football|all-participants","event":"Football","cat":"","day":"Sunday 9 August","time":"1:15 PM","type":"trophy"},{"id":"cricket|all-participants","event":"Cricket","cat":"","day":"Sunday 9 August","time":"2:10 PM","type":"trophy"},{"id":"musical-chair|all-participants","event":"Musical Chair","cat":"","day":"Sunday 9 August","time":"5:00 PM","type":"medal"},{"id":"antakshari|all-participants","event":"Antakshari","cat":"","day":"Sunday 9 August","time":"8:30 PM","type":"trophy"},{"id":"treasure-hunt|all-participants","event":"Treasure Hunt","cat":"","day":"Saturday 15 August","time":"11:00 AM","type":"trophy"},{"id":"painting|below-6-years","event":"Painting","cat":"Below 6 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"},{"id":"painting|6-to-10-years","event":"Painting","cat":"6 to 10 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"},{"id":"painting|11-to-15-years","event":"Painting","cat":"11 to 15 Years","day":"Saturday 15 August","time":"12:30 PM","type":"medal"}];</script>
 <script>
 // ===================== winners board =====================
 // self-contained: the rules page script does not provide an escaper
@@ -1312,7 +1346,7 @@ function wPlaces(type) {
 
 function wRender() {
   var o = [], done = 0, total = 0;
-  ['Saturday', 'Sunday'].forEach(function (day) {
+  DAYS.forEach(function (day) {
     var rows = SLOTS.filter(function (s) { return s.day === day; });
     if (!rows.length) return;
     o.push("<div class='day wday'><h2>" + day + "</h2><span class='ln'></span>" +
