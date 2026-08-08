@@ -1,14 +1,22 @@
 {
  "updated": "2026-08-08",
  "results": {
-  "carrom|upto-10-years-doubles": {
+  "carrom|adults-singles": {
    "gold": [
-    "AMI",
-    "RISHI"
+    "Channu"
    ],
    "silver": [
-    "RUDRA",
-    "NIRVANA"
+    "Madhuri"
+   ]
+  },
+  "carrom|10-14-years-doubles": {
+   "gold": [
+    "Ami",
+    "Rishi"
+   ],
+   "silver": [
+    "Rudra",
+    "Nirvan"
    ]
   }
  }
