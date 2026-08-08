@@ -186,6 +186,14 @@
    "silver": [
     "AADRIKA"
    ]
+  },
+  "tug-of-war|all-participants|women-s": {
+   "team": "OPERATION SINDUR",
+   "members": "KAVYA,SANVI,SMRUTI,DEEPIKA,SHRUTHI,MADHURI,ASHLESHA,SOMUYA,THENMOZHI,NEHA,SUBDHRA"
+  },
+  "tug-of-war|all-participants|men-s": {
+   "team": "HOWS THE JOSH",
+   "members": "AMAN,BIKES,SUSHANTA,VINOD,VIKASH,SHAKTI,MANVIK,SHREYANSH(RISHI),SUBHOMOY"
   }
  }
 }
