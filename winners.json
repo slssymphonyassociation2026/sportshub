@@ -52,6 +52,54 @@
    "silver": [
     "AADRIKA"
    ]
+  },
+  "swimming-2-laps|adults": {
+   "gold": [
+    "GOKUL"
+   ],
+   "silver": [
+    "WASIM"
+   ]
+  },
+  "swimming-2-laps|11-to-15-years": {
+   "gold": [
+    "VEDANT"
+   ],
+   "silver": [
+    "SWAYAM"
+   ]
+  },
+  "swimming-1-lap|6-to-10-years": {
+   "gold": [
+    "AVYAN"
+   ],
+   "silver": [
+    "NIRVAAN"
+   ]
+  },
+  "bouquet-making|all-participants": {
+   "gold": [
+    "SMRUTIREKHA BEHARA"
+   ],
+   "silver": [
+    "TAPASWINI MAHAPATRA"
+   ]
+  },
+  "chess|upto-12-years-singles": {
+   "gold": [
+    "SWAYAM"
+   ],
+   "silver": [
+    "RISHAAN"
+   ]
+  },
+  "chess|senior-singles": {
+   "gold": [
+    "PADMA"
+   ],
+   "silver": [
+    "SHARATH (126)"
+   ]
   }
  }
 }
