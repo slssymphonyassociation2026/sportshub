@@ -21,12 +21,12 @@
   },
   "carrom|10-14-years-doubles": {
    "gold": [
-    "",
-    ""
+    "PAHAL PRIYA",
+    "MANVIK"
    ],
    "silver": [
-    "",
-    ""
+    "VEDANT",
+    "AROHI"
    ]
   },
   "dessert-making|all-participants": {
@@ -115,6 +115,52 @@
    ],
    "silver": [
     "PRASHI"
+   ]
+  },
+  "carrom|adults-doubles": {
+   "gold": [
+    "RAHUL",
+    "RANJIT"
+   ],
+   "silver": [
+    "MADHURI",
+    "CHANNU"
+   ]
+  },
+  "chess|12-18-years-singles": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "rangoli|all-participants": {
+   "gold": [
+    "SUKANYA"
+   ],
+   "silver": [
+    "SMRUTIREKHA"
+   ]
+  },
+  "table-tennis|adults-doubles": {
+   "gold": [
+    "SHARATH T",
+    "KOBID"
+   ],
+   "silver": [
+    "SUBHAMOY ROY",
+    "WASEEM"
+   ]
+  },
+  "table-tennis|kids-upto-12-years-doubles": {
+   "gold": [
+    "AMI",
+    "AVYAN JAIN"
+   ],
+   "silver": [
+    "SANVI VARSHNEY",
+    "ROMIT"
    ]
   }
  }
