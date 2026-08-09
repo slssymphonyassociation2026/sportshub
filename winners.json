@@ -250,6 +250,114 @@
    "silver": [
     "SAANVI"
    ]
+  },
+  "sack-race|adults": {
+   "gold": [
+    "ASHLESHA & REKHA"
+   ],
+   "silver": [
+    "TAPASWINI"
+   ]
+  },
+  "race-50-m|below-6-years": {
+   "gold": [
+    "DHANVIKA"
+   ],
+   "silver": [
+    "SAAHITI AGARWAL"
+   ]
+  },
+  "race-50-m|7-to-10-years": {
+   "gold": [
+    "TRIVID SAHA"
+   ],
+   "silver": [
+    "ADRITO"
+   ]
+  },
+  "race-50-m|11-to-15-years": {
+   "gold": [
+    "SWAYAM"
+   ],
+   "silver": [
+    "AYUSH"
+   ]
+  },
+  "race-50-m|adults-men-s": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "race-50-m|adults-women-s": {
+   "gold": [
+    "SURYA"
+   ],
+   "silver": [
+    "KAVERAMMA"
+   ]
+  },
+  "race-100-m|11-to-15-years": {
+   "gold": [
+    "SWAYAM"
+   ],
+   "silver": [
+    "AYUSH"
+   ]
+  },
+  "race-100-m|adults-women-s": {
+   "gold": [
+    "SURYA"
+   ],
+   "silver": [
+    "KAVERAMMA"
+   ]
+  },
+  "race-100-m|adults-men-s": {
+   "gold": [
+    "KRISSH"
+   ],
+   "silver": [
+    "SHARATH D"
+   ]
+  },
+  "skipping|below-6-years": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "skipping|6-to-10-years": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "skipping|11-to-15-years": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "skipping|adults": {
+   "gold": [
+    "NA"
+   ],
+   "silver": [
+    "NA"
+   ]
+  },
+  "dodge-ball-women|adults-12": {
+   "team": "OPERATION SINDUR",
+   "members": "DEEPIKA, PINNI, SUKANYA, SAANVI, SONAKSHI, SHWETA, TAPASWINI, PAHAL, KAVERAMMA, VANI, JASKIRAT"
   }
  }
 }
