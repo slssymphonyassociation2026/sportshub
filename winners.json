@@ -366,6 +366,14 @@
   "antakshari|all-participants": {
    "team": "SARGAM",
    "members": "AVINASH, ASHISH, RANJAN, SIMMI, REKHA, DEEPIKA, SANVI"
+  },
+  "musical-chair|all-participants": {
+   "gold": [
+    "SEHAJ PREET KAUR, AKARSH, SWAYAM, SMURTI REKHA"
+   ],
+   "silver": [
+    "NA"
+   ]
   }
  }
 }
