@@ -253,7 +253,8 @@
   },
   "sack-race|adults": {
    "gold": [
-    "ASHLESHA & REKHA"
+    "ASHLESHA",
+    "REKHA"
    ],
    "silver": [
     "TAPASWINI"
@@ -369,7 +370,10 @@
   },
   "musical-chair|all-participants": {
    "gold": [
-    "SEHAJ PREET KAUR, AKARSH, SWAYAM, SMURTI REKHA"
+    "SEHAJ PREET KAUR",
+    "AKARSH",
+    "SWAYAM",
+    "SMURTI REKHA"
    ],
    "silver": [
     "NA"
