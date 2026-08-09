@@ -226,6 +226,30 @@
    "silver": [
     "NA"
    ]
+  },
+  "sack-race|below-6-years": {
+   "gold": [
+    "ABHIRAM"
+   ],
+   "silver": [
+    "SAAHITI AGARWAL"
+   ]
+  },
+  "sack-race|6-to-10-years": {
+   "gold": [
+    "SAHEJPREET"
+   ],
+   "silver": [
+    "LOHIT REDDY"
+   ]
+  },
+  "sack-race|11-to-15-years": {
+   "gold": [
+    "AYUSH"
+   ],
+   "silver": [
+    "SAANVI"
+   ]
   }
  }
 }
