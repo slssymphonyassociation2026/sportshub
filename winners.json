@@ -358,6 +358,14 @@
   "dodge-ball-women|adults-12": {
    "team": "OPERATION SINDUR",
    "members": "DEEPIKA, PINNI, SUKANYA, SAANVI, SONAKSHI, SHWETA, TAPASWINI, PAHAL, KAVERAMMA, VANI, JASKIRAT"
+  },
+  "cricket|all-participants": {
+   "team": "AGENT VINOTH",
+   "members": "VINOTH, MAHESH, KALAKAR, PRANEETH, KRISSH, AMAN, OMM, RAHUL"
+  },
+  "antakshari|all-participants": {
+   "team": "SARGAM",
+   "members": "AVINASH, ASHISH, RANJAN, SIMMI, REKHA, DEEPIKA, SANVI"
   }
  }
 }
