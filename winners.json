@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-12",
+ "updated": "2026-08-15",
  "results": {
   "carrom|adults-singles": {
    "gold": [
@@ -386,6 +386,10 @@
   "dodge-ball-kids|all-participants": {
    "team": "Kids Mania",
    "members": "AVYAN(SMALL), AAYUSH, ANISHA, YOGASREE, SHABAN, DHRUVA, AADRIKA, RUTHVA, RISHI, KIYANSH, NIRVAAN, AROGHI, AVYAN(BIG), KRISHIV"
+  },
+  "treasure-hunt|all-participants": {
+   "team": "INDIANA JONES",
+   "members": "RISHI, SAHITI, AADRIKA, SEHEJPREET, DHANVIKA, KIYANSH, AVYAN J, AKARSH, AARAV, ADRITO, ADISHREE"
   }
  }
 }
